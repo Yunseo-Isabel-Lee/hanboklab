@@ -141,7 +141,7 @@ footer .sep{margin:0 10px}
   <p class="sec-d">기관 레코드는 기관이 적은 그대로 두고(기관 그래프), 흉배 유물에는 공통 칸으로 정리한 값을 둡니다(이윤서 그래프). 문양·시기·국적 같은 값은 글자가 아니라 통제어휘의 개념에 연결합니다.</p>
   <div class="stats">
     <div><b>6</b>기술 대상</div>
-    <div><b>36</b>칸</div>
+    <div><b>37</b>칸</div>
     <div><b>14</b>필수 칸</div>
     <div><b>8</b>개념체계</div>
   </div>
@@ -199,7 +199,7 @@ footer .sep{margin:0 10px}
 <section id="ns">
   <h2>네임스페이스</h2>
   <p class="sec-d">이 문서와 데이터에서 쓰는 접두어입니다.</p>
-  <div class="tw"><table><thead><tr><th style="width:12%">접두어</th><th style="width:45%">주소</th><th>내용</th></tr></thead><tbody><tr><td><code>hanbok:</code></td><td><code>https://hanboklab.com/ontology/</code></td><td>이 아카이브가 새로 정의한 속성</td></tr><tr><td><code>hanbokc:</code></td><td><code>https://hanboklab.com/concept/</code></td><td>통제어휘의 개념과 개념체계</td></tr><tr><td><code>hanboko:</code></td><td><code>https://hanboklab.com/object/</code></td><td>유물과 기관 레코드</td></tr><tr><td><code>crm:</code></td><td><code>http://www.cidoc-crm.org/cidoc-crm/</code></td><td>공식 버전 7.1.3 기준</td></tr><tr><td><code>dcterms:</code></td><td><code>http://purl.org/dc/terms/</code></td><td>DCMI 용어</td></tr><tr><td><code>skos:</code></td><td><code>http://www.w3.org/2004/02/skos/core#</code></td><td>SKOS</td></tr><tr><td><code>foaf:</code></td><td><code>http://xmlns.com/foaf/0.1/</code></td><td>FOAF</td></tr><tr><td><code>rdfs:</code></td><td><code>http://www.w3.org/2000/01/rdf-schema#</code></td><td>RDF 스키마</td></tr><tr><td><code>owl:</code></td><td><code>http://www.w3.org/2002/07/owl#</code></td><td>OWL</td></tr><tr><td><code>xsd:</code></td><td><code>http://www.w3.org/2001/XMLSchema#</code></td><td>XML 스키마 데이터형</td></tr></tbody></table></div>
+  <div class="tw"><table><thead><tr><th style="width:12%">접두어</th><th style="width:45%">주소</th><th>내용</th></tr></thead><tbody><tr><td><code>hanbok:</code></td><td><code>https://hanboklab.com/ontology/</code></td><td>이 아카이브가 새로 정의한 속성</td></tr><tr><td><code>hanbokc:</code></td><td><code>https://hanboklab.com/concept/</code></td><td>통제어휘의 개념과 개념체계</td></tr><tr><td><code>hanboko:</code></td><td><code>https://hanboklab.com/object/</code></td><td>유물과 기관 레코드</td></tr><tr><td><code>crm:</code></td><td><code>http://www.cidoc-crm.org/cidoc-crm/</code></td><td>공식 버전 7.1.3 기준</td></tr><tr><td><code>dcterms:</code></td><td><code>http://purl.org/dc/terms/</code></td><td>DCMI 용어</td></tr><tr><td><code>skos:</code></td><td><code>http://www.w3.org/2004/02/skos/core#</code></td><td>SKOS</td></tr><tr><td><code>foaf:</code></td><td><code>http://xmlns.com/foaf/0.1/</code></td><td>FOAF</td></tr><tr><td><code>rdf:</code></td><td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td><td>RDF</td></tr><tr><td><code>rdfs:</code></td><td><code>http://www.w3.org/2000/01/rdf-schema#</code></td><td>RDF 스키마</td></tr><tr><td><code>owl:</code></td><td><code>http://www.w3.org/2002/07/owl#</code></td><td>OWL</td></tr><tr><td><code>xsd:</code></td><td><code>http://www.w3.org/2001/XMLSchema#</code></td><td>XML 스키마 데이터형</td></tr></tbody></table></div>
 </section>
 
 <section id="rules">
@@ -227,7 +227,7 @@ footer .sep{margin:0 10px}
   <p class="shape-d">유물을 소장하거나 기록을 작성·공개한 기관 또는 개인.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:21%">칸</th><th class="c" style="width:7%">필수</th><th class="c" style="width:8%">개수</th><th style="width:18%">값</th><th>설명</th></tr></thead>
-    <tbody><tr><td><b>기관명</b><div class='pid'><a href="#rdfs-label"><code>rdfs:label</code></a></div></td><td class='c'><span class=req>필수</span></td><td class='c'>여러 개</td><td><code>rdf:langString</code></td><td class='note'>한국어 필수, 영어 선택. 예: 메트로폴리탄 미술관@ko, The Metropolitan Museum of Art@en. 기관과 개인 소장자를 모두 담으려고 E39 Actor로 둔다. 출처가 개인 소장자 이름을 가린 경우(고＊＊＊)는 가린 그대로 적는다</td></tr><tr><td><b>누리집</b><div class='pid'><a href="#foaf-homepage"><code>foaf:homepage</code></a></div></td><td class='c'>선택</td><td class='c'>하나</td><td><code>IRI</code></td><td class='note'></td></tr><tr><td><b>소장품 검색 페이지</b><div class='pid'><a href="#rdfs-seeAlso"><code>rdfs:seeAlso</code></a></div></td><td class='c'>선택</td><td class='c'>하나</td><td><code>IRI</code></td><td class='note'>유물별 상세 주소가 없는 기관만. 예: https://museum.dankook.ac.kr/소장품-검색</td></tr><tr><td><b>동일 개체(외부 URI)</b><div class='pid'><a href="#owl-sameAs"><code>owl:sameAs</code></a></div></td><td class='c'>선택</td><td class='c'>여러 개</td><td><code>IRI</code></td><td class='note'>예: 위키데이터 항목</td></tr></tbody>
+    <tbody><tr><td><b>기관명</b><div class='pid'><a href="#rdfs-label"><code>rdfs:label</code></a></div></td><td class='c'><span class=req>필수</span></td><td class='c'>여러 개</td><td><code>rdf:langString</code></td><td class='note'>한국어 필수, 영어 선택. 예: 메트로폴리탄 미술관@ko, The Metropolitan Museum of Art@en. 기관과 개인 소장자를 모두 담으려고 E39 Actor로 두고, 아는 경우 세부 유형을 함께 단다. 출처가 개인 소장자 이름을 가린 경우(고＊＊＊)는 가린 그대로 적는다</td></tr><tr><td><b>누리집</b><div class='pid'><a href="#foaf-homepage"><code>foaf:homepage</code></a></div></td><td class='c'>선택</td><td class='c'>하나</td><td><code>IRI</code></td><td class='note'></td></tr><tr><td><b>소장품 검색 페이지</b><div class='pid'><a href="#rdfs-seeAlso"><code>rdfs:seeAlso</code></a></div></td><td class='c'>선택</td><td class='c'>하나</td><td><code>IRI</code></td><td class='note'>유물별 상세 주소가 없는 기관만. 예: https://museum.dankook.ac.kr/소장품-검색</td></tr><tr><td><b>동일 개체(외부 URI)</b><div class='pid'><a href="#owl-sameAs"><code>owl:sameAs</code></a></div></td><td class='c'>선택</td><td class='c'>여러 개</td><td><code>IRI</code></td><td class='note'>예: 위키데이터 항목</td></tr><tr><td><b>세부 유형</b><div class='pid'><a href="#rdf-type"><code>rdf:type</code></a></div></td><td class='c'>선택</td><td class='c'>하나</td><td><code>IRI</code></td><td class='note'>crm:E74_Group(기관·단체) 또는 crm:E21_Person(개인 소장자) 중 하나를 E39와 함께 단다. 개인인지 단체인지 모르면 달지 않는다</td></tr></tbody>
   </table></div>
 </div>
 <div class="shape" id="shape-crm-E54_Dimension">
@@ -287,8 +287,18 @@ footer .sep{margin:0 10px}
 <div class="t-h"><b>행위자</b><code>crm:E39_Actor</code><span class="src">CIDOC CRM 7.1.3</span></div>
 <div class="uri">http://www.cidoc-crm.org/cidoc-crm/E39_Actor</div>
 <p><span class="k">정의</span>책임질 수 있는 의도적 행위를 할 수 있는 사람이나 집단</p>
-<p><span class='k'>쓰는 법</span>소장처와 레코드 작성 기관. 기관과 개인 소장자를 함께 담기 위해 단체(E74)가 아닌 상위 클래스를 쓴다</p>
-<p class='ex'>예: 메트로폴리탄 미술관</p></div><div class="term" id="crm-E54_Dimension">
+<p><span class='k'>쓰는 법</span>소장처와 레코드 작성 기관. 기관과 개인 소장자를 함께 담기 위해 E39로 두고, 아는 경우 하위 클래스(E74 Group 또는 E21 Person)를 함께 단다. 모르면 E39만</p>
+<p class='ex'>예: 메트로폴리탄 미술관</p></div><div class="term" id="crm-E21_Person">
+<div class="t-h"><b>사람</b><code>crm:E21_Person</code><span class="src">CIDOC CRM 7.1.3</span></div>
+<div class="uri">http://www.cidoc-crm.org/cidoc-crm/E21_Person</div>
+<p><span class="k">정의</span>실제로 살았거나 살고 있는 사람</p>
+<p><span class='k'>쓰는 법</span>개인 소장자. E39와 함께 단다. 출처가 이름을 가린 경우도 개인임이 분명하면 단다</p>
+<p class='ex'>예: 이＊＊＊</p></div><div class="term" id="crm-E74_Group">
+<div class="t-h"><b>단체</b><code>crm:E74_Group</code><span class="src">CIDOC CRM 7.1.3</span></div>
+<div class="uri">http://www.cidoc-crm.org/cidoc-crm/E74_Group</div>
+<p><span class="k">정의</span>공동으로 행동하거나 행동할 수 있는 사람들의 모임</p>
+<p><span class='k'>쓰는 법</span>박물관·대학·재단 등 기관 소장처. E39와 함께 단다</p>
+<p class='ex'>예: 국립중앙박물관</p></div><div class="term" id="crm-E54_Dimension">
 <div class="t-h"><b>치수</b><code>crm:E54_Dimension</code><span class="src">CIDOC CRM 7.1.3</span></div>
 <div class="uri">http://www.cidoc-crm.org/cidoc-crm/E54_Dimension</div>
 <p><span class="k">정의</span>보정된 수단으로 측정할 수 있는 정량적 속성</p>
@@ -394,7 +404,12 @@ footer .sep{margin:0 10px}
 <div class="uri">http://purl.org/dc/terms/publisher</div>
 <p><span class="k">정의</span>자원을 이용할 수 있게 한 주체</p>
 <p><span class='k'>쓰는 법</span>레코드를 작성·공개한 기관(통합시트의 &#x27;출처&#x27;). e뮤지엄처럼 소장처와 다를 수 있다</p>
-<div class='dr'><span>도메인</span><a href="#crm-E31_Document"><code>crm:E31_Document</code></a><span>레인지</span><a href="#crm-E39_Actor"><code>crm:E39_Actor</code></a></div></div><div class="term" id="rdfs-label">
+<div class='dr'><span>도메인</span><a href="#crm-E31_Document"><code>crm:E31_Document</code></a><span>레인지</span><a href="#crm-E39_Actor"><code>crm:E39_Actor</code></a></div></div><div class="term" id="rdf-type">
+<div class="t-h"><b>유형</b><code>rdf:type</code><span class="src">RDF</span></div>
+<div class="uri">http://www.w3.org/1999/02/22-rdf-syntax-ns#type</div>
+<p><span class="k">정의</span>자원이 어떤 클래스의 인스턴스인지 밝힌다</p>
+<p><span class='k'>쓰는 법</span>소장처의 세부 유형(E74 Group / E21 Person)</p>
+<div class='dr'><span>도메인</span><a href="#crm-E39_Actor"><code>crm:E39_Actor</code></a><span>레인지</span><code>rdfs:Class</code></div><p class='ex'>예: crm:E74_Group</p></div><div class="term" id="rdfs-label">
 <div class="t-h"><b>이름</b><code>rdfs:label</code><span class="src">RDF Schema</span></div>
 <div class="uri">http://www.w3.org/2000/01/rdf-schema#label</div>
 <p><span class="k">정의</span>자원의 사람이 읽는 이름</p>

@@ -4,6 +4,7 @@
 @prefix hanbok: <https://hanboklab.com/ontology/> .
 @prefix hanbokc: <https://hanboklab.com/concept/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
@@ -49,6 +50,12 @@ dcterms:title rdfs:label "명칭"@ko ;
     skos:example "\"쌍학흉배\"@ko, \"雙鶴胸背\"@ko-Hani"@ko ;
     skos:scopeNote "한글명(@ko)·한자명(@ko-Hani)·영어명(@en)을 언어 태그를 붙여 넣는다"@ko .
 
+crm:E21_Person rdfs:label "사람"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "실제로 살았거나 살고 있는 사람"@ko ;
+    skos:example "이＊＊＊"@ko ;
+    skos:scopeNote "개인 소장자. E39와 함께 단다. 출처가 이름을 가린 경우도 개인임이 분명하면 단다"@ko .
+
 crm:E31_Document rdfs:label "문서"@ko ;
     rdfs:isDefinedBy crm: ;
     skos:definition "현실에 대한 진술을 담은, 식별 가능한 비물질적 항목"@ko ;
@@ -59,7 +66,7 @@ crm:E39_Actor rdfs:label "행위자"@ko ;
     rdfs:isDefinedBy crm: ;
     skos:definition "책임질 수 있는 의도적 행위를 할 수 있는 사람이나 집단"@ko ;
     skos:example "메트로폴리탄 미술관"@ko ;
-    skos:scopeNote "소장처와 레코드 작성 기관. 기관과 개인 소장자를 함께 담기 위해 단체(E74)가 아닌 상위 클래스를 쓴다"@ko .
+    skos:scopeNote "소장처와 레코드 작성 기관. 기관과 개인 소장자를 함께 담기 위해 E39로 두고, 아는 경우 하위 클래스(E74 Group 또는 E21 Person)를 함께 단다. 모르면 E39만"@ko .
 
 crm:E54_Dimension rdfs:label "치수"@ko ;
     rdfs:isDefinedBy crm: ;
@@ -71,6 +78,12 @@ crm:E55_Type rdfs:label "유형"@ko ;
     rdfs:isDefinedBy crm: ;
     skos:definition "시소러스와 통제어휘의 개념으로, 다른 개체를 분류하는 데 쓰인다"@ko ;
     skos:scopeNote "이 아카이브의 모든 skos:Concept는 E55 Type을 겸한다. 재질 개념은 E57 Material, 단위 개념은 E58 Measurement Unit을 함께 단다"@ko .
+
+crm:E74_Group rdfs:label "단체"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "공동으로 행동하거나 행동할 수 있는 사람들의 모임"@ko ;
+    skos:example "국립중앙박물관"@ko ;
+    skos:scopeNote "박물관·대학·재단 등 기관 소장처. E39와 함께 단다"@ko .
 
 crm:P101_had_as_general_use rdfs:label "일반적 용도"@ko ;
     rdfs:isDefinedBy crm: ;
@@ -116,6 +129,12 @@ crm:P91_has_unit rdfs:label "단위"@ko ;
     rdfs:isDefinedBy crm: ;
     skos:definition "치수의 측정 단위"@ko ;
     skos:scopeNote "「cm」 개념. 단위 개념은 crm:E58_Measurement_Unit을 겸한다. 인치 등은 cm로 환산하고 원문은 기관 레코드에 남긴다"@ko .
+
+rdf:type rdfs:label "유형"@ko ;
+    rdfs:isDefinedBy rdf: ;
+    skos:definition "자원이 어떤 클래스의 인스턴스인지 밝힌다"@ko ;
+    skos:example "crm:E74_Group"@ko ;
+    skos:scopeNote "소장처의 세부 유형(E74 Group / E21 Person)"@ko .
 
 rdfs:label rdfs:label "이름"@ko ;
     rdfs:isDefinedBy rdfs: ;

@@ -18,10 +18,11 @@ crm:E31_Document,기관 레코드,dcterms:identifier,레코드 식별자,TRUE,FA
 crm:E31_Document,기관 레코드,dcterms:source,유물 상세 페이지 주소,FALSE,FALSE,IRI,,,"유물 한 건을 여는 주소만 넣는다. 유물별 주소가 없는 기관(예: 단국대)은 비우고, 그 기관의 소장품 검색 페이지는 소장처에 한 번만 적는다"
 crm:E31_Document,기관 레코드,rdfs:seeAlso,상세 데이터 주소,FALSE,FALSE,IRI,,,사람이 보는 페이지가 아니라 기관 시스템이 유물 데이터를 돌려주는 주소(JSON 등)가 있을 때만. 예: 단국대 상세API
 crm:E31_Document,기관 레코드,dcterms:publisher,작성 기관,TRUE,FALSE,IRI,,crm:E39_Actor,"레코드를 작성·공개한 기관(통합시트의 '출처'). 보통 소장처와 같고, e뮤지엄·국가유산포털·초상화DB처럼 다른 경우가 있다"
-crm:E39_Actor,소장처,rdfs:label,기관명,TRUE,TRUE,literal,rdf:langString,,"한국어 필수, 영어 선택. 예: 메트로폴리탄 미술관@ko, The Metropolitan Museum of Art@en. 기관과 개인 소장자를 모두 담으려고 E39 Actor로 둔다. 출처가 개인 소장자 이름을 가린 경우(고＊＊＊)는 가린 그대로 적는다"
+crm:E39_Actor,소장처,rdfs:label,기관명,TRUE,TRUE,literal,rdf:langString,,"한국어 필수, 영어 선택. 예: 메트로폴리탄 미술관@ko, The Metropolitan Museum of Art@en. 기관과 개인 소장자를 모두 담으려고 E39 Actor로 두고, 아는 경우 세부 유형을 함께 단다. 출처가 개인 소장자 이름을 가린 경우(고＊＊＊)는 가린 그대로 적는다"
 crm:E39_Actor,소장처,foaf:homepage,누리집,FALSE,FALSE,IRI,,,
 crm:E39_Actor,소장처,rdfs:seeAlso,소장품 검색 페이지,FALSE,FALSE,IRI,,,유물별 상세 주소가 없는 기관만. 예: https://museum.dankook.ac.kr/소장품-검색
 crm:E39_Actor,소장처,owl:sameAs,동일 개체(외부 URI),FALSE,TRUE,IRI,,,예: 위키데이터 항목
+crm:E39_Actor,소장처,rdf:type,세부 유형,FALSE,FALSE,IRI,,,crm:E74_Group(기관·단체) 또는 crm:E21_Person(개인 소장자) 중 하나를 E39와 함께 단다. 개인인지 단체인지 모르면 달지 않는다
 crm:E54_Dimension,크기,crm:P2_has_type,측정 종류,TRUE,FALSE,IRI,,skos:Concept,「세로」 또는 「가로」
 crm:E54_Dimension,크기,crm:P90_has_value,값,TRUE,FALSE,literal,xsd:decimal,,소수점 한 자리. 예: 21.0
 crm:E54_Dimension,크기,crm:P91_has_unit,단위,TRUE,FALSE,IRI,,skos:Concept,「cm」. 인치 등 다른 단위는 cm로 환산하고 원문은 기관 레코드에 남긴다
