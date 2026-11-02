@@ -35,178 +35,298 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&family=Noto+Serif+KR:wght@200;300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --ivory:#faf6ee;
-    --paper:#fffdf8;
-    --ink:#1f2a44;      /* 남색 */
-    --ink-2:#4b5470;
-    --muted:#8a8fa0;
-    --line:#e6dfd0;
+    --paper:#f4f0e8;    /* 미색 */
+    --paper-2:#ebe5d8;
+    --card:#faf8f3;
+    --ink:#1c1e27;
+    --ink-2:#4b4d59;
+    --muted:#8d8a84;
+    --line:#dcd4c5;
+    --indigo:#1f2a44;   /* 남색 */
     --cobalt:#2f4fa2;   /* 쪽빛 */
-    --rose:#e9c9c4;     /* 연분홍 */
     --gold:#b8945a;
+    --rose:#e9c9c4;     /* 연분홍 */
+
+    /* 색동 */
+    --s1:#b4503f;       /* 홍 */
+    --s2:#d6ab5a;       /* 치자 */
+    --s3:#7e9c88;       /* 녹 */
+    --s4:#e2b7ae;       /* 연분홍 */
+    --s5:#3f5c9a;       /* 쪽 */
+    --s6:#d9cdb4;       /* 백 */
+    --s7:#6d4462;       /* 자주 */
+
+    --display:"Bodoni Moda","Noto Serif KR",serif;
     --serif:"Noto Serif KR",serif;
     --sans:"Noto Sans KR",system-ui,sans-serif;
+    --gutter:clamp(16px,4vw,56px);
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.8;font-size:16px}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.8;font-size:16px;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
   a{color:var(--cobalt);text-decoration:none;border-bottom:1px solid rgba(47,79,162,.25)}
   a:hover{border-bottom-color:var(--cobalt)}
-  .wrap{max-width:880px;margin:0 auto;padding:0 28px}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 var(--gutter)}
 
   /* 머리 */
-  header{border-bottom:1px solid var(--line);background:var(--paper)}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .mark{font-family:var(--serif);font-weight:600;font-size:18px;letter-spacing:.04em;color:var(--ink);border:0}
-  .mark em{font-style:normal;color:var(--cobalt)}
-  nav{display:flex;gap:24px;font-size:14px}
-  nav a{color:var(--ink-2);border:0}
+  .top{border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+  .mark{font-family:var(--display);font-size:21px;letter-spacing:.02em;color:var(--ink);border:0}
+  .mark em{color:var(--cobalt)}
+  nav{display:flex;gap:28px;font-size:14px}
+  nav a{color:var(--ink-2);border:0;display:flex;align-items:baseline;gap:7px}
+  nav a span{font-family:var(--display);font-size:12px;color:var(--muted)}
   nav a:hover{color:var(--cobalt)}
 
   /* 첫 화면 */
-  .hero{padding:110px 0 96px;text-align:center;position:relative;overflow:hidden}
-  .badge{width:92px;height:92px;margin:0 auto 34px;border:1px solid var(--gold);display:grid;place-items:center;position:relative}
-  .badge::before{content:"";position:absolute;inset:7px;border:1px solid rgba(184,148,90,.45)}
-  .badge span{font-family:var(--serif);font-size:30px;color:var(--ink);font-weight:400}
-  .hero h1{font-family:var(--serif);font-weight:400;font-size:42px;letter-spacing:.18em;text-indent:.18em;margin:0 0 6px}
-  .hero .en{font-family:var(--serif);font-size:15px;letter-spacing:.32em;text-indent:.32em;color:var(--muted);text-transform:uppercase;margin-bottom:34px}
-  .hero p{max-width:520px;margin:0 auto;color:var(--ink-2)}
+  .hero-band{border-bottom:1px solid var(--line)}
+  .hero{max-width:1160px;margin:0 auto;padding:0 var(--gutter);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);min-height:min(86vh,780px)}
+  .saekdong{display:flex;gap:clamp(8px,1.3vw,16px);padding-right:clamp(20px,3vw,44px);border-right:1px solid var(--line)}
+  .saekdong i{
+    flex:1;
+    background:
+      repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 4px),
+      linear-gradient(to bottom,
+        color-mix(in srgb,var(--c) 4%,transparent) 0%,
+        color-mix(in srgb,var(--c) 30%,transparent) var(--fade),
+        var(--c) var(--fill),
+        var(--c) 100%);
+    animation:rise 1.6s cubic-bezier(.2,.7,.2,1) both;
+    animation-delay:calc(var(--n) * 90ms);
+  }
+  .saekdong i:nth-child(1){--c:var(--s1);--fade:38%;--fill:70%;--n:0}
+  .saekdong i:nth-child(2){--c:var(--s2);--fade:22%;--fill:52%;--n:1}
+  .saekdong i:nth-child(3){--c:var(--s3);--fade:46%;--fill:80%;--n:2}
+  .saekdong i:nth-child(4){--c:var(--s4);--fade:18%;--fill:44%;--n:3}
+  .saekdong i:nth-child(5){--c:var(--s5);--fade:34%;--fill:62%;--n:4}
+  .saekdong i:nth-child(6){--c:var(--s6);--fade:28%;--fill:58%;--n:5}
+  .saekdong i:nth-child(7){--c:var(--s7);--fade:50%;--fill:84%;--n:6}
+  @keyframes rise{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
 
-  /* 섹션 */
-  section{padding:72px 0;border-top:1px solid var(--line)}
-  .kicker{font-size:12px;letter-spacing:.24em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
-  h2{font-family:var(--serif);font-weight:400;font-size:26px;letter-spacing:.06em;margin:0 0 24px}
-  section > .wrap > p{color:var(--ink-2);max-width:640px}
+  .hero-text{display:flex;flex-direction:column;justify-content:center;padding:72px 0 64px clamp(28px,5vw,72px)}
+  .badge{width:76px;height:76px;margin-bottom:40px;border:1px solid var(--gold);display:grid;place-items:center;position:relative}
+  .badge::before{content:"";position:absolute;inset:6px;border:1px solid rgba(184,148,90,.45)}
+  .badge span{font-family:var(--serif);font-size:26px;color:var(--ink);font-weight:400}
+  .hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(38px,4.4vw,56px);line-height:1.3;letter-spacing:.14em;margin:0;word-break:keep-all}
+  .hero .en{font-family:var(--display);font-size:clamp(13px,1.2vw,15px);letter-spacing:.42em;color:var(--muted);text-transform:uppercase;margin:18px 0 40px}
+  .hero p{max-width:400px;margin:0;color:var(--ink-2)}
+  .more{display:inline-flex;align-items:center;gap:14px;margin-top:44px;font-size:13px;letter-spacing:.14em;color:var(--ink);border:0;align-self:flex-start}
+  .more::before{content:"";width:48px;height:1px;background:currentColor;transition:width .3s ease}
+  .more:hover{color:var(--cobalt)}
+  .more:hover::before{width:72px}
+
+  /* 섹션 공통 */
+  .sec{padding:112px 0;border-bottom:1px solid var(--line)}
+  .sec .wrap{display:grid;grid-template-columns:150px minmax(0,1fr);gap:0 48px}
+  .side{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+  .no{font-family:var(--display);font-size:56px;line-height:1;color:var(--ink)}
+  .vert{writing-mode:vertical-rl;font-family:var(--display);font-size:13px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold)}
+  h2{font-family:var(--serif);font-weight:300;font-size:clamp(28px,3vw,36px);letter-spacing:.1em;margin:0 0 36px}
+
+  /* 소개 */
+  .lead{font-family:var(--serif);font-weight:300;font-size:clamp(20px,2.2vw,26px);line-height:1.75;color:var(--ink);margin:0 0 28px;max-width:720px;word-break:keep-all}
+  .body-text{color:var(--ink-2);max-width:620px;margin:0}
+  .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:64px 0 0;border-top:1px solid var(--line)}
+  .facts div{padding:22px 24px 0 0}
+  .facts dt{font-family:var(--display);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .facts dd{margin:0;font-family:var(--serif);font-size:17px;color:var(--ink)}
 
   /* 프로젝트 */
-  .projects{display:grid;gap:18px;margin-top:8px}
-  .card{background:var(--paper);border:1px solid var(--line);padding:24px 26px;display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:start}
-  .card h3{font-family:var(--serif);font-weight:400;font-size:19px;margin:0}
-  .card .sub{font-size:13px;color:var(--muted);grid-column:1}
-  .card p{grid-column:1;margin:8px 0 0;color:var(--ink-2);font-size:15px}
-  .status{grid-row:1;grid-column:2;font-size:12px;padding:3px 10px;border-radius:999px;white-space:nowrap}
+  .plist{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+  .proj{position:relative;display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:6px 32px;align-items:start;padding:34px 0 34px 24px;border-bottom:1px solid var(--line);transition:background .3s ease}
+  .proj::before{content:"";position:absolute;left:0;top:34px;bottom:34px;width:3px;background:var(--c);transition:width .3s ease}
+  .proj:hover{background:var(--card)}
+  .proj:hover::before{width:8px}
+  .proj:nth-child(1){--c:var(--s5)}
+  .proj:nth-child(2){--c:var(--s4)}
+  .proj:nth-child(3){--c:var(--s3)}
+  .pno{font-family:var(--display);font-style:italic;font-size:40px;line-height:1;color:var(--muted)}
+  .proj h3{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2vw,24px);letter-spacing:.04em;margin:0}
+  .proj .sub{font-family:var(--display);font-size:13px;letter-spacing:.06em;color:var(--muted);margin-top:4px}
+  .proj p{margin:14px 0 0;color:var(--ink-2);font-size:15px;max-width:560px}
+  .status{font-size:12px;padding:4px 12px;border-radius:999px;white-space:nowrap;margin-top:4px}
   .status.wip{background:var(--rose);color:#6b3a33}
   .status.done{background:#dfe6f4;color:var(--cobalt)}
 
-  /* 데이터 */
-  table{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px;background:var(--paper);border:1px solid var(--line)}
-  th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
-  th{font-weight:500;color:var(--muted);font-size:12px;letter-spacing:.08em}
-  td code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:var(--ink)}
-  .note{font-size:13px;color:var(--muted);margin-top:12px}
+  /* 데이터 (남색 띠) */
+  .sec.dark{background:var(--indigo);color:#e9e5dc;border-bottom:0}
+  .dark .no{color:#f4f0e8}
+  .dark h2{color:#f4f0e8}
+  .dark .body-text{color:rgba(233,229,220,.72)}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin-top:40px;border-top:1px solid rgba(244,240,232,.5)}
+  th,td{text-align:left;padding:18px 20px 18px 0;border-bottom:1px solid rgba(244,240,232,.14);vertical-align:top}
+  th{font-family:var(--display);font-weight:400;color:rgba(233,229,220,.55);font-size:12px;letter-spacing:.3em;text-transform:uppercase}
+  td{color:rgba(233,229,220,.8)}
+  td code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;color:#f1dfb8}
+  .note{font-size:13px;color:rgba(233,229,220,.5);margin-top:18px}
 
   /* 인용 */
-  .cite{background:var(--paper);border-left:3px solid var(--gold);padding:18px 22px;font-size:15px;color:var(--ink)}
+  .cite{position:relative;margin:0;padding:40px 44px;border:1px solid var(--gold);font-family:var(--serif);font-size:clamp(17px,1.8vw,21px);line-height:1.7;color:var(--ink);background:var(--card)}
+  .cite::before{content:"";position:absolute;inset:6px;border:1px solid rgba(184,148,90,.4);pointer-events:none}
+  .cite + p{margin:32px 0 0;color:var(--ink-2);max-width:640px}
 
   /* 꼬리 */
-  footer{border-top:1px solid var(--line);padding:36px 0 48px;font-size:13px;color:var(--muted)}
-  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer{overflow:hidden}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:40px;padding-bottom:28px;font-size:13px;color:var(--muted)}
+  .giant{font-family:var(--display);font-size:clamp(60px,17vw,240px);line-height:.78;letter-spacing:-.01em;color:var(--paper-2);white-space:nowrap;text-align:center;margin-bottom:-.1em;user-select:none}
+  .giant em{color:#e1d9c9}
 
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .saekdong i{animation:none}
+  }
+
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;min-height:0}
+    .saekdong{height:220px;padding:0;border-right:0;border-bottom:1px solid var(--line)}
+    .hero-text{padding:56px 0 64px}
+    .sec{padding:80px 0}
+    .sec .wrap{grid-template-columns:1fr}
+    .side{flex-direction:row;align-items:baseline;gap:16px;margin-bottom:28px}
+    .no{font-size:44px}
+    .vert{writing-mode:horizontal-tb}
+  }
   @media (max-width:640px){
-    nav{gap:14px;font-size:13px}
-    .hero{padding:80px 0 72px}
-    .hero h1{font-size:32px}
-    .card{grid-template-columns:1fr}
-    .status{grid-row:auto;grid-column:1;justify-self:start}
+    .top .wrap{height:auto;padding-top:18px;padding-bottom:16px;flex-direction:column;align-items:flex-start;gap:10px}
+    nav{gap:16px;font-size:13px;flex-wrap:wrap}
+    .badge{width:64px;height:64px;margin-bottom:32px}
+    .hero h1{letter-spacing:.1em}
+    .hero .en{letter-spacing:.3em}
+    .facts{grid-template-columns:1fr}
+    .facts div{padding:18px 0;border-bottom:1px solid var(--line)}
+    .proj{grid-template-columns:1fr;padding-left:20px}
+    .pno{font-size:30px}
+    .status{justify-self:start;grid-row:2}
+    .cite{padding:28px 26px}
     th:nth-child(3),td:nth-child(3){display:none}
-    th,td{padding:10px 10px}
+    th,td{padding:14px 12px 14px 0}
     td code{word-break:break-all;font-size:12px}
   }
 </style>
 </head>
 <body>
 
-<header>
+<header class="top">
   <div class="wrap">
     <a class="mark" href="/">hanbok<em>lab</em></a>
     <nav>
-      <a href="#about">소개</a>
-      <a href="#projects">프로젝트</a>
-      <a href="#data">데이터</a>
-      <a href="#cite">인용</a>
+      <a href="#about"><span>01</span>소개</a>
+      <a href="#projects"><span>02</span>프로젝트</a>
+      <a href="#data"><span>03</span>데이터</a>
+      <a href="#cite"><span>04</span>인용</a>
     </nav>
   </div>
 </header>
 
-<div class="hero">
-  <div class="wrap">
-    <div class="badge" aria-hidden="true"><span>服</span></div>
-    <h1>한복 아카이브</h1>
-    <div class="en">Hanbok Archive</div>
-    <p>여러 소장처에 흩어진 한국 복식 유물의 기록을 모으고, 어휘와 온톨로지로 서로 이어 누구나 찾고 쓸 수 있는 데이터로 공개합니다.</p>
-  </div>
-</div>
-
-<section id="about">
-  <div class="wrap">
-    <div class="kicker">About</div>
-    <h2>소개</h2>
-    <p>한복 아카이브는 한국 복식, 韓服의 디지털 아카이빙을 연구하는 프로젝트입니다. 소장처마다 다르게 적힌 유물 기록을 원문 그대로 보존하면서, 문양·시기·신분 같은 공통 개념으로 연결합니다. 데이터 구조는 CIDOC CRM과 SKOS를 바탕으로 하며, 링크드 오픈 데이터(LOD)로 공개하는 것을 목표로 합니다.</p>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="wrap">
-    <div class="kicker">Projects</div>
-    <h2>프로젝트</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>조선 흉배 아카이브</h3>
-        <span class="status wip">준비 중</span>
-        <div class="sub">Joseon Rank Badge Archive · Omeka S</div>
-        <p>56개 소장처의 흉배 실물을 모아 문양, 품계, 법전 규정으로 잇고 비교하는 아카이브.</p>
-      </div>
-      <div class="card">
-        <h3>‘깃’든 ‘무’늬 아카이브</h3>
-        <span class="status done">2026</span>
-        <div class="sub">Omeka S</div>
-        <p>조선시대 출토 여자 저고리류의 깃과 무 유형을 정리한 아카이브.</p>
-      </div>
-      <div class="card">
-        <h3>한복 온톨로지</h3>
-        <span class="status wip">준비 중</span>
-        <div class="sub">Hanbok Ontology · CIDOC CRM + SKOS</div>
-        <p>복식 유물과 문양·시기·신분 개념을 잇는 데이터 모델과 통제어휘.</p>
+<main>
+  <div class="hero-band">
+    <div class="hero">
+      <div class="saekdong" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="hero-text">
+        <div class="badge" aria-hidden="true"><span>服</span></div>
+        <h1>한복 아카이브</h1>
+        <div class="en">Hanbok Archive</div>
+        <p>여러 소장처에 흩어진 한국 복식 유물의 기록을 모으고, 어휘와 온톨로지로 서로 이어 누구나 찾고 쓸 수 있는 데이터로 공개합니다.</p>
+        <a class="more" href="#about">둘러보기</a>
       </div>
     </div>
   </div>
-</section>
 
-<section id="data">
-  <div class="wrap">
-    <div class="kicker">Data</div>
-    <h2>데이터</h2>
-    <p>이 아카이브가 만드는 용어와 데이터는 아래 주소 체계를 씁니다.</p>
-    <table>
-      <thead><tr><th>접두어</th><th>주소</th><th>내용</th></tr></thead>
-      <tbody>
-        <tr><td><code>hanbok:</code></td><td><code>https://hanboklab.com/ontology/</code></td><td>자체 속성과 기술규칙</td></tr>
-        <tr><td><code>hanbokc:</code></td><td><code>https://hanboklab.com/concept/</code></td><td>통제어휘 (문양, 시기, 자료 구분 등)</td></tr>
-        <tr><td><code>hanboko:</code></td><td><code>https://hanboklab.com/object/</code></td><td>유물 데이터</td></tr>
-      </tbody>
-    </table>
-    <div class="note">파일은 준비되는 대로 이 주소에 공개합니다.</div>
-  </div>
-</section>
+  <section id="about" class="sec">
+    <div class="wrap">
+      <div class="side"><span class="no">01</span><span class="vert">About</span></div>
+      <div>
+        <h2>소개</h2>
+        <p class="lead">소장처마다 다르게 적힌 유물 기록을 원문 그대로 보존하면서, 문양·시기·신분 같은 공통 개념으로 연결합니다.</p>
+        <p class="body-text">한복 아카이브는 한국 복식, 韓服의 디지털 아카이빙을 연구하는 프로젝트입니다. 데이터 구조는 CIDOC CRM과 SKOS를 바탕으로 하며, 링크드 오픈 데이터(LOD)로 공개하는 것을 목표로 합니다.</p>
+        <dl class="facts">
+          <div><dt>Model</dt><dd>CIDOC CRM · SKOS</dd></div>
+          <div><dt>Publish</dt><dd>Linked Open Data</dd></div>
+          <div><dt>License</dt><dd>CC BY 4.0</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
 
-<section id="cite">
-  <div class="wrap">
-    <div class="kicker">Citation &amp; License</div>
-    <h2>인용과 이용</h2>
-    <div class="cite">이윤서, 「한복 아카이브」, https://hanboklab.com (CC BY 4.0)</div>
-    <p style="margin-top:20px">이 아카이브가 만든 어휘, 연결, 정규화 값은 <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>으로 공개합니다. 출처를 밝히면 상업적 이용을 포함해 자유롭게 쓸 수 있습니다. 유물 이미지와 소장처 기록은 각 소장처의 이용 조건을 따릅니다.</p>
-  </div>
-</section>
+  <section id="projects" class="sec">
+    <div class="wrap">
+      <div class="side"><span class="no">02</span><span class="vert">Projects</span></div>
+      <div>
+        <h2>프로젝트</h2>
+        <ol class="plist">
+          <li class="proj">
+            <span class="pno">01</span>
+            <div>
+              <h3>조선 흉배 아카이브</h3>
+              <div class="sub">Joseon Rank Badge Archive · Omeka S</div>
+              <p>56개 소장처의 흉배 실물을 모아 문양, 품계, 법전 규정으로 잇고 비교하는 아카이브.</p>
+            </div>
+            <span class="status wip">준비 중</span>
+          </li>
+          <li class="proj">
+            <span class="pno">02</span>
+            <div>
+              <h3>‘깃’든 ‘무’늬 아카이브</h3>
+              <div class="sub">Omeka S</div>
+              <p>조선시대 출토 여자 저고리류의 깃과 무 유형을 정리한 아카이브.</p>
+            </div>
+            <span class="status done">2026</span>
+          </li>
+          <li class="proj">
+            <span class="pno">03</span>
+            <div>
+              <h3>한복 온톨로지</h3>
+              <div class="sub">Hanbok Ontology · CIDOC CRM + SKOS</div>
+              <p>복식 유물과 문양·시기·신분 개념을 잇는 데이터 모델과 통제어휘.</p>
+            </div>
+            <span class="status wip">준비 중</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="data" class="sec dark">
+    <div class="wrap">
+      <div class="side"><span class="no">03</span><span class="vert">Data</span></div>
+      <div>
+        <h2>데이터</h2>
+        <p class="body-text">이 아카이브가 만드는 용어와 데이터는 아래 주소 체계를 씁니다.</p>
+        <table>
+          <thead><tr><th>접두어</th><th>주소</th><th>내용</th></tr></thead>
+          <tbody>
+            <tr><td><code>hanbok:</code></td><td><code>https://hanboklab.com/ontology/</code></td><td>자체 속성과 기술규칙</td></tr>
+            <tr><td><code>hanbokc:</code></td><td><code>https://hanboklab.com/concept/</code></td><td>통제어휘 (문양, 시기, 자료 구분 등)</td></tr>
+            <tr><td><code>hanboko:</code></td><td><code>https://hanboklab.com/object/</code></td><td>유물 데이터</td></tr>
+          </tbody>
+        </table>
+        <div class="note">파일은 준비되는 대로 이 주소에 공개합니다.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cite" class="sec">
+    <div class="wrap">
+      <div class="side"><span class="no">04</span><span class="vert">Citation</span></div>
+      <div>
+        <h2>인용과 이용</h2>
+        <blockquote class="cite">이윤서, 「한복 아카이브」, https://hanboklab.com (CC BY 4.0)</blockquote>
+        <p>이 아카이브가 만든 어휘, 연결, 정규화 값은 <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>으로 공개합니다. 출처를 밝히면 상업적 이용을 포함해 자유롭게 쓸 수 있습니다. 유물 이미지와 소장처 기록은 각 소장처의 이용 조건을 따릅니다.</p>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
   <div class="wrap">
     <span>© 2026 이윤서 Yunseo Isabel Lee</span>
     <span><a href="https://isabel.co.kr/">isabel.co.kr</a></span>
   </div>
+  <div class="giant" aria-hidden="true">hanbok<em>lab</em></div>
 </footer>
 
 </body>
