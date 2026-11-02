@@ -95,60 +95,75 @@ page = f"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>한복 아카이브 온톨로지 · 기술규칙과 어휘설명</title>
-<meta name="description" content="한복 아카이브(흉배)의 기술규칙(DCTAP·SHACL)과 어휘설명. CIDOC CRM과 SKOS 기반.">
+<title>흉배 온톨로지 · 기술규칙과 어휘설명 · HanbokLab</title>
+<meta name="description" content="HanbokLab 흉배 온톨로지 v0.1 — 흉배 실물 유물의 기술규칙(DCTAP·SHACL)과 어휘설명. CIDOC CRM과 SKOS 기반이며, 나중에 한복 온톨로지로 합칠 예정입니다.">
 <link rel="canonical" href="{NS['hanbok']}">
 <link rel="alternate" type="text/turtle" href="어휘설명.ttl">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Jost:wght@300;400;500&family=Noto+Serif+KR:wght@200;300;400;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{{--ivory:#f4f0e8;--paper:#faf8f3;--ink:#1c1e27;--ink-2:#4b4d59;--muted:#8d8a84;--line:#dcd4c5;--cobalt:#5e6b7e;--rose:#e9c9c4;--gold:#b8945a;--display:"Bodoni Moda","Noto Serif KR",serif;--serif:"Noto Serif KR",serif;--sans:"Noto Sans KR",system-ui,sans-serif;--mono:ui-monospace,Menlo,Consolas,monospace}}
-*{{box-sizing:border-box}} html{{scroll-behavior:smooth;scroll-padding-top:80px}}
-body{{margin:0;word-break:keep-all;background:var(--ivory);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.75;font-size:15px}}
-a{{color:var(--cobalt);text-decoration:none}} a:hover{{text-decoration:underline}}
-code{{font-family:var(--mono);font-size:12.5px;color:var(--ink)}}
-header{{position:sticky;top:0;z-index:5;border-bottom:1px solid var(--line);background:rgba(244,240,232,.9);backdrop-filter:blur(8px)}}
-header .in{{max-width:1080px;margin:0 auto;padding:0 28px;height:72px;display:flex;align-items:center;gap:28px}}
-.mark{{font-family:var(--display);font-size:21px;letter-spacing:.02em;color:var(--ink)}} .mark em{{color:#2f4fa2}}
-header nav{{display:flex;gap:20px;font-size:13.5px;margin-left:auto;flex-wrap:wrap}} header nav a{{color:var(--ink-2)}}
-main{{max-width:1080px;margin:0 auto;padding:0 28px 80px}}
+:root{{--bg:#0b0a0c;--bg2:#121013;--ivory:#eee8db;--ink-2:#c9c1b3;--muted:#9a9286;--line:rgba(200,164,100,.24);--line-2:rgba(238,232,219,.1);--gold:#c8a464;--gold-2:#e6d3a8;--red:#c4452b;--rose:#e9c9c4;--abalone:url(../images/nacre-cloud.jpg);--pearl:url(../images/nacre-fur.jpg);--display:"Bodoni Moda","Noto Serif KR",serif;--serif:"Noto Serif KR",serif;--sans:"Noto Sans KR",system-ui,sans-serif;--mono:ui-monospace,Menlo,Consolas,monospace;--geo:"Jost","Noto Sans KR",sans-serif;--gutter:clamp(20px,5vw,64px)}}
+*{{box-sizing:border-box}} html{{scroll-behavior:smooth;scroll-padding-top:90px}}
+body{{margin:0;word-break:keep-all;background:var(--bg);color:var(--ivory);font-family:var(--sans);font-weight:300;line-height:1.75;font-size:15px;-webkit-font-smoothing:antialiased}}
+a{{color:var(--gold-2);text-decoration:none}} a:hover{{color:#fff;text-decoration:underline}}
+code{{font-family:var(--mono);font-size:12.5px;color:var(--ivory)}} a code{{color:inherit}}
+/* 자개 질감 */
+.nacre{{background-image:var(--abalone);background-size:300px auto;background-position:0 50%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 18s linear infinite alternate}}
+.inlay{{display:block;height:3px;background:var(--abalone) 0 50%/260% auto;animation:shimmer 12s ease-in-out infinite alternate}}
+@keyframes shimmer{{to{{background-position:100% 50%}}}}
+/* 처마 띠 */
+.eaves{{height:clamp(72px,8.5vw,122px);background:#1c2554 url(../images/eaves-band.jpg) 0 0/auto 100% repeat-x;border-bottom:2px solid var(--red)}}
+.eaves.bottom{{border-bottom:0;border-top:2px solid var(--red)}}
+/* 머리 */
+header{{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);background:rgba(11,10,12,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}}
+header .in{{max-width:1200px;margin:0 auto;padding:0 var(--gutter);height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}}
+.mark{{font-family:var(--geo);font-weight:500;font-size:20px;letter-spacing:.02em;color:var(--ivory)}} .mark em{{font-style:normal;font-weight:300;color:var(--gold)}} .mark:hover{{text-decoration:none;color:var(--ivory)}}
+.site-nav{{display:flex;gap:44px;margin-right:-.28em;font-family:var(--geo);font-weight:400;font-size:12px;letter-spacing:.28em;text-transform:uppercase}}
+.site-nav a{{color:var(--muted);padding-bottom:2px;border-bottom:1px solid transparent}} .site-nav a:hover{{color:var(--ivory);text-decoration:none}}
+.site-nav a[aria-current]{{color:var(--ivory);border-bottom-color:var(--gold)}}
+main{{max-width:1200px;margin:0 auto;padding:0 var(--gutter)}}
+.scope{{max-width:720px;margin:0 0 28px;padding:16px 20px;background:var(--bg2);border:1px solid var(--line);font-size:14px;color:var(--ink-2)}}
+.scope b{{font-weight:500;color:var(--ivory)}}
+.toc{{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:28px;padding-top:18px;border-top:1px solid var(--line);font-size:14px}}
+.toc a{{color:var(--ink-2)}} .toc a:hover{{color:var(--ivory)}}
 .top{{padding:64px 0 40px;border-bottom:1px solid var(--line)}}
-.kicker{{font-family:var(--display);font-size:13px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}}
-h1{{font-family:var(--serif);font-weight:300;font-size:34px;letter-spacing:.04em;margin:0 0 14px;line-height:1.35}}
+.kicker{{display:flex;align-items:center;gap:14px;font-family:var(--geo);font-size:12px;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;margin-bottom:16px}}
+.kicker .inlay{{width:40px}}
+h1{{font-family:var(--serif);font-weight:200;font-size:clamp(30px,4vw,44px);letter-spacing:.06em;margin:0 0 22px;line-height:1.35}}
 .lead{{color:var(--ink-2);max-width:720px;margin:0 0 24px}}
 .meta{{display:grid;grid-template-columns:110px 1fr;gap:6px 16px;font-size:13.5px;max-width:720px}}
 .meta dt{{color:var(--muted)}} .meta dd{{margin:0}}
 .dl{{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}}
-.dl a{{border:1px solid var(--line);background:var(--paper);padding:7px 14px;font-size:13px;color:var(--ink)}}
-.dl a:hover{{border-color:var(--cobalt);text-decoration:none}}
-.dl a b{{font-weight:500;color:var(--cobalt);margin-right:6px}}
+.dl a{{border:1px solid var(--line);background:var(--bg2);padding:7px 14px;font-size:13px;color:var(--ivory)}}
+.dl a:hover{{border-color:var(--gold);text-decoration:none}}
+.dl a b{{font-weight:500;color:var(--gold);margin-right:6px}}
 section{{padding:56px 0 8px}}
-h2{{font-family:var(--serif);font-weight:400;font-size:24px;margin:0 0 6px}}
+h2{{font-family:var(--serif);font-weight:300;font-size:26px;letter-spacing:.04em;margin:0 0 6px}}
 .sec-d{{color:var(--ink-2);margin:0 0 24px;max-width:760px}}
 .stats{{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 26px}}
-.stats div{{background:var(--paper);border:1px solid var(--line);padding:10px 18px;font-size:13px;color:var(--muted)}}
-.stats b{{display:block;font-family:var(--serif);font-weight:400;font-size:24px;color:var(--ink)}}
+.stats div{{background:var(--bg2);border:1px solid var(--line);padding:10px 18px;font-size:13px;color:var(--muted)}}
+.stats b{{display:block;font-family:var(--display);font-style:italic;font-weight:600;font-size:30px;line-height:1.15;background-image:var(--abalone);background-size:300px auto;-webkit-background-clip:text;background-clip:text;color:transparent}}
 /* 모델 그림 */
-.diagram{{background:var(--paper);border:1px solid var(--line);padding:18px;overflow-x:auto}}
+.diagram{{background:var(--bg2);border:1px solid var(--line);padding:18px;overflow-x:auto}}
 .diagram svg{{display:block;min-width:860px;width:100%;height:auto}}
 .legend{{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2);margin-top:12px}}
 .legend i{{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px;border:1px solid}}
 /* 표 */
 .tw{{overflow-x:auto}}
-table{{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);font-size:13.5px}}
-th,td{{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}}
-th{{font-weight:500;font-size:12px;color:var(--muted);background:#f6f1e6}}
+table{{width:100%;border-collapse:collapse;background:var(--bg2);border:1px solid var(--line);font-size:13.5px}}
+th,td{{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}}
+th{{font-weight:500;font-size:12px;letter-spacing:.04em;color:var(--gold);background:#17141a}}
 td.c,th.c{{text-align:center}} td.note{{color:var(--ink-2);font-size:13px}}
-.pid{{margin-top:2px}} .pid code{{font-size:11.5px;color:var(--muted)}}
-.req{{background:var(--rose);color:#6b3a33;font-size:11.5px;padding:1px 8px;border-radius:999px;white-space:nowrap}}
+.pid{{margin-top:2px}} .pid code{{font-size:11.5px;color:var(--muted)}} .pid a code{{color:var(--gold-2)}}
+.req{{background:var(--rose);color:#5a2b24;font-size:11.5px;padding:1px 8px;border-radius:999px;white-space:nowrap}}
 .shape{{margin:0 0 36px}}
 .shape-h{{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}}
 .shape-h h3{{font-family:var(--serif);font-weight:400;font-size:19px;margin:0}}
-.graph{{font-size:11.5px;border:1px solid var(--gold);color:#8a6a35;padding:0 8px;border-radius:999px}}
+.graph{{font-size:11.5px;border:1px solid var(--gold);color:var(--gold-2);padding:0 8px;border-radius:999px}}
 .shape-d{{color:var(--ink-2);margin:4px 0 12px;font-size:14px}}
 /* 개념체계 */
 .schemes{{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}}
-.scheme{{background:var(--paper);border:1px solid var(--line);padding:16px 18px;scroll-margin-top:80px}}
+.scheme{{background:var(--bg2);border:1px solid var(--line);padding:16px 18px;scroll-margin-top:90px}}
 .sc-h{{display:flex;justify-content:space-between;align-items:baseline;gap:10px}}
 .sc-h b{{font-family:var(--serif);font-weight:400;font-size:17px}} .sc-h span{{font-size:12px;color:var(--muted)}}
 .scheme code{{font-size:11.5px;color:var(--muted)}}
@@ -156,34 +171,59 @@ td.c,th.c{{text-align:center}} td.note{{color:var(--ink-2);font-size:13px}}
 .ex{{font-size:12.5px;color:var(--muted)}}
 /* 용어 */
 .terms{{display:grid;gap:12px}}
-.term{{background:var(--paper);border:1px solid var(--line);padding:16px 20px;scroll-margin-top:80px}}
-.term.own{{border-left:3px solid var(--gold)}}
-.term:target{{outline:2px solid var(--cobalt)}}
+.term{{position:relative;background:var(--bg2);border:1px solid var(--line);padding:16px 20px;scroll-margin-top:90px}}
+.term.own{{padding-left:24px}}
+.term.own::before{{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--abalone) center/cover}}
+.term:target{{outline:2px solid var(--gold)}}
 .t-h{{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}}
 .t-h b{{font-family:var(--serif);font-weight:400;font-size:17px}}
 .src{{font-size:11.5px;color:var(--muted);margin-left:auto}}
-.badge-own{{font-size:11.5px;background:#f3e7cf;color:#8a6a35;padding:1px 9px;border-radius:999px;margin-left:auto}}
+.badge-own{{font-size:11.5px;font-weight:500;background:var(--pearl) center/cover;color:#1a1712;padding:1px 9px;border-radius:999px;margin-left:auto}}
 .uri{{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin:2px 0 6px;word-break:break-all}}
 .term p{{margin:6px 0 0;font-size:14px}}
 .k{{display:inline-block;width:62px;color:var(--muted);font-size:12.5px}}
 .dr{{display:flex;gap:6px 16px;flex-wrap:wrap;margin-top:8px;font-size:13px}}
 .dr span{{color:var(--muted);font-size:12px;margin-right:6px}}
 h3.sub{{font-family:var(--serif);font-weight:400;font-size:18px;margin:30px 0 12px}}
-footer{{border-top:1px solid var(--line);padding:28px;text-align:center;font-size:12.5px;color:var(--muted)}}
-@media (max-width:720px){{h1{{font-size:26px}} header nav{{display:none}} .meta{{grid-template-columns:90px 1fr}}}}
+/* 꼬리 */
+footer{{overflow:hidden;margin-top:80px;border-top:1px solid var(--line)}}
+footer .in{{max-width:1200px;margin:0 auto;padding:20px var(--gutter) 24px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:2px 24px;font-size:13px;color:var(--muted)}}
+footer a{{color:#d9c79f}} footer a:hover{{color:#fff;text-decoration:none}}
+footer .sep{{margin:0 10px}}
+.giant{{margin:0 0 -.08em;font-family:var(--display);font-weight:600;font-size:clamp(72px,17vw,250px);line-height:.82;text-align:center;white-space:nowrap;user-select:none;pointer-events:none}}
+/* 맨 위로 */
+.to-top{{position:fixed;right:clamp(16px,3vw,36px);bottom:clamp(16px,3vw,36px);z-index:30;width:46px;height:46px;padding:0;display:grid;place-items:center;border-radius:50%;background:rgba(11,10,12,.8);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid var(--gold);color:var(--gold-2);cursor:pointer;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .35s,transform .35s,visibility .35s,color .25s}}
+.to-top::before{{content:"";position:absolute;inset:0;background:var(--pearl) center/cover;opacity:0;transition:opacity .3s}}
+.to-top svg{{position:relative;width:14px;height:14px}}
+.to-top.show{{opacity:1;visibility:visible;transform:none}}
+.to-top:hover{{color:#1a1712}}
+.to-top:hover::before{{opacity:1}}
+.to-top:focus-visible{{outline:2px solid var(--gold-2);outline-offset:3px}}
+@media (prefers-reduced-motion:reduce){{html{{scroll-behavior:auto}} .nacre,.inlay{{animation:none}} .to-top{{transition:none}}}}
+@media (max-width:960px){{.site-nav{{gap:24px;letter-spacing:.2em;margin-right:-.2em}}}}
+@media (max-width:720px){{
+  html{{scroll-padding-top:110px}}
+  header .in{{height:auto;flex-wrap:wrap;gap:0;padding-top:12px;padding-bottom:10px}}
+  .mark{{font-size:17px}}
+  .site-nav{{width:100%;justify-content:space-between;gap:0;margin:8px -.14em 0 0;font-size:10.5px;letter-spacing:.14em}}
+  .meta{{grid-template-columns:90px 1fr}}
+}}
 </style>
 </head>
 <body>
+<div class="eaves" role="img" aria-label="붉은 단청 처마 무늬"></div>
 <header><div class="in">
-  <a class="mark" href="/">hanbok<em>lab</em></a>
-  <nav><a href="#model">모델</a><a href="#ns">네임스페이스</a><a href="#rules">기술규칙</a><a href="#schemes">개념체계</a><a href="#vocab">어휘</a></nav>
+  <a class="mark" href="/">Hanbok<em>Lab</em></a>
+  <nav class="site-nav" aria-label="사이트"><a href="/#about">About</a><a href="/#projects">Projects</a><a href="/#data">Data</a><a href="/#cite">Citation</a><a href="/ontology/" aria-current="page">Ontology</a></nav>
 </div></header>
 <main>
 <div class="top">
-  <div class="kicker">Hanbok Archive Ontology · v0.1</div>
-  <h1>한복 아카이브 온톨로지<br>기술규칙과 어휘설명</h1>
+  <div class="kicker"><i class="inlay"></i>Rank Badge Ontology · v0.1</div>
+  <h1>흉배 온톨로지<br>기술규칙과 어휘설명</h1>
+  <p class="scope">한복 온톨로지는 복식별 온톨로지를 모아 만들어 갑니다. 이 문서는 그중 <b>흉배</b>를 다루는 온톨로지이며, 다른 복식의 온톨로지와 함께 나중에 하나의 한복 온톨로지로 합칠 예정입니다.</p>
   <p class="lead">흉배 유물 데이터를 어떤 칸으로 기술하고 각 칸에 무엇을 적는지 정한 기술규칙과, 그 칸에 쓰는 클래스·속성·개념체계의 설명입니다. CIDOC CRM과 SKOS를 바탕으로 하며, 기관이 적은 기록은 원문 그대로 두고 이 아카이브가 정리한 값은 따로 기술합니다.</p>
   <dl class="meta">
+    <dt>소속</dt><dd>한복 온톨로지 (통합 예정)</dd>
     <dt>네임스페이스</dt><dd><code>{e(NS['hanbok'])}</code></dd>
     <dt>작성</dt><dd>이윤서 Yunseo Isabel Lee</dd>
     <dt>버전</dt><dd>0.1 · 2026-11-03</dd>
@@ -197,6 +237,7 @@ footer{{border-top:1px solid var(--line);padding:28px;text-align:center;font-siz
     <a href="어휘설명.csv"><b>CSV</b>어휘설명</a>
     <a href="어휘설명.ttl"><b>TTL</b>어휘설명</a>
   </div>
+  <nav class="toc" aria-label="이 문서의 차례"><a href="#model">모델</a><a href="#ns">네임스페이스</a><a href="#rules">기술규칙</a><a href="#schemes">개념체계</a><a href="#vocab">어휘</a></nav>
 </div>
 
 <section id="model">
@@ -211,17 +252,17 @@ footer{{border-top:1px solid var(--line);padding:28px;text-align:center;font-siz
   <div class="diagram">
   <svg viewBox="0 0 960 430" role="img" aria-label="모델 구조도: 기관 레코드가 흉배 유물을 기록하고, 흉배 유물은 소장처·치수·개념에 연결된다">
     <defs>
-      <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4b5470"/></marker>
+      <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b3ab9e"/></marker>
     </defs>
     <style>
-      .bx{{fill:#fffdf8;stroke:#1f2a44;stroke-width:1.2}} .bx.inst{{fill:#f6f1e6;stroke:#b8945a}} .bx.con{{fill:#eef1f9;stroke:#2f4fa2}}
-      .t1{{font:500 15px "Noto Sans KR",sans-serif;fill:#1f2a44}} .t2{{font:11.5px ui-monospace,Menlo,monospace;fill:#8a8fa0}}
-      .ln{{stroke:#4b5470;stroke-width:1.2;fill:none;marker-end:url(#ar)}} .lb{{font:11.5px ui-monospace,Menlo,monospace;fill:#4b5470}}
-      .zone{{font:12px "Noto Sans KR",sans-serif;fill:#8a6a35}}
+      .bx{{fill:#1a171d;stroke:#eee8db;stroke-width:1.2}} .bx.inst{{fill:#221c14;stroke:#c8a464}} .bx.con{{fill:#16181d;stroke:#8e9bb0}}
+      .t1{{font:500 15px "Noto Sans KR",sans-serif;fill:#eee8db}} .t2{{font:11.5px ui-monospace,Menlo,monospace;fill:#9a9286}}
+      .ln{{stroke:#b3ab9e;stroke-width:1.2;fill:none;marker-end:url(#ar)}} .lb{{font:11.5px ui-monospace,Menlo,monospace;fill:#c9c1b3}}
+      .zone{{font:12px "Noto Sans KR",sans-serif;fill:#c8a464}}
     </style>
     <text class="zone" x="20" y="24">기관 그래프 (원문)</text>
     <text class="zone" x="300" y="24">이윤서 그래프 (통합)</text>
-    <line x1="270" y1="12" x2="270" y2="420" stroke="#e6dfd0" stroke-dasharray="4 4"/>
+    <line x1="270" y1="12" x2="270" y2="420" stroke="rgba(200,164,100,.3)" stroke-dasharray="4 4"/>
     <!-- 기관 레코드 -->
     <rect class="bx inst" x="20" y="150" width="210" height="64" rx="4"/>
     <text class="t1" x="36" y="176">기관 레코드</text><text class="t2" x="36" y="198">crm:E31_Document</text>
@@ -252,11 +293,11 @@ footer{{border-top:1px solid var(--line);padding:28px;text-align:center;font-siz
     <text class="lb" x="556" y="248">dcterms:license 이용조건</text>
     <path class="ln" d="M550 72 L835 72 L835 148"/><text class="lb" x="580" y="64">P2 측정 종류 · P91 단위</text>
     <path class="ln" d="M835 214 L835 328"/><text class="lb" x="843" y="276">skos:inScheme</text>
-    <path d="M940 170 C 956 170, 956 196, 940 196" stroke="#2f4fa2" fill="none" stroke-width="1.2" marker-end="url(#ar)"/>
+    <path d="M940 170 C 956 170, 956 196, 940 196" stroke="#8e9bb0" fill="none" stroke-width="1.2" marker-end="url(#ar)"/>
     <text class="lb" x="843" y="236">broader · related</text>
   </svg>
   </div>
-  <div class="legend"><span><i style="background:#f6f1e6;border-color:#b8945a"></i>기관이 적은 기록</span><span><i style="background:#fffdf8;border-color:#1f2a44"></i>통합 기술</span><span><i style="background:#eef1f9;border-color:#2f4fa2"></i>통제어휘</span></div>
+  <div class="legend"><span><i style="background:#221c14;border-color:#c8a464"></i>기관이 적은 기록</span><span><i style="background:#1a171d;border-color:#eee8db"></i>통합 기술</span><span><i style="background:#16181d;border-color:#8e9bb0"></i>통제어휘</span></div>
 </section>
 
 <section id="ns">
@@ -279,12 +320,37 @@ footer{{border-top:1px solid var(--line);padding:28px;text-align:center;font-siz
 
 <section id="vocab">
   <h2>어휘 설명</h2>
-  <p class="sec-d">기술규칙에 나오는 클래스와 속성입니다. 외부 표준 용어는 정의를 다시 하지 않고 이 아카이브에서의 이름과 쓰는 법만 붙였으며, <b style="font-weight:500;color:#8a6a35">자체 정의</b> 표시가 있는 용어는 이 아카이브가 정의합니다.</p>
+  <p class="sec-d">기술규칙에 나오는 클래스와 속성입니다. 외부 표준 용어는 정의를 다시 하지 않고 이 아카이브에서의 이름과 쓰는 법만 붙였으며, <b style="font-weight:500;color:#e6d3a8">자체 정의</b> 표시가 있는 용어는 이 아카이브가 정의합니다.</p>
   <h3 class="sub">클래스</h3><div class="terms">{classes}</div>
   <h3 class="sub">속성</h3><div class="terms">{props}</div>
 </section>
 </main>
-<footer>© 2026 이윤서 · 한복 아카이브 · <a href="/">hanboklab.com</a> · CC BY 4.0</footer>
+<footer>
+  <div class="in">
+    <span>© 2026 이윤서 Yunseo Isabel Lee</span>
+    <span><a href="mailto:lisabelys@gmail.com">lisabelys@gmail.com</a><span class="sep">·</span><a href="https://isabel.co.kr/">isabel.co.kr</a></span>
+  </div>
+  <div class="giant nacre" aria-hidden="true">HanbokLab</div>
+  <div class="eaves bottom" aria-hidden="true"></div>
+</footer>
+
+<button class="to-top" type="button" aria-label="맨 위로">
+  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M7 12.5V2M2.5 6.5 7 2l4.5 4.5"/></svg>
+</button>
+
+<script>
+  (function(){{
+    var btn=document.querySelector('.to-top');
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+    function onScroll(){{btn.classList.toggle('show',window.scrollY>600)}}
+    window.addEventListener('scroll',onScroll,{{passive:true}});
+    onScroll();
+    btn.addEventListener('click',function(){{
+      window.scrollTo({{top:0,behavior:reduce.matches?'auto':'smooth'}});
+      document.querySelector('.mark').focus({{preventScroll:true}});
+    }});
+  }})();
+</script>
 </body>
 </html>"""
 open(os.path.join(out, "index.html"), "w", encoding="utf-8").write(page)
