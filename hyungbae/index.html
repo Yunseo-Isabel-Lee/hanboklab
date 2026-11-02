@@ -2,12 +2,301 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>조선 흉배 아카이브 — 새 주소로 이동</title>
-<meta http-equiv="refresh" content="0; url=http://archive.hanboklab.com/hyungbae/">
-<link rel="canonical" href="https://archive.hanboklab.com/hyungbae/">
-<script>location.replace("http://archive.hanboklab.com/hyungbae/"+location.search+location.hash)</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>조선 흉배 아카이브 · 프로젝트 · HanbokLab</title>
+<meta name="description" content="조선 흉배 아카이브 프로젝트 — 56개 소장처의 흉배 실물을 모아 문양, 품계, 법전 규정으로 잇고 비교합니다. 진행 상황과 데이터, 시제품.">
+<link rel="canonical" href="https://hanboklab.com/hyungbae/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="한복 아카이브">
+<meta property="og:title" content="조선 흉배 아카이브 · HanbokLab">
+<meta property="og:description" content="56개 소장처의 흉배 실물을 모아 문양, 품계, 법전 규정으로 잇고 비교하는 아카이브 프로젝트.">
+<meta property="og:url" content="https://hanboklab.com/hyungbae/">
+<meta property="og:image" content="https://hanboklab.com/images/hyungbae-crane.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500&family=Noto+Serif+KR:wght@200;300;400&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0b0a0c;
+    --bg2:#121013;
+    --ivory:#eee8db;
+    --muted:#b3ab9e;
+    --dim:#8f887c;
+    --gold:#c8a464;
+    --gold-2:#e6d3a8;
+    --line:rgba(200,164,100,.26);
+    --red:#c4452b;
+    --abalone:url(/images/nacre-cloud.jpg);
+    --pearl:url(/images/nacre-fur.jpg);
+    --display:"Bodoni Moda","Noto Serif KR",serif;
+    --serif:"Noto Serif KR",serif;
+    --sans:"Noto Sans KR",system-ui,sans-serif;
+    --geo:"Jost","Noto Sans KR",sans-serif;
+    --gutter:clamp(20px,5vw,64px);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:90px}
+  body{margin:0;background:var(--bg);color:var(--ivory);font-family:var(--sans);font-weight:300;line-height:1.8;font-size:16px;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
+  a{color:var(--gold-2);text-decoration:none}
+  a:hover{color:#fff}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 var(--gutter)}
+
+  /* 자개 질감 */
+  .nacre{background-image:var(--abalone);background-size:300px auto;background-position:0 50%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 18s linear infinite alternate}
+  .pearl{background-image:var(--pearl);background-size:200% auto;background-position:0 40%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 16s ease-in-out infinite alternate}
+  .inlay{display:block;height:3px;background:var(--abalone) 0 50%/260% auto;animation:shimmer 12s ease-in-out infinite alternate}
+  @keyframes shimmer{to{background-position:100% 50%}}
+
+  /* 처마 띠 */
+  .eaves{height:clamp(72px,8.5vw,122px);background:#1c2554 url(/images/eaves-band.jpg) 0 0/auto 100% repeat-x;border-bottom:2px solid var(--red)}
+  .eaves.bottom{border-bottom:0;border-top:2px solid var(--red)}
+
+  /* 머리 */
+  .top{position:sticky;top:0;z-index:30;background:rgba(11,10,12,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+  .mark{font-family:var(--geo);font-weight:500;font-size:20px;letter-spacing:.02em;color:var(--ivory)}
+  .mark em{font-style:normal;font-weight:300;color:var(--gold)}
+  nav{display:flex;gap:44px;margin-right:-.28em;font-family:var(--geo);font-size:12px;letter-spacing:.28em;text-transform:uppercase}
+  nav a{color:var(--muted);padding-bottom:2px;border-bottom:1px solid transparent}
+  nav a:hover{color:var(--ivory)}
+  nav a[aria-current]{color:var(--ivory);border-bottom-color:var(--gold)}
+
+  .kicker{display:flex;align-items:center;gap:14px;font-family:var(--geo);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+  .kicker .inlay{width:40px}
+  .crumb{font-size:13px;color:var(--dim);margin-bottom:28px}
+  .crumb a{color:var(--muted)}
+
+  /* 첫 화면 */
+  .hero{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:64px;align-items:center;padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(56px,7vw,96px)}
+  .hero h1{margin:22px 0 0;font-family:var(--serif);font-weight:200;font-size:clamp(40px,5.2vw,72px);line-height:1.2;letter-spacing:.08em}
+  .hero .en{display:inline-block;margin-top:10px;font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(22px,2.4vw,32px);line-height:1.25}
+  .hero .lead{max-width:520px;margin:26px 0 0;font-family:var(--serif);font-weight:300;font-size:clamp(18px,1.8vw,21px);line-height:1.8;color:var(--ivory)}
+  .actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-top:36px}
+  .btn{position:relative;display:inline-flex;align-items:center;gap:12px;padding:13px 26px;border:1px solid var(--gold);color:var(--gold-2);font-size:14px;letter-spacing:.08em;overflow:hidden;transition:color .3s}
+  .btn::before{content:"";position:absolute;inset:0;background:var(--pearl) center/cover;opacity:0;transition:opacity .35s}
+  .btn span{position:relative}
+  .btn:hover{color:#1a1712}
+  .btn:hover::before{opacity:1}
+  .link{font-size:14px;letter-spacing:.06em;border-bottom:1px solid rgba(230,211,168,.4)}
+  .pill{display:inline-block;font-size:12px;padding:2px 12px;border:1px solid rgba(200,164,100,.6);border-radius:999px;color:var(--gold-2)}
+  .art{position:relative;margin:0;padding:14px}
+  .art::after{content:"";position:absolute;inset:0;border:1px solid var(--line);pointer-events:none}
+  .art .in{padding:6px;background:var(--abalone) center/cover}
+  .art img{width:100%;aspect-ratio:1100/1200;object-fit:cover;border:1px solid var(--bg)}
+  a.obj{display:block;border:0}
+  a.obj img{transition:filter .3s ease}
+  a.obj:hover img{filter:brightness(1.1)}
+  a.obj:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
+
+  /* 숫자 */
+  .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stats div{padding:28px 24px 26px 0}
+  .stats b{display:block;font-family:var(--display);font-style:italic;font-weight:600;font-size:clamp(40px,4.6vw,60px);line-height:1}
+  .stats span{display:block;margin-top:10px;font-size:13px;color:var(--muted)}
+
+  /* 섹션 */
+  .sec{padding:clamp(72px,9vw,120px) 0;border-top:1px solid var(--line)}
+  .sec:first-of-type{border-top:0}
+  .sec.alt{background:var(--bg2)}
+  .sec-head{display:flex;align-items:flex-end;gap:22px;margin-bottom:40px}
+  .big-no{font-family:var(--display);font-style:italic;font-weight:600;font-size:clamp(64px,7vw,96px);line-height:.85}
+  h2{margin:14px 0 0;font-family:var(--serif);font-weight:300;font-size:clamp(28px,3vw,36px);letter-spacing:.08em}
+  .prose{max-width:720px}
+  .prose p{margin:0 0 18px;color:var(--muted)}
+  .prose p.big{font-family:var(--serif);font-weight:300;font-size:clamp(19px,2vw,23px);line-height:1.8;color:var(--ivory)}
+  .scope{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:36px;max-width:720px}
+  .scope div{padding:20px 22px;background:var(--bg2);border:1px solid var(--line)}
+  .scope dt{font-family:var(--geo);font-size:11px;letter-spacing:.3em;color:var(--gold)}
+  .scope dd{margin:6px 0 0;font-size:15px}
+
+  /* 진행 */
+  .steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--ivory)}
+  .steps li{display:grid;grid-template-columns:80px minmax(0,1fr) auto;gap:6px 28px;align-items:start;padding:28px 0;border-bottom:1px solid var(--line)}
+  .steps .k{font-family:var(--display);font-style:italic;font-weight:600;font-size:30px;line-height:1.1}
+  .steps h3{margin:0;font-family:var(--serif);font-weight:400;font-size:20px}
+  .steps p{margin:6px 0 0;font-size:15px;color:var(--muted)}
+  .steps p a{border-bottom:1px solid rgba(230,211,168,.4)}
+  .state{font-size:12px;padding:2px 12px;border:1px solid rgba(200,164,100,.6);border-radius:999px;color:var(--gold-2);white-space:nowrap}
+  .state.done{background:var(--pearl) center/cover;border-color:transparent;color:#1a1712;font-weight:500}
+  .state.next{border-color:var(--line);color:var(--dim)}
+
+  /* 데이터 */
+  .files{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .file{display:flex;flex-direction:column;gap:4px;padding:22px 24px;background:var(--bg);border:1px solid var(--line);color:inherit;transition:border-color .25s}
+  .file:hover{border-color:var(--gold);color:inherit}
+  .file b{font-weight:400;font-family:var(--serif);font-size:17px}
+  .file span{font-size:13px;color:var(--dim)}
+  .file code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:var(--gold-2)}
+
+  /* 꼬리 */
+  footer{overflow:hidden;border-top:1px solid var(--line)}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;padding-top:20px;padding-bottom:10px;font-size:13px;color:var(--dim)}
+  footer .wrap a{color:#d9c79f}
+  footer .sep{margin:0 10px}
+  footer .license{display:block;padding-top:0;padding-bottom:22px;font-size:12px;line-height:1.7}
+  .giant{margin:0 0 -.08em;font-family:var(--display);font-weight:600;font-size:clamp(72px,17vw,250px);line-height:.82;text-align:center;white-space:nowrap;user-select:none;pointer-events:none}
+
+  /* 맨 위로 */
+  .to-top{position:fixed;right:clamp(16px,3vw,36px);bottom:clamp(16px,3vw,36px);z-index:30;width:46px;height:46px;padding:0;display:grid;place-items:center;border-radius:50%;background:rgba(11,10,12,.8);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid var(--gold);color:var(--gold-2);cursor:pointer;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .35s,transform .35s,visibility .35s,color .25s}
+  .to-top::before{content:"";position:absolute;inset:0;background:var(--pearl) center/cover;opacity:0;transition:opacity .3s}
+  .to-top svg{position:relative;width:14px;height:14px}
+  .to-top.show{opacity:1;visibility:visible;transform:none}
+  .to-top:hover{color:#1a1712}
+  .to-top:hover::before{opacity:1}
+  .to-top:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .nacre,.pearl,.inlay{animation:none}
+    .to-top{transition:none}
+  }
+  @media (max-width:960px){
+    nav{gap:24px;letter-spacing:.2em;margin-right:-.2em}
+  }
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;gap:44px}
+    .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .files,.scope{grid-template-columns:1fr}
+    .steps li{grid-template-columns:48px minmax(0,1fr)}
+    .steps .state{grid-column:2;justify-self:start}
+  }
+  @media (max-width:720px){
+    .top .wrap{height:auto;flex-wrap:wrap;gap:0;padding-top:12px;padding-bottom:10px}
+    .mark{font-size:17px}
+    nav{width:100%;justify-content:space-between;gap:0;margin:8px -.14em 0 0;font-size:10.5px;letter-spacing:.14em}
+  }
+</style>
 </head>
 <body>
-<p>조선 흉배 아카이브는 <a href="http://archive.hanboklab.com/hyungbae/">archive.hanboklab.com/hyungbae/</a>로 옮겼습니다.</p>
+
+<div class="eaves" role="img" aria-label="붉은 단청 처마 무늬"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="/">Hanbok<em>Lab</em></a>
+    <nav>
+      <a href="/#about">About</a>
+      <a href="/#projects" aria-current="page">Projects</a>
+      <a href="/#data">Data</a>
+      <a href="/ontology/">Ontology</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div>
+      <div class="crumb"><a href="/#projects">프로젝트</a> › 조선 흉배 아카이브</div>
+      <div class="kicker"><i class="inlay"></i>Project 01 · 胸背</div>
+      <h1>조선 흉배 아카이브</h1>
+      <div class="en pearl">Joseon Rank Badge Archive</div>
+      <p class="lead">56개 소장처에 흩어진 흉배 실물을 모아 문양, 품계, 법전 규정으로 잇고 비교하는 아카이브를 만듭니다.</p>
+      <div class="actions">
+        <a class="btn" href="http://archive.hanboklab.com/hyungbae/"><span>아카이브 시제품 열기 →</span></a>
+        <a class="link" href="/ontology/">흉배 온톨로지</a>
+        <span class="pill">준비 중</span>
+      </div>
+    </div>
+    <figure class="art">
+      <div class="in"><a class="obj" href="https://www.metmuseum.org/art/collection/search/70988" target="_blank" rel="noopener" title="메트로폴리탄 미술관 소장품 페이지로 이동"><img src="/images/hyungbae-crane.jpg" alt="학 한 마리를 수놓은 흉배, 19세기 후반"></a></div>
+    </figure>
+  </section>
+
+  <div class="wrap">
+    <div class="stats">
+      <div><b class="nacre">56</b><span>소장처</span></div>
+      <div><b class="nacre">344</b><span>수집한 흉배 기록 (10월 9일 수집 시트)</span></div>
+      <div><b class="nacre">52</b><span>시제품에 공개한 흉배</span></div>
+      <div><b class="nacre">8</b><span>개념체계 (문양·시기·국적 등)</span></div>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head"><span class="big-no nacre">01</span><div><div class="kicker">Overview</div><h2>무엇을 만드나</h2></div></div>
+      <div class="prose">
+        <p class="big">같은 쌍학흉배라도 소장처마다 이름, 시기, 재질을 다르게 적습니다. 이 아카이브는 그 기록들을 한자리에 모아 함께 찾고 비교할 수 있게 합니다.</p>
+        <p>소장처가 적은 기록은 원문 그대로 두고, 이 아카이브가 정리한 값은 따로 기술합니다. 문양·시기·국적·착용 맥락 같은 값은 글자가 아니라 통제어휘의 개념에 연결해서, 표기가 달라도 같은 것끼리 묶이게 합니다. 데이터 구조는 CIDOC CRM과 SKOS를 바탕으로 한 <a class="link" href="/ontology/">흉배 온톨로지</a>를 따릅니다.</p>
+      </div>
+      <dl class="scope">
+        <div><dt>이번 범위</dt><dd>단독 흉배 실물 유물</dd></div>
+        <div><dt>다음 단계</dt><dd>단령·초상화 속 흉배와 법전 규정</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sec-head"><span class="big-no nacre">02</span><div><div class="kicker">Progress</div><h2>진행 상황</h2></div></div>
+      <ol class="steps">
+        <li>
+          <span class="k nacre">I</span>
+          <div><h3>흉배 실물 수집</h3><p>56개 소장처의 흉배 기록 344건을 모았습니다 (10월 9일 수집 시트 기준).</p></div>
+          <span class="state">진행 중</span>
+        </li>
+        <li>
+          <span class="k nacre">II</span>
+          <div><h3>데이터 모델</h3><p><a href="/ontology/">흉배 온톨로지 v0.1</a>을 공개했습니다 (2026-11-03). 기술 대상 6개, 칸 37개, 개념체계 8개.</p></div>
+          <span class="state done">v0.1</span>
+        </li>
+        <li>
+          <span class="k nacre">III</span>
+          <div><h3>공개 시제품</h3><p>이용조건이 열려 있는 국립중앙박물관(공공누리 1유형) 27점과 메트로폴리탄 미술관(CC0) 25점, 모두 52점을 <a href="http://archive.hanboklab.com/hyungbae/">시제품</a>으로 공개했습니다.</p></div>
+          <span class="state">시제품</span>
+        </li>
+        <li>
+          <span class="k nacre">IV</span>
+          <div><h3>정식 아카이브</h3><p>56개 소장처 전체로 넓히고, Omeka S로 정식 아카이브를 만듭니다.</p></div>
+          <span class="state next">예정</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head"><span class="big-no nacre">03</span><div><div class="kicker">Data</div><h2>데이터와 문서</h2></div></div>
+      <div class="files">
+        <a class="file" href="/ontology/"><b>흉배 온톨로지 · 기술규칙과 어휘설명</b><span>어떤 칸에 무엇을 적는지, 쓰는 용어의 뜻</span><code>hanboklab.com/ontology/</code></a>
+        <a class="file" href="http://archive.hanboklab.com/hyungbae/"><b>아카이브 시제품</b><span>문양별 보기, 검색, 문장으로 묻기</span><code>archive.hanboklab.com/hyungbae/</code></a>
+        <a class="file" href="http://archive.hanboklab.com/hyungbae/data.ttl"><b>유물 데이터</b><span>시제품 52점 · TTL</span><code>data.ttl</code></a>
+        <a class="file" href="http://archive.hanboklab.com/hyungbae/concepts.ttl"><b>통제어휘</b><span>문양·시기 등 개념 · TTL</span><code>concepts.ttl</code></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 이윤서 Yunseo Isabel Lee</span>
+    <span><a href="mailto:lisabelys@gmail.com">lisabelys@gmail.com</a><span class="sep">·</span><a href="https://isabel.co.kr/">isabel.co.kr</a></span>
+  </div>
+  <div class="wrap license">인용: 이윤서, 「조선 흉배 아카이브」, https://hanboklab.com/hyungbae/ · 이용 문의는 메일로 주세요. 유물 이미지와 소장처 기록은 각 소장처의 이용 조건을 따릅니다.</div>
+  <div class="giant nacre" aria-hidden="true">HanbokLab</div>
+  <div class="eaves bottom" aria-hidden="true"></div>
+</footer>
+
+<button class="to-top" type="button" aria-label="맨 위로">
+  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M7 12.5V2M2.5 6.5 7 2l4.5 4.5"/></svg>
+</button>
+
+<script>
+  (function(){
+    var btn=document.querySelector('.to-top');
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+    function onScroll(){btn.classList.toggle('show',window.scrollY>600)}
+    window.addEventListener('scroll',onScroll,{passive:true});
+    onScroll();
+    btn.addEventListener('click',function(){
+      window.scrollTo({top:0,behavior:reduce.matches?'auto':'smooth'});
+      document.querySelector('.mark').focus({preventScroll:true});
+    });
+  })();
+</script>
+
 </body>
 </html>
