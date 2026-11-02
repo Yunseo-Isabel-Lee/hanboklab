@@ -111,7 +111,7 @@
   .art figcaption{position:absolute;right:40px;bottom:0;max-width:55%;text-align:right}
 
   /* 자개 띠 */
-  .band{height:clamp(220px,24vw,340px);background:#000 url(images/najeon-butterflies.jpg) center/auto 100% repeat-x;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .band{height:clamp(120px,12vw,170px);background:#000 url(images/najeon-butterflies.jpg) center/auto 100% repeat-x;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 
   /* 섹션 */
   .sec{padding:clamp(72px,9vw,128px) 0;border-top:1px solid var(--line);scroll-margin-top:72px}
@@ -122,7 +122,7 @@
   .split{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:72px;align-items:center}
   .lead{margin:36px 0 22px;font-family:var(--serif);font-weight:300;font-size:clamp(20px,2.1vw,25px);line-height:1.8}
   .body{margin:0;color:var(--muted)}
-  .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:44px 0 0;padding-top:22px;border-top:1px solid var(--line)}
+  .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:44px 0 0;padding-top:22px;border-top:1px solid var(--line)}
   .facts dt{font-family:var(--geo);font-size:11px;letter-spacing:.3em;color:var(--gold)}
   .facts dd{margin:4px 0 0;font-family:var(--serif);font-size:16px}
   .frame{margin:0}
@@ -152,21 +152,15 @@
   .panel-in .more{display:block;padding:16px 0 12px;font-size:14px}
   .panel-in .note{margin:0;padding:0 0 16px;font-size:13px;color:var(--dim)}
 
-  .cite{max-width:820px;margin:0 auto;text-align:center}
-  .cite .kicker{justify-content:center}
-  .cite blockquote{position:relative;margin:36px 0 28px;padding:30px 0;font-family:var(--serif);font-size:clamp(17px,1.9vw,21px)}
-  .cite blockquote::before,.cite blockquote::after{content:"";position:absolute;left:0;right:0;height:2px;background:var(--abalone) 0 50%/180% auto}
-  .cite blockquote::before{top:0}
-  .cite blockquote::after{bottom:0}
-  .cite p{margin:0 auto;max-width:640px;font-size:15px;color:var(--muted)}
-  .cite p a{border-bottom:1px solid rgba(230,211,168,.4)}
 
   /* 꼬리 */
   footer{overflow:hidden;border-top:1px solid var(--line)}
   footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;padding-top:20px;padding-bottom:10px;font-size:13px;color:var(--dim)}
   footer .wrap a{color:#d9c79f}
   footer .sep{margin:0 10px}
-  footer .credits{padding-top:0;padding-bottom:22px;font-size:12px;line-height:1.7}
+  footer .license,footer .credits{display:block;padding-top:0;font-size:12px;line-height:1.7}
+  footer .license{padding-bottom:6px}
+  footer .credits{padding-bottom:22px}
   footer .credits a{color:var(--dim);border-bottom:1px solid rgba(143,136,124,.4)}
   .giant{margin:0 0 -.08em;font-family:var(--display);font-weight:600;font-size:clamp(72px,17vw,250px);line-height:.82;text-align:center;white-space:nowrap;user-select:none;pointer-events:none}
 
@@ -215,7 +209,6 @@
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#data">Data</a>
-      <a href="#cite">Citation</a>
       <a href="/ontology/">Ontology</a>
     </nav>
   </div>
@@ -249,7 +242,6 @@
         <dl class="facts">
           <div><dt>MODEL</dt><dd>CIDOC CRM · SKOS</dd></div>
           <div><dt>PUBLISH</dt><dd>Linked Open Data</dd></div>
-          <div><dt>LICENSE</dt><dd>CC BY 4.0</dd></div>
         </dl>
       </div>
       <figure class="frame">
@@ -315,15 +307,6 @@
     </div>
   </section>
 
-  <section id="cite" class="sec">
-    <div class="wrap cite">
-      <div class="big-no nacre" style="display:inline-block">04</div>
-      <div class="kicker" style="margin-top:14px">Citation</div>
-      <h2>인용과 이용</h2>
-      <blockquote>이윤서, 「한복 아카이브」, https://hanboklab.com (CC BY 4.0)</blockquote>
-      <p>이 아카이브가 만든 어휘, 연결, 정규화 값은 <a href="https://creativecommons.org/licenses/by/4.0/deed.ko">CC BY 4.0</a>으로 공개합니다. 출처를 밝히면 상업적 이용을 포함해 자유롭게 쓸 수 있습니다. 유물 이미지와 소장처 기록은 각 소장처의 이용 조건을 따릅니다.</p>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -331,6 +314,7 @@
     <span>© 2026 이윤서 Yunseo Isabel Lee</span>
     <span><a href="mailto:lisabelys@gmail.com">lisabelys@gmail.com</a><span class="sep">·</span><a href="https://isabel.co.kr/">isabel.co.kr</a></span>
   </div>
+  <div class="wrap license">인용: 이윤서, 「한복 아카이브」, https://hanboklab.com · 이용 문의는 메일로 주세요. 유물 이미지와 소장처 기록은 각 소장처의 이용 조건을 따릅니다.</div>
   <div class="wrap credits">유물 이미지: The Metropolitan Museum of Art, Open Access (CC0) —
     <a href="https://www.metmuseum.org/art/collection/search/70987">표범 흉배 53.60.1</a>,
     <a href="https://www.metmuseum.org/art/collection/search/70988">학 흉배 53.60.2</a>,
