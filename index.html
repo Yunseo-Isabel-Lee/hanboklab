@@ -111,7 +111,9 @@
   .art figcaption{position:absolute;right:40px;bottom:0;max-width:55%;text-align:right}
 
   /* 자개 띠 */
-  .band{height:clamp(120px,12vw,170px);background:#000 url(images/najeon-butterflies.jpg) center/auto 100% repeat-x;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .band{position:relative;height:clamp(160px,16vw,230px);background:#000 url(images/najeon-butterflies.jpg) center bottom/auto 76% repeat-x}
+  .band::before{content:"";position:absolute;left:0;right:0;top:0;height:70%;background:linear-gradient(to bottom,var(--bg) 0%,rgba(11,10,12,.75) 40%,rgba(11,10,12,0) 100%);pointer-events:none}
+  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14%;background:linear-gradient(to top,var(--bg2),rgba(18,16,19,0));pointer-events:none}
 
   /* 섹션 */
   .sec{padding:clamp(72px,9vw,128px) 0;border-top:1px solid var(--line);scroll-margin-top:72px}
@@ -233,7 +235,7 @@
 
   <div class="band" role="img" aria-label="자개 나비와 꽃무늬"></div>
 
-  <section id="about" class="sec alt">
+  <section id="about" class="sec alt" style="border-top:0">
     <div class="wrap split">
       <div>
         <div class="sec-head"><span class="big-no nacre">01</span><div><div class="kicker">About</div><h2>소개</h2></div></div>
