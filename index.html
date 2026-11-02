@@ -67,7 +67,8 @@
 
   /* 자개 질감 */
   .nacre{background-image:var(--abalone);background-size:300px auto;background-position:0 50%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 18s linear infinite alternate}
-  .pearl{background-image:var(--pearl);background-size:200% auto;background-position:0 40%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 16s ease-in-out infinite alternate}
+  .pearl{background-image:var(--pearl);background-size:260% auto;background-position:0 20%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:pearl 16s ease-in-out infinite alternate}
+  @keyframes pearl{to{background-position:35% 20%}}
   .inlay{display:block;height:3px;background:var(--abalone) 0 50%/260% auto;animation:shimmer 12s ease-in-out infinite alternate}
   @keyframes shimmer{to{background-position:100% 50%}}
 
@@ -102,12 +103,10 @@
   .btn span{position:relative}
   .btn:hover{color:#1a1712}
   .btn:hover::before{opacity:1}
-  .art{position:relative;margin:0;padding:0 40px 80px 80px}
+  .art{position:relative;margin:0;padding:0 40px 0 0}
   .art .main{position:relative}
   .art .main img{width:100%;aspect-ratio:1400/1496;object-fit:cover}
   .art .main::after{content:"";position:absolute;inset:-14px;border:1px solid var(--line);pointer-events:none}
-  .art .sub{position:absolute;left:0;bottom:0;width:38%;padding:6px;background:var(--abalone) center/cover}
-  .art .sub img{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid var(--bg)}
   .art .label{position:absolute;right:0;top:0;writing-mode:vertical-rl;font-family:var(--serif);font-size:14px;letter-spacing:.42em;color:var(--gold)}
 
   /* 자개 띠 */
@@ -184,7 +183,7 @@
   }
   @media (max-width:860px){
     .hero,.split{grid-template-columns:1fr;gap:48px}
-    .art{padding:0 0 56px 44px}
+    .art{padding:14px}
     .art .label{display:none}
     .cards{grid-template-columns:1fr}
     .facts{grid-template-columns:1fr}
@@ -220,11 +219,10 @@
       <h1>한복 아카이브</h1>
       <div class="en pearl">Hanbok Archive</div>
       <p>여러 소장처에 흩어진 한국 복식 유물의 기록을 모으고, 어휘와 온톨로지로 서로 이어 누구나 찾고 쓸 수 있는 데이터로 공개합니다.</p>
-      <a class="btn" href="#about"><span>둘러보기 →</span></a>
+      <a class="btn" href="http://archive.hanboklab.com/"><span>아카이브 둘러보기 →</span></a>
     </div>
     <figure class="art">
       <div class="main"><a class="obj" href="https://www.metmuseum.org/art/collection/search/70987" target="_blank" rel="noopener" title="메트로폴리탄 미술관 소장품 페이지로 이동"><img src="images/hyungbae-leopard.jpg" alt="흰 표범을 수놓은 무관 흉배. 구름과 파도, 바위 무늬가 둘러싸고 있다."></a></div>
-      <div class="sub"><a class="obj" href="https://www.metmuseum.org/art/collection/search/40526" target="_blank" rel="noopener" title="메트로폴리탄 미술관 소장품 페이지로 이동"><img src="images/najeon-box-detail.jpg" alt="나전 상자의 자개 꽃무늬 부분"></a></div>
       <div class="label" aria-hidden="true">胸背 · 흉배</div>
     </figure>
   </section>

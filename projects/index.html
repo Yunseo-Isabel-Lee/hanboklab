@@ -67,7 +67,8 @@
 
   /* 자개 질감 */
   .nacre{background-image:var(--abalone);background-size:300px auto;background-position:0 50%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 18s linear infinite alternate}
-  .pearl{background-image:var(--pearl);background-size:200% auto;background-position:0 40%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 16s ease-in-out infinite alternate}
+  .pearl{background-image:var(--pearl);background-size:260% auto;background-position:0 20%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:pearl 16s ease-in-out infinite alternate}
+  @keyframes pearl{to{background-position:35% 20%}}
   .inlay{display:block;height:3px;background:var(--abalone) 0 50%/260% auto;animation:shimmer 12s ease-in-out infinite alternate}
   @keyframes shimmer{to{background-position:100% 50%}}
 
