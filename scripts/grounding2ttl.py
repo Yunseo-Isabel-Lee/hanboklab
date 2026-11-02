@@ -6,6 +6,8 @@ from rdflib import Graph, Namespace, URIRef, Literal
 from rdflib.namespace import RDF, RDFS, XSD, SKOS, DCTERMS, FOAF
 
 g_dir, voc_dir = sys.argv[1], sys.argv[2]
+DATA = sys.argv[3] if len(sys.argv) > 3 else "샘플데이터"
+CONCEPTS = sys.argv[4] if len(sys.argv) > 4 else g_dir
 voc = list(csv.DictReader(open(os.path.join(voc_dir, "어휘설명.csv"), encoding="utf-8-sig")))
 NS = {r["termID"].rstrip(":"): r["definition"] for r in voc if r["termType"] == "Namespace"}
 CRM = Namespace(NS["crm"]); HB = Namespace(NS["hanbok"]); HBC = Namespace(NS["hanbokc"]); HBO = Namespace(NS["hanboko"])
@@ -16,7 +18,7 @@ def bind(g):
         g.bind(p, Namespace(NS[p]))
 
 # ═ 개념
-con = list(csv.DictReader(open(os.path.join(g_dir, "개념.csv"), encoding="utf-8-sig")))
+con = list(csv.DictReader(open(os.path.join(CONCEPTS, "개념.csv"), encoding="utf-8-sig")))
 g = Graph(); bind(g)
 for r in con:
     s = HBC[r["conceptID"]]; sch = HBC[r["scheme"]]
@@ -40,6 +42,7 @@ g.serialize(os.path.join(g_dir, "개념.ttl"), format="turtle")
 print("개념.ttl:", len(g))
 
 # ═ 샘플 데이터
+smp = list(csv.DictReader(open(os.path.join(g_dir, DATA + ".csv"), encoding="utf-8-sig")))
 KEEPERS = {
     "nmk": ("국립중앙박물관", "National Museum of Korea", "https://www.museum.go.kr/"),
     "met": ("메트로폴리탄 미술관", "The Metropolitan Museum of Art", "https://www.metmuseum.org/"),
@@ -47,9 +50,10 @@ KEEPERS = {
     "gogung": ("국립고궁박물관", "National Palace Museum of Korea", "https://www.gogung.go.kr/"),
 }
 SEARCH = {"dku": "https://museum.dankook.ac.kr/소장품-검색"}
-smp = list(csv.DictReader(open(os.path.join(g_dir, "샘플데이터.csv"), encoding="utf-8-sig")))
 d = Graph(); bind(d)
+used = {r["keeper"] for r in smp} | {r["publisher"] for r in smp}
 for k, (ko, en, home) in KEEPERS.items():
+    if k not in used: continue
     s = HBO["actor-" + k]
     d.add((s, RDF.type, CRM.E39_Actor)); d.add((s, RDF.type, CRM.E74_Group))
     d.add((s, RDFS.label, Literal(ko, lang="ko"))); d.add((s, RDFS.label, Literal(en, lang="en")))
@@ -77,12 +81,12 @@ for r in smp:
             d.add((dm, CRM.P91_has_unit, HBC.cm))
     if r["wearingContext"]: d.add((o, CRM.P101_had_as_general_use, HBC[r["wearingContext"]]))
     d.add((o, DCTERMS.license, HBC[r["license"]]))
-    for im in split(r["images"]): d.add((o, FOAF.depiction, URIRef(im)))
+    for im in split(r["images"]): d.add((o, FOAF.depiction, URIRef(im.replace(" ", "%20"))))
     rec = HBO["record-" + r["publisher"] + "-" + r["objectID"]]
     d.add((rec, RDF.type, CRM.E31_Document)); d.add((rec, CRM.P70_documents, o))
     d.add((rec, DCTERMS.identifier, Literal(r["recordID"])))
     if r["recordSource"]: d.add((rec, DCTERMS.source, URIRef(r["recordSource"])))
     if r["recordSeeAlso"]: d.add((rec, RDFS.seeAlso, URIRef(r["recordSeeAlso"])))
     d.add((rec, DCTERMS.publisher, HBO["actor-" + r["publisher"]]))
-d.serialize(os.path.join(g_dir, "샘플데이터.ttl"), format="turtle")
-print("샘플데이터.ttl:", len(d))
+d.serialize(os.path.join(g_dir, DATA + ".ttl"), format="turtle")
+print(DATA + ".ttl:", len(d))
