@@ -1,0 +1,292 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix hanbok: <https://hanboklab.com/ontology/> .
+@prefix hanbokc: <https://hanboklab.com/concept/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcterms:identifier rdfs:label "식별자"@ko ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:definition "주어진 맥락에서 자원을 모호하지 않게 가리키는 참조"@ko ;
+    skos:example "53.60.9 / 국중박-1"@ko ;
+    skos:scopeNote "유물에서는 소장처 유물번호(출처가 제공하지 않으면 비움), 기관 레코드에서는 출처 + 임시ID"@ko .
+
+dcterms:license rdfs:label "라이선스"@ko ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:definition "자원으로 무엇을 할 수 있는지 공식적으로 허락하는 법적 문서"@ko ;
+    skos:example "「공공누리 1유형」"@ko ;
+    skos:scopeNote "소장처 이미지·기록의 이용조건 개념"@ko .
+
+dcterms:publisher rdfs:label "발행자"@ko ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:definition "자원을 이용할 수 있게 한 주체"@ko ;
+    skos:scopeNote "레코드를 작성·공개한 기관(통합시트의 '출처'). e뮤지엄처럼 소장처와 다를 수 있다"@ko .
+
+dcterms:source rdfs:label "출처"@ko ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:definition "기술 대상 자원이 유래한 관련 자원"@ko ;
+    skos:scopeNote "유물 한 건을 여는 상세 페이지 주소. 없으면 비운다"@ko .
+
+dcterms:spatial rdfs:label "공간 범위"@ko ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:definition "자원의 공간적 특성"@ko ;
+    skos:example "hb0001 spatial 「한국」"@ko ;
+    skos:scopeNote "유물의 국적 개념을 잇는다. 원래 범위는 dcterms:Location이지만 국적 개념(skos:Concept)을 장소로 써서 연결한다"@ko .
+
+dcterms:temporal rdfs:label "시간 범위"@ko ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:definition "자원의 시간적 특성"@ko ;
+    skos:example "late 19th century → 「19세기 후반」"@ko ;
+    skos:scopeNote "유물의 시기 개념을 잇는다. 기관 기재값을 숫자로 바꾸지 않고 해당 개념에 연결만 한다"@ko .
+
+dcterms:title rdfs:label "명칭"@ko ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:definition "자원에 붙인 이름"@ko ;
+    skos:example "\"쌍학흉배\"@ko, \"雙鶴胸背\"@ko-Hani"@ko ;
+    skos:scopeNote "한글명(@ko)·한자명(@ko-Hani)·영어명(@en)을 언어 태그를 붙여 넣는다"@ko .
+
+crm:E31_Document rdfs:label "문서"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "현실에 대한 진술을 담은, 식별 가능한 비물질적 항목"@ko ;
+    skos:example "국중박-1"@ko ;
+    skos:scopeNote "소장처나 통합 플랫폼(e뮤지엄 등)이 작성한 유물 기록 한 건. 기관이 적은 값은 원문 그대로 기관 그래프에 둔다"@ko .
+
+crm:E39_Actor rdfs:label "행위자"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "책임질 수 있는 의도적 행위를 할 수 있는 사람이나 집단"@ko ;
+    skos:example "메트로폴리탄 미술관"@ko ;
+    skos:scopeNote "소장처와 레코드 작성 기관. 기관과 개인 소장자를 함께 담기 위해 단체(E74)가 아닌 상위 클래스를 쓴다"@ko .
+
+crm:E54_Dimension rdfs:label "치수"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "보정된 수단으로 측정할 수 있는 정량적 속성"@ko ;
+    skos:example "세로 21.0 cm"@ko ;
+    skos:scopeNote "흉배의 세로 또는 가로 한 값. 세로·가로를 각각 별도 치수로 기록한다"@ko .
+
+crm:E55_Type rdfs:label "유형"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "시소러스와 통제어휘의 개념으로, 다른 개체를 분류하는 데 쓰인다"@ko ;
+    skos:scopeNote "이 아카이브의 모든 skos:Concept는 E55 Type을 겸한다. 재질 개념은 E57 Material, 단위 개념은 E58 Measurement Unit을 함께 단다"@ko .
+
+crm:P101_had_as_general_use rdfs:label "일반적 용도"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "사물의 일반적인 쓰임"@ko ;
+    skos:example "hb0001 P101 「관복」"@ko ;
+    skos:scopeNote "흉배를 단 복식의 착용 맥락(관복/혼례복/미상)"@ko .
+
+crm:P2_has_type rdfs:label "유형을 가짐"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "개체를 E55 Type의 개념으로 분류한다"@ko ;
+    skos:example "hb0001 P2 「흉배」, hb0001 P2 「쌍학」"@ko ;
+    skos:scopeNote "유물의 자료 구분과 문양, 치수의 측정 종류에 쓴다. 어느 개념체계의 개념인지(skos:inScheme)로 구분한다"@ko .
+
+crm:P43_has_dimension rdfs:label "치수를 가짐"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "개체의 측정 가능한 치수"@ko ;
+    skos:scopeNote "유물의 세로·가로 치수 노드를 잇는다"@ko .
+
+crm:P45_consists_of rdfs:label "재료로 구성됨"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "물리적 사물을 이루는 재료"@ko ;
+    skos:scopeNote "유물의 재질 개념. 재질 개념은 crm:E57_Material을 겸한다"@ko .
+
+crm:P50_has_current_keeper rdfs:label "현 소장처"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "물리적 사물을 현재 보관·관리하는 행위자"@ko ;
+    skos:example "hb0001 P50 메트로폴리탄 미술관"@ko ;
+    skos:scopeNote "유물의 소장처"@ko .
+
+crm:P70_documents rdfs:label "기록함"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "문서가 어떤 개체에 대해 기록한다"@ko ;
+    skos:example "국중박-1 P70 hb0001"@ko ;
+    skos:scopeNote "기관 레코드가 기술하는 유물. 같은 유물에 여러 출처의 레코드가 붙을 수 있다"@ko .
+
+crm:P90_has_value rdfs:label "값"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "치수의 수치"@ko ;
+    skos:example "21.0"@ko ;
+    skos:scopeNote "소수점 한 자리 cm"@ko .
+
+crm:P91_has_unit rdfs:label "단위"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "치수의 측정 단위"@ko ;
+    skos:scopeNote "「cm」 개념. 단위 개념은 crm:E58_Measurement_Unit을 겸한다. 인치 등은 cm로 환산하고 원문은 기관 레코드에 남긴다"@ko .
+
+rdfs:label rdfs:label "이름"@ko ;
+    rdfs:isDefinedBy rdfs: ;
+    skos:definition "자원의 사람이 읽는 이름"@ko ;
+    skos:scopeNote "소장처 이름. 한국어 필수, 영어 선택. 출처가 가린 개인 이름은 가린 그대로"@ko .
+
+rdfs:seeAlso rdfs:label "참고"@ko ;
+    rdfs:isDefinedBy rdfs: ;
+    skos:definition "주어에 대한 추가 정보를 제공하는 자원"@ko ;
+    skos:scopeNote "기관 레코드에서는 상세 데이터 주소(JSON 등), 소장처에서는 소장품 검색 페이지"@ko .
+
+owl:sameAs rdfs:label "동일 개체"@ko ;
+    rdfs:isDefinedBy owl: ;
+    skos:definition "두 URI가 같은 개체를 가리킴"@ko ;
+    skos:scopeNote "소장처의 외부 URI(위키데이터 등)"@ko .
+
+skos:Concept rdfs:label "개념"@ko ;
+    rdfs:isDefinedBy skos: ;
+    skos:definition "생각이나 관념의 단위"@ko ;
+    skos:example "hanbokc:ssanghak 「쌍학」"@ko ;
+    skos:scopeNote "통제어휘의 개념 하나. 주소는 로마자 ID, 한글 이름은 prefLabel"@ko .
+
+skos:altLabel rdfs:label "이칭"@ko ;
+    rdfs:isDefinedBy skos: ;
+    skos:definition "개념의 다른 이름"@ko ;
+    skos:example "쌍학문, 雙鶴, 쌍학흉배"@ko ;
+    skos:scopeNote "검색어도 여기 넣는다"@ko .
+
+skos:broader rdfs:label "상위 개념"@ko ;
+    rdfs:isDefinedBy skos: ;
+    skos:definition "더 넓은 개념"@ko ;
+    skos:scopeNote "예: 쌍학 → 학, 19세기 후반 → 19세기. 하위 클래스 추론이 아니다"@ko .
+
+skos:exactMatch rdfs:label "외부 동일 개념"@ko ;
+    rdfs:isDefinedBy skos: ;
+    skos:definition "다른 개념체계의 개념과 서로 바꿔 쓸 수 있을 만큼 같음"@ko ;
+    skos:scopeNote "위키데이터, Getty AAT 등"@ko .
+
+skos:inScheme rdfs:label "소속 개념체계"@ko ;
+    rdfs:isDefinedBy skos: ;
+    skos:definition "개념이 속한 개념체계"@ko ;
+    skos:scopeNote "8개 개념체계 중 하나"@ko .
+
+skos:prefLabel rdfs:label "우선어"@ko ;
+    rdfs:isDefinedBy skos: ;
+    skos:definition "개념의 대표 이름. 언어당 하나"@ko ;
+    skos:example "\"쌍학\"@ko"@ko ;
+    skos:scopeNote "한국어 필수"@ko .
+
+skos:related rdfs:label "관련 개념"@ko ;
+    rdfs:isDefinedBy skos: ;
+    skos:definition "상하가 아닌 연관 관계"@ko ;
+    skos:scopeNote "경계가 사람마다 달라 상하로 둘 수 없을 때. 예: 조선 말기 — 19세기"@ko .
+
+skos:scopeNote rdfs:label "범위주기"@ko ;
+    rdfs:isDefinedBy skos: ;
+    skos:definition "개념의 의미와 쓰임을 밝히는 주기"@ko ;
+    skos:scopeNote "개념과 개념체계에 모두 쓴다"@ko .
+
+skos:topConceptOf rdfs:label "최상위 개념"@ko ;
+    rdfs:isDefinedBy skos: ;
+    skos:definition "개념체계의 꼭대기 개념"@ko ;
+    skos:example "「날짐승」"@ko ;
+    skos:scopeNote "체계의 꼭대기일 때만"@ko .
+
+foaf:depiction rdfs:label "이미지"@ko ;
+    rdfs:isDefinedBy foaf: ;
+    skos:definition "어떤 것을 묘사한 이미지"@ko ;
+    skos:scopeNote "유물 이미지 주소. 여러 장 가능. 공개용 데이터에는 소장처 원본 이미지 URL만 넣고, e뮤지엄 주소의 serviceKey는 지운다"@ko .
+
+foaf:homepage rdfs:label "누리집"@ko ;
+    rdfs:isDefinedBy foaf: ;
+    skos:definition "어떤 것의 누리집"@ko ;
+    skos:scopeNote "소장처 누리집"@ko .
+
+hanbokc:license a skos:ConceptScheme ;
+    rdfs:isDefinedBy hanbok: ;
+    skos:definition "소장처 이미지·기록의 이용조건을 나누는 개념체계"@ko ;
+    skos:prefLabel "License"@en,
+        "이용조건"@ko ;
+    skos:scopeNote "공공누리 1~4유형, CC0, NC, 확인 중 등. 이 아카이브가 덧붙인 값의 라이선스(CC BY 4.0)와는 별개"@ko .
+
+hanbokc:material a skos:ConceptScheme ;
+    rdfs:isDefinedBy hanbok: ;
+    skos:definition "흉배의 재질을 나누는 개념체계"@ko ;
+    skos:prefLabel "Material"@en,
+        "재질"@ko ;
+    skos:scopeNote "대표 재질로 묶는 작업은 추후"@ko .
+
+hanbokc:measurement a skos:ConceptScheme ;
+    rdfs:isDefinedBy hanbok: ;
+    skos:definition "치수의 종류와 단위를 나누는 개념체계"@ko ;
+    skos:prefLabel "Measurement"@en,
+        "측정"@ko ;
+    skos:scopeNote "측정 종류(세로·가로)와 단위(cm)"@ko .
+
+hanbokc:motif a skos:ConceptScheme ;
+    rdfs:isDefinedBy hanbok: ;
+    skos:definition "흉배의 주문양을 나누는 개념체계"@ko ;
+    skos:example "쌍학 → 학 → 날짐승"@ko ;
+    skos:prefLabel "Motif"@en,
+        "문양"@ko ;
+    skos:scopeNote "주문양만 담는다. 배경 요소(운문·파도·바위·불로초)는 개념으로 두지 않는다. 상위어로 날짐승·길짐승을 둔다"@ko .
+
+hanbokc:nationality a skos:ConceptScheme ;
+    rdfs:isDefinedBy hanbok: ;
+    skos:definition "유물이 만들어진 나라를 나누는 개념체계"@ko ;
+    skos:prefLabel "Nationality"@en,
+        "국적"@ko ;
+    skos:scopeNote "한국 / 중국 등. 중국 흉배·보자를 걸러 내는 데 쓴다"@ko .
+
+hanbokc:objectType a skos:ConceptScheme ;
+    rdfs:isDefinedBy hanbok: ;
+    skos:definition "유물이 어떤 종류의 물건인지 나누는 개념체계"@ko ;
+    skos:prefLabel "Object type"@en,
+        "자료 구분"@ko ;
+    skos:scopeNote "흉배 / 단령 / 초상화 등. 이번 범위에서는 「흉배」만 쓴다"@ko .
+
+hanbokc:period a skos:ConceptScheme ;
+    rdfs:isDefinedBy hanbok: ;
+    skos:definition "흉배가 제작·착용된 것으로 보는 시기를 나누는 개념체계"@ko ;
+    skos:example "19세기 후반 → 19세기"@ko ;
+    skos:prefLabel "Period"@en,
+        "시기"@ko ;
+    skos:scopeNote "세기(15~20세기), 세기 전반·후반, 조선 전기·후기·말기 등. 숫자 구간을 정하지 않는다. 경계가 사람마다 다른 개념끼리는 skos:related로만 잇는다"@ko .
+
+hanbokc:wearingContext a skos:ConceptScheme ;
+    rdfs:isDefinedBy hanbok: ;
+    skos:definition "흉배를 단 복식을 어떤 자리에서 입었는지 나누는 개념체계"@ko ;
+    skos:prefLabel "Wearing context"@en,
+        "착용 맥락"@ko ;
+    skos:scopeNote "관복 / 혼례복 / 미상. 형태가 같은 단령이라도 혼례 때 입었으면 혼례로 적는다. 혼례용 흉배를 걸러 내는 데 쓴다"@ko .
+
+hanbok:beginYear a owl:DatatypeProperty ;
+    rdfs:label "begin year"@en,
+        "시작 연도"@ko ;
+    rdfs:comment "흉배가 제작·착용된 것으로 보는 시기의 시작 연도"@ko ;
+    rdfs:domain crm:E22_Human-Made_Object ;
+    rdfs:isDefinedBy hanbok: ;
+    rdfs:range xsd:integer ;
+    skos:example "1508"@ko ;
+    skos:scopeNote "기관이 연도를 직접 적은 경우에만 쓴다. 연도의 성격(제작 연도, 피장자 생몰년 등)은 기관 레코드 원문으로 확인한다. CIDOC CRM의 기간(E52 Time-Span) 시작값을 유물에 바로 붙인 지름길이며, 제작·착용 사건 중 어느 쪽인지는 특정하지 않는다"@ko .
+
+hanbok:endYear a owl:DatatypeProperty ;
+    rdfs:label "end year"@en,
+        "끝 연도"@ko ;
+    rdfs:comment "흉배가 제작·착용된 것으로 보는 시기의 끝 연도"@ko ;
+    rdfs:domain crm:E22_Human-Made_Object ;
+    rdfs:isDefinedBy hanbok: ;
+    rdfs:range xsd:integer ;
+    skos:example "1572"@ko ;
+    skos:scopeNote "기관이 연도 범위를 적은 경우에만 쓴다. 단일 연도면 시작 연도와 같게 적는다. CIDOC CRM의 기간(E52 Time-Span) 끝값에 해당하는 지름길"@ko .
+
+crm:E22_Human-Made_Object rdfs:label "인공물"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "사람이 의도적으로 만들었고, 다른 물체와 객관적으로 분리되는 물리적 경계를 가진 물체"@ko ;
+    skos:example "hanboko:hb0001"@ko ;
+    skos:scopeNote "흉배 유물 한 점. 단령에 꿰매 단 흉배도 떼어 낼 수 있으므로 이 클래스로 둔다. 이 아카이브의 통합 기술 단위(이윤서 그래프)"@ko .
+
+skos:ConceptScheme rdfs:label "개념체계"@ko ;
+    rdfs:isDefinedBy skos: ;
+    skos:definition "하나 이상의 개념을 모은 체계"@ko ;
+    skos:scopeNote "아래 8개 개념체계"@ko .
+
+hanbok: a owl:Ontology ;
+    dcterms:creator "이윤서"@ko ;
+    dcterms:description "흉배 아카이브가 쓰는 클래스·속성·개념체계의 설명. 어휘설명.csv에서 변환."@ko ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2026-11-03"^^xsd:date ;
+    dcterms:title "한복 아카이브 어휘설명"@ko ;
+    vann:preferredNamespacePrefix "hanbok" ;
+    vann:preferredNamespaceUri "https://hanboklab.com/ontology/" ;
+    owl:versionInfo "0.1" .
+

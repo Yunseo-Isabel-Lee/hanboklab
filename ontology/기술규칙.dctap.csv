@@ -1,0 +1,37 @@
+﻿shapeID,shapeLabel,propertyID,propertyLabel,mandatory,repeatable,valueNodeType,valueDataType,valueShape,note
+crm:E22_Human-Made_Object,흉배 유물,dcterms:title,명칭,TRUE,TRUE,literal,rdf:langString,,한글명(@ko)·한자명(@ko-Hani)·영어명(@en)을 언어 태그를 붙여 각각 넣는다. 한글명 필수. 유물ID는 이 유물의 URI(hanboko:hb0001 …)가 맡는다 · 이윤서 그래프
+crm:E22_Human-Made_Object,흉배 유물,dcterms:identifier,소장처 유물번호,FALSE,TRUE,literal,xsd:string,,"소장처가 붙인 번호 그대로. 예: 53.60.9, 신수11458. 출처 사이트가 제공하지 않으면 비운다('확인요망' 같은 글자를 넣지 않는다)"
+crm:E22_Human-Made_Object,흉배 유물,crm:P2_has_type,자료 구분,TRUE,FALSE,IRI,,skos:Concept,자료 구분 개념체계의 개념. 이번 범위에서는 「흉배」(hanbokc:hyungbae) 하나
+crm:E22_Human-Made_Object,흉배 유물,crm:P2_has_type,문양,FALSE,FALSE,IRI,,skos:Concept,문양 개념체계의 개념. 주문양 하나만 연결하고 배경 요소(운문·파도·바위·불로초)는 연결하지 않는다. 문양 미기록 건은 연구자 판독 후 채운다
+crm:E22_Human-Made_Object,흉배 유물,crm:P50_has_current_keeper,소장처,TRUE,FALSE,IRI,,crm:E39_Actor,10/9 수집 시트 기준 56개 소장처
+crm:E22_Human-Made_Object,흉배 유물,dcterms:spatial,국적,FALSE,FALSE,IRI,,skos:Concept,"국적 개념체계의 개념(한국 / 중국 등). 기관 기재값에 연결만 한다. 예: 한국 - 조선 → 「한국」, China → 「중국」. 중국 흉배·보자를 걸러 내는 데 쓴다"
+crm:E22_Human-Made_Object,흉배 유물,dcterms:temporal,시기,FALSE,TRUE,IRI,,skos:Concept,시기 개념체계의 개념. 흉배가 제작·착용된 것으로 보는 시기. 기관 기재값을 숫자로 바꾸지 않고 해당 개념에 연결만 한다. 예: late 19th century → 「19세기 후반」. 기관이 '조선'만 적었거나 미상이면 비운다
+crm:E22_Human-Made_Object,흉배 유물,hanbok:beginYear,시작 연도,FALSE,FALSE,literal,xsd:integer,,기관이 연도를 직접 적은 경우에만. 예: 1850년 → 1850
+crm:E22_Human-Made_Object,흉배 유물,hanbok:endYear,끝 연도,FALSE,FALSE,literal,xsd:integer,,기관이 연도 범위를 직접 적은 경우에만. 단일 연도면 시작 연도와 같게
+crm:E22_Human-Made_Object,흉배 유물,crm:P43_has_dimension,크기,FALSE,TRUE,IRI,,crm:E54_Dimension,세로·가로 각각 하나씩. 10/9 수집 시트 344건 중 220건에 크기 값 있음
+crm:E22_Human-Made_Object,흉배 유물,crm:P45_consists_of,재질,FALSE,TRUE,IRI,,skos:Concept,재질 개념체계의 개념. 기관 표기의 수준이 제각각(섬유 / 사직-견 / 직물 / Silk and metallic-thread embroidery …)이라 대표 재질로 묶는 작업은 추후. 그 전까지 원문은 기관 레코드에만 둔다
+crm:E22_Human-Made_Object,흉배 유물,crm:P101_had_as_general_use,착용 맥락,FALSE,FALSE,IRI,,skos:Concept,착용 맥락 개념체계의 개념: 관복 / 혼례복 / 미상. 흉배를 단 복식을 어떤 자리에서 입었는지. 형태가 같은 단령이라도 혼례 때 입었으면 혼례로 적는다
+crm:E22_Human-Made_Object,흉배 유물,dcterms:license,이용조건,TRUE,FALSE,IRI,,skos:Concept,"이용조건 개념체계의 개념(공공누리 1~4유형, CC0, NC, 확인 중 등). 소장처 이미지·기록의 이용조건이며 이 아카이브가 덧붙인 값은 CC BY 4.0"
+crm:E22_Human-Made_Object,흉배 유물,foaf:depiction,이미지,FALSE,TRUE,IRI,,,이미지 파일 주소. 한 유물에 여러 장(앞·뒤 등). 공개용 데이터에는 소장처 원본 이미지 URL만 넣고 드라이브·TIFF 링크는 넣지 않는다. e뮤지엄 원본 이미지 URL은 serviceKey(API 인증키)가 들어 있어 공개 전에 키를 지운다
+crm:E31_Document,기관 레코드,crm:P70_documents,기술 대상 유물,TRUE,FALSE,IRI,,crm:E22_Human-Made_Object,"대상 클래스: crm:E22_Human-Made_Object · 기관 그래프. 같은 유물이 여러 출처에 있으면(통합시트 '다른 시트에도 있음' 1,190행) 유물 하나에 기관 레코드가 여러 개 붙는다. 기관 칼럼과 값은 기관마다 달라 원문 그대로 두며, 통합 칼럼과의 대응은 SKOS 매핑으로 따로 기록한다"
+crm:E31_Document,기관 레코드,dcterms:identifier,레코드 식별자,TRUE,FALSE,literal,xsd:string,,"출처 + 임시ID. 예: 국중박-1, 메트로폴리탄-YMETH001. 임시ID는 출처마다 1부터 시작하므로 출처를 붙인다"
+crm:E31_Document,기관 레코드,dcterms:source,유물 상세 페이지 주소,FALSE,FALSE,IRI,,,"유물 한 건을 여는 주소만 넣는다. 유물별 주소가 없는 기관(예: 단국대)은 비우고, 그 기관의 소장품 검색 페이지는 소장처에 한 번만 적는다"
+crm:E31_Document,기관 레코드,rdfs:seeAlso,상세 데이터 주소,FALSE,FALSE,IRI,,,사람이 보는 페이지가 아니라 기관 시스템이 유물 데이터를 돌려주는 주소(JSON 등)가 있을 때만. 예: 단국대 상세API
+crm:E31_Document,기관 레코드,dcterms:publisher,작성 기관,TRUE,FALSE,IRI,,crm:E39_Actor,"레코드를 작성·공개한 기관(통합시트의 '출처'). 보통 소장처와 같고, e뮤지엄·국가유산포털·초상화DB처럼 다른 경우가 있다"
+crm:E39_Actor,소장처,rdfs:label,기관명,TRUE,TRUE,literal,rdf:langString,,"한국어 필수, 영어 선택. 예: 메트로폴리탄 미술관@ko, The Metropolitan Museum of Art@en. 기관과 개인 소장자를 모두 담으려고 E39 Actor로 둔다. 출처가 개인 소장자 이름을 가린 경우(고＊＊＊)는 가린 그대로 적는다"
+crm:E39_Actor,소장처,foaf:homepage,누리집,FALSE,FALSE,IRI,,,
+crm:E39_Actor,소장처,rdfs:seeAlso,소장품 검색 페이지,FALSE,FALSE,IRI,,,유물별 상세 주소가 없는 기관만. 예: https://museum.dankook.ac.kr/소장품-검색
+crm:E39_Actor,소장처,owl:sameAs,동일 개체(외부 URI),FALSE,TRUE,IRI,,,예: 위키데이터 항목
+crm:E54_Dimension,크기,crm:P2_has_type,측정 종류,TRUE,FALSE,IRI,,skos:Concept,「세로」 또는 「가로」
+crm:E54_Dimension,크기,crm:P90_has_value,값,TRUE,FALSE,literal,xsd:decimal,,소수점 한 자리. 예: 21.0
+crm:E54_Dimension,크기,crm:P91_has_unit,단위,TRUE,FALSE,IRI,,skos:Concept,「cm」. 인치 등 다른 단위는 cm로 환산하고 원문은 기관 레코드에 남긴다
+skos:Concept,개념,skos:prefLabel,우선어,TRUE,TRUE,literal,rdf:langString,,"언어당 하나(한국어 필수, 영어 선택). crm:E55_Type을 겸한다"
+skos:Concept,개념,skos:altLabel,이칭,FALSE,TRUE,literal,rdf:langString,,"검색어도 여기 넣는다. 예: 쌍학문, 쌍학무늬, 雙鶴, 쌍학흉배"
+skos:Concept,개념,skos:inScheme,소속 개념체계,TRUE,FALSE,IRI,,skos:ConceptScheme,자료 구분 / 문양 / 국적 / 시기 / 재질 / 착용 맥락 / 이용조건 / 측정
+skos:Concept,개념,skos:topConceptOf,최상위 개념,FALSE,FALSE,IRI,,skos:ConceptScheme,체계의 꼭대기일 때만
+skos:Concept,개념,skos:broader,상위 개념,FALSE,TRUE,IRI,,skos:Concept,"예: 쌍학 → 학 → 날짐승, 19세기 후반 → 19세기"
+skos:Concept,개념,skos:related,관련 개념,FALSE,TRUE,IRI,,skos:Concept,경계가 사람마다 달라 상하로 둘 수 없는 관계. 예: 조선 말기 — 19세기
+skos:Concept,개념,skos:scopeNote,범위주기,FALSE,FALSE,literal,rdf:langString,,
+skos:Concept,개념,skos:exactMatch,외부 동일 개념,FALSE,TRUE,IRI,,,"예: 위키데이터, Getty AAT"
+skos:ConceptScheme,개념체계,skos:prefLabel,체계명,TRUE,TRUE,literal,rdf:langString,,"언어당 하나(한국어 필수, 영어 선택)."
+skos:ConceptScheme,개념체계,skos:scopeNote,범위,FALSE,FALSE,literal,rdf:langString,,이 체계가 무엇을 다루고 무엇을 다루지 않는지

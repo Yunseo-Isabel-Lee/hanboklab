@@ -1,0 +1,56 @@
+﻿termID,label_ko,label_en,termType,vocabulary,definition,usage,domain,range,example
+hanbok:,한복 아카이브 자체 용어,Hanbok Archive ontology,Namespace,한복 아카이브 자체,https://hanboklab.com/ontology/,이 아카이브가 새로 정의한 속성,,,
+hanbokc:,한복 아카이브 개념,Hanbok Archive concepts,Namespace,한복 아카이브 자체,https://hanboklab.com/concept/,통제어휘의 개념과 개념체계,,,
+hanboko:,한복 아카이브 유물,Hanbok Archive objects,Namespace,한복 아카이브 자체,https://hanboklab.com/object/,유물과 기관 레코드,,,
+crm:,CIDOC CRM,CIDOC CRM,Namespace,CIDOC CRM 7.1.3,http://www.cidoc-crm.org/cidoc-crm/,공식 버전 7.1.3 기준,,,
+dcterms:,DCMI 용어,DCMI Terms,Namespace,DCMI Metadata Terms,http://purl.org/dc/terms/,,,,
+skos:,SKOS,SKOS,Namespace,SKOS,http://www.w3.org/2004/02/skos/core#,,,,
+foaf:,FOAF,FOAF,Namespace,FOAF,http://xmlns.com/foaf/0.1/,,,,
+rdfs:,RDF 스키마,RDF Schema,Namespace,RDF Schema,http://www.w3.org/2000/01/rdf-schema#,,,,
+owl:,OWL,OWL,Namespace,OWL,http://www.w3.org/2002/07/owl#,,,,
+xsd:,XML 스키마 데이터형,XML Schema datatypes,Namespace,XML Schema,http://www.w3.org/2001/XMLSchema#,,,,
+crm:E22_Human-Made_Object,인공물,Human-Made Object,Class,CIDOC CRM 7.1.3,"사람이 의도적으로 만들었고, 다른 물체와 객관적으로 분리되는 물리적 경계를 가진 물체",흉배 유물 한 점. 단령에 꿰매 단 흉배도 떼어 낼 수 있으므로 이 클래스로 둔다. 이 아카이브의 통합 기술 단위(이윤서 그래프),,,hanboko:hb0001
+crm:E31_Document,문서,Document,Class,CIDOC CRM 7.1.3,"현실에 대한 진술을 담은, 식별 가능한 비물질적 항목",소장처나 통합 플랫폼(e뮤지엄 등)이 작성한 유물 기록 한 건. 기관이 적은 값은 원문 그대로 기관 그래프에 둔다,,,국중박-1
+crm:E39_Actor,행위자,Actor,Class,CIDOC CRM 7.1.3,책임질 수 있는 의도적 행위를 할 수 있는 사람이나 집단,소장처와 레코드 작성 기관. 기관과 개인 소장자를 함께 담기 위해 단체(E74)가 아닌 상위 클래스를 쓴다,,,메트로폴리탄 미술관
+crm:E54_Dimension,치수,Dimension,Class,CIDOC CRM 7.1.3,보정된 수단으로 측정할 수 있는 정량적 속성,흉배의 세로 또는 가로 한 값. 세로·가로를 각각 별도 치수로 기록한다,,,세로 21.0 cm
+crm:E55_Type,유형,Type,Class,CIDOC CRM 7.1.3,"시소러스와 통제어휘의 개념으로, 다른 개체를 분류하는 데 쓰인다","이 아카이브의 모든 skos:Concept는 E55 Type을 겸한다. 재질 개념은 E57 Material, 단위 개념은 E58 Measurement Unit을 함께 단다",,,
+skos:Concept,개념,Concept,Class,SKOS,생각이나 관념의 단위,"통제어휘의 개념 하나. 주소는 로마자 ID, 한글 이름은 prefLabel",,,hanbokc:ssanghak 「쌍학」
+skos:ConceptScheme,개념체계,Concept Scheme,Class,SKOS,하나 이상의 개념을 모은 체계,아래 8개 개념체계,,,
+hanbokc:objectType,자료 구분,Object type,ConceptScheme,한복 아카이브 자체,유물이 어떤 종류의 물건인지 나누는 개념체계,흉배 / 단령 / 초상화 등. 이번 범위에서는 「흉배」만 쓴다,,,
+hanbokc:motif,문양,Motif,ConceptScheme,한복 아카이브 자체,흉배의 주문양을 나누는 개념체계,주문양만 담는다. 배경 요소(운문·파도·바위·불로초)는 개념으로 두지 않는다. 상위어로 날짐승·길짐승을 둔다,,,쌍학 → 학 → 날짐승
+hanbokc:nationality,국적,Nationality,ConceptScheme,한복 아카이브 자체,유물이 만들어진 나라를 나누는 개념체계,한국 / 중국 등. 중국 흉배·보자를 걸러 내는 데 쓴다,,,
+hanbokc:period,시기,Period,ConceptScheme,한복 아카이브 자체,흉배가 제작·착용된 것으로 보는 시기를 나누는 개념체계,"세기(15~20세기), 세기 전반·후반, 조선 전기·후기·말기 등. 숫자 구간을 정하지 않는다. 경계가 사람마다 다른 개념끼리는 skos:related로만 잇는다",,,19세기 후반 → 19세기
+hanbokc:material,재질,Material,ConceptScheme,한복 아카이브 자체,흉배의 재질을 나누는 개념체계,대표 재질로 묶는 작업은 추후,,,
+hanbokc:wearingContext,착용 맥락,Wearing context,ConceptScheme,한복 아카이브 자체,흉배를 단 복식을 어떤 자리에서 입었는지 나누는 개념체계,관복 / 혼례복 / 미상. 형태가 같은 단령이라도 혼례 때 입었으면 혼례로 적는다. 혼례용 흉배를 걸러 내는 데 쓴다,,,
+hanbokc:license,이용조건,License,ConceptScheme,한복 아카이브 자체,소장처 이미지·기록의 이용조건을 나누는 개념체계,"공공누리 1~4유형, CC0, NC, 확인 중 등. 이 아카이브가 덧붙인 값의 라이선스(CC BY 4.0)와는 별개",,,
+hanbokc:measurement,측정,Measurement,ConceptScheme,한복 아카이브 자체,치수의 종류와 단위를 나누는 개념체계,측정 종류(세로·가로)와 단위(cm),,,
+dcterms:title,명칭,Title,Property,DCMI Metadata Terms,자원에 붙인 이름,한글명(@ko)·한자명(@ko-Hani)·영어명(@en)을 언어 태그를 붙여 넣는다,crm:E22_Human-Made_Object,rdf:langString,"""쌍학흉배""@ko, ""雙鶴胸背""@ko-Hani"
+dcterms:identifier,식별자,Identifier,Property,DCMI Metadata Terms,주어진 맥락에서 자원을 모호하지 않게 가리키는 참조,"유물에서는 소장처 유물번호(출처가 제공하지 않으면 비움), 기관 레코드에서는 출처 + 임시ID","crm:E22_Human-Made_Object, crm:E31_Document",xsd:string,53.60.9 / 국중박-1
+crm:P2_has_type,유형을 가짐,has type,Property,CIDOC CRM 7.1.3,개체를 E55 Type의 개념으로 분류한다,"유물의 자료 구분과 문양, 치수의 측정 종류에 쓴다. 어느 개념체계의 개념인지(skos:inScheme)로 구분한다",crm:E1_CRM_Entity,crm:E55_Type,"hb0001 P2 「흉배」, hb0001 P2 「쌍학」"
+crm:P50_has_current_keeper,현 소장처,has current keeper,Property,CIDOC CRM 7.1.3,물리적 사물을 현재 보관·관리하는 행위자,유물의 소장처,crm:E18_Physical_Thing,crm:E39_Actor,hb0001 P50 메트로폴리탄 미술관
+dcterms:spatial,공간 범위,Spatial Coverage,Property,DCMI Metadata Terms,자원의 공간적 특성,유물의 국적 개념을 잇는다. 원래 범위는 dcterms:Location이지만 국적 개념(skos:Concept)을 장소로 써서 연결한다,crm:E22_Human-Made_Object,skos:Concept,hb0001 spatial 「한국」
+dcterms:temporal,시간 범위,Temporal Coverage,Property,DCMI Metadata Terms,자원의 시간적 특성,유물의 시기 개념을 잇는다. 기관 기재값을 숫자로 바꾸지 않고 해당 개념에 연결만 한다,crm:E22_Human-Made_Object,skos:Concept,late 19th century → 「19세기 후반」
+hanbok:beginYear,시작 연도,begin year,Property,한복 아카이브 자체,흉배가 제작·착용된 것으로 보는 시기의 시작 연도,"기관이 연도를 직접 적은 경우에만 쓴다. 연도의 성격(제작 연도, 피장자 생몰년 등)은 기관 레코드 원문으로 확인한다. CIDOC CRM의 기간(E52 Time-Span) 시작값을 유물에 바로 붙인 지름길이며, 제작·착용 사건 중 어느 쪽인지는 특정하지 않는다",crm:E22_Human-Made_Object,xsd:integer,1508
+hanbok:endYear,끝 연도,end year,Property,한복 아카이브 자체,흉배가 제작·착용된 것으로 보는 시기의 끝 연도,기관이 연도 범위를 적은 경우에만 쓴다. 단일 연도면 시작 연도와 같게 적는다. CIDOC CRM의 기간(E52 Time-Span) 끝값에 해당하는 지름길,crm:E22_Human-Made_Object,xsd:integer,1572
+crm:P43_has_dimension,치수를 가짐,has dimension,Property,CIDOC CRM 7.1.3,개체의 측정 가능한 치수,유물의 세로·가로 치수 노드를 잇는다,crm:E70_Thing,crm:E54_Dimension,
+crm:P45_consists_of,재료로 구성됨,consists of,Property,CIDOC CRM 7.1.3,물리적 사물을 이루는 재료,유물의 재질 개념. 재질 개념은 crm:E57_Material을 겸한다,crm:E18_Physical_Thing,crm:E57_Material,
+crm:P101_had_as_general_use,일반적 용도,had as general use,Property,CIDOC CRM 7.1.3,사물의 일반적인 쓰임,흉배를 단 복식의 착용 맥락(관복/혼례복/미상),crm:E70_Thing,crm:E55_Type,hb0001 P101 「관복」
+dcterms:license,라이선스,License,Property,DCMI Metadata Terms,자원으로 무엇을 할 수 있는지 공식적으로 허락하는 법적 문서,소장처 이미지·기록의 이용조건 개념,crm:E22_Human-Made_Object,skos:Concept,「공공누리 1유형」
+foaf:depiction,이미지,depiction,Property,FOAF,어떤 것을 묘사한 이미지,"유물 이미지 주소. 여러 장 가능. 공개용 데이터에는 소장처 원본 이미지 URL만 넣고, e뮤지엄 주소의 serviceKey는 지운다",crm:E22_Human-Made_Object,foaf:Image,
+crm:P70_documents,기록함,documents,Property,CIDOC CRM 7.1.3,문서가 어떤 개체에 대해 기록한다,기관 레코드가 기술하는 유물. 같은 유물에 여러 출처의 레코드가 붙을 수 있다,crm:E31_Document,crm:E1_CRM_Entity,국중박-1 P70 hb0001
+dcterms:source,출처,Source,Property,DCMI Metadata Terms,기술 대상 자원이 유래한 관련 자원,유물 한 건을 여는 상세 페이지 주소. 없으면 비운다,crm:E31_Document,IRI,
+rdfs:seeAlso,참고,see also,Property,RDF Schema,주어에 대한 추가 정보를 제공하는 자원,"기관 레코드에서는 상세 데이터 주소(JSON 등), 소장처에서는 소장품 검색 페이지","crm:E31_Document, crm:E39_Actor",IRI,
+dcterms:publisher,발행자,Publisher,Property,DCMI Metadata Terms,자원을 이용할 수 있게 한 주체,레코드를 작성·공개한 기관(통합시트의 '출처'). e뮤지엄처럼 소장처와 다를 수 있다,crm:E31_Document,crm:E39_Actor,
+rdfs:label,이름,label,Property,RDF Schema,자원의 사람이 읽는 이름,"소장처 이름. 한국어 필수, 영어 선택. 출처가 가린 개인 이름은 가린 그대로",crm:E39_Actor,rdf:langString,
+foaf:homepage,누리집,homepage,Property,FOAF,어떤 것의 누리집,소장처 누리집,crm:E39_Actor,IRI,
+owl:sameAs,동일 개체,same as,Property,OWL,두 URI가 같은 개체를 가리킴,소장처의 외부 URI(위키데이터 등),crm:E39_Actor,IRI,
+crm:P90_has_value,값,has value,Property,CIDOC CRM 7.1.3,치수의 수치,소수점 한 자리 cm,crm:E54_Dimension,xsd:decimal,21.0
+crm:P91_has_unit,단위,has unit,Property,CIDOC CRM 7.1.3,치수의 측정 단위,「cm」 개념. 단위 개념은 crm:E58_Measurement_Unit을 겸한다. 인치 등은 cm로 환산하고 원문은 기관 레코드에 남긴다,crm:E54_Dimension,crm:E58_Measurement_Unit,
+skos:prefLabel,우선어,preferred label,Property,SKOS,개념의 대표 이름. 언어당 하나,한국어 필수,"skos:Concept, skos:ConceptScheme",rdf:langString,"""쌍학""@ko"
+skos:altLabel,이칭,alternative label,Property,SKOS,개념의 다른 이름,검색어도 여기 넣는다,skos:Concept,rdf:langString,"쌍학문, 雙鶴, 쌍학흉배"
+skos:inScheme,소속 개념체계,is in scheme,Property,SKOS,개념이 속한 개념체계,8개 개념체계 중 하나,skos:Concept,skos:ConceptScheme,
+skos:topConceptOf,최상위 개념,is top concept in scheme,Property,SKOS,개념체계의 꼭대기 개념,체계의 꼭대기일 때만,skos:Concept,skos:ConceptScheme,「날짐승」
+skos:broader,상위 개념,has broader,Property,SKOS,더 넓은 개념,"예: 쌍학 → 학, 19세기 후반 → 19세기. 하위 클래스 추론이 아니다",skos:Concept,skos:Concept,
+skos:related,관련 개념,has related,Property,SKOS,상하가 아닌 연관 관계,경계가 사람마다 달라 상하로 둘 수 없을 때. 예: 조선 말기 — 19세기,skos:Concept,skos:Concept,
+skos:scopeNote,범위주기,scope note,Property,SKOS,개념의 의미와 쓰임을 밝히는 주기,개념과 개념체계에 모두 쓴다,"skos:Concept, skos:ConceptScheme",rdf:langString,
+skos:exactMatch,외부 동일 개념,has exact match,Property,SKOS,다른 개념체계의 개념과 서로 바꿔 쓸 수 있을 만큼 같음,"위키데이터, Getty AAT 등",skos:Concept,skos:Concept,
