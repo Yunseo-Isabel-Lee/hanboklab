@@ -138,6 +138,9 @@ section = re.search(r'<section id="projects".*?</section>', home, re.S).group(0)
 head_end = home.index("<main>")
 foot_start = home.index("</main>")
 plist = (home[:head_end] + "<main>\n  " + section + "\n\n" + home[foot_start:])
+# 번호(02)와 한글 제목은 첫 화면용이라 빼고, 영어 제목만 둔다
+plist = re.sub(r'<div class="sec-head">.*?</div></div>',
+               '<div class="sec-head"><h1 class="big-no nacre" style="margin:0">Projects</h1></div>', plist, count=1, flags=re.S)
 plist = re.sub(r"<title>.*?</title>", "<title>프로젝트 · HanbokLab</title>", plist, count=1)
 plist = plist.replace('<link rel="canonical" href="https://hanboklab.com/">', '<link rel="canonical" href="https://hanboklab.com/projects/">')
 plist = plist.replace('content="https://hanboklab.com/">', 'content="https://hanboklab.com/projects/">')
