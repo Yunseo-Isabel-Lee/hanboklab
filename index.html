@@ -87,9 +87,10 @@
   .kicker{display:flex;align-items:center;gap:14px;font-family:var(--geo);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
   .kicker .inlay{width:40px}
   .temp{position:absolute;left:12px;top:12px;z-index:2;padding:3px 10px;font-size:11px;letter-spacing:.06em;line-height:1.6;color:var(--gold-2);background:rgba(11,10,12,.8);border:1px solid rgba(200,164,100,.5)}
-  .credit{margin-top:10px;font-size:12px;line-height:1.6;color:var(--dim)}
-  .credit a{color:var(--dim);border-bottom:1px solid rgba(143,136,124,.4)}
-  .credit a:hover{color:var(--gold-2)}
+  a.obj{display:block;border:0}
+  a.obj img{transition:filter .3s ease,transform 1s ease}
+  a.obj:hover img{filter:brightness(1.1)}
+  a.obj:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
 
   /* 첫 화면 */
   .hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px;align-items:center;padding-top:clamp(48px,7vw,96px);padding-bottom:clamp(72px,9vw,120px)}
@@ -105,15 +106,13 @@
   .art .main{position:relative}
   .art .main img{width:100%;aspect-ratio:1400/1496;object-fit:cover}
   .art .main::after{content:"";position:absolute;inset:-14px;border:1px solid var(--line);pointer-events:none}
-  .art .sub{position:absolute;left:0;bottom:44px;width:38%;padding:6px;background:var(--abalone) center/cover}
+  .art .sub{position:absolute;left:0;bottom:0;width:38%;padding:6px;background:var(--abalone) center/cover}
   .art .sub img{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid var(--bg)}
   .art .label{position:absolute;right:0;top:0;writing-mode:vertical-rl;font-family:var(--serif);font-size:14px;letter-spacing:.42em;color:var(--gold)}
-  .art figcaption{position:absolute;right:40px;bottom:0;max-width:55%;text-align:right}
 
   /* 자개 띠 */
   .band{position:relative;height:clamp(160px,16vw,230px);background:#000 url(images/najeon-butterflies.jpg) center bottom/auto 76% repeat-x}
   .band::before{content:"";position:absolute;left:0;right:0;top:0;height:70%;background:linear-gradient(to bottom,var(--bg) 0%,rgba(11,10,12,.75) 40%,rgba(11,10,12,0) 100%);pointer-events:none}
-  .band::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14%;background:linear-gradient(to top,var(--bg2),rgba(18,16,19,0));pointer-events:none}
 
   /* 섹션 */
   .sec{padding:clamp(72px,9vw,128px) 0;border-top:1px solid var(--line);scroll-margin-top:72px}
@@ -134,7 +133,8 @@
   .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:52px}
   .card{display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--line)}
   .card .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:#1a1712}
-  .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1s ease}
+  .card .ph a.obj{height:100%}
+  .card .ph img{width:100%;height:100%;object-fit:cover}
   .card:hover .ph img{transform:scale(1.04)}
   .card .tx{display:flex;flex-direction:column;gap:8px;padding:24px 26px 30px}
   .card .row{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -160,10 +160,7 @@
   footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;padding-top:20px;padding-bottom:10px;font-size:13px;color:var(--dim)}
   footer .wrap a{color:#d9c79f}
   footer .sep{margin:0 10px}
-  footer .license,footer .credits{display:block;padding-top:0;font-size:12px;line-height:1.7}
-  footer .license{padding-bottom:6px}
-  footer .credits{padding-bottom:22px}
-  footer .credits a{color:var(--dim);border-bottom:1px solid rgba(143,136,124,.4)}
+  footer .license{display:block;padding-top:0;padding-bottom:22px;font-size:12px;line-height:1.7}
   .giant{margin:0 0 -.08em;font-family:var(--display);font-weight:600;font-size:clamp(72px,17vw,250px);line-height:.82;text-align:center;white-space:nowrap;user-select:none;pointer-events:none}
 
   /* 맨 위로 */
@@ -185,10 +182,8 @@
   }
   @media (max-width:860px){
     .hero,.split{grid-template-columns:1fr;gap:48px}
-    .art{padding:0 0 96px 44px}
+    .art{padding:0 0 56px 44px}
     .art .label{display:none}
-    .art .sub{bottom:52px}
-    .art figcaption{right:0}
     .cards{grid-template-columns:1fr}
     .facts{grid-template-columns:1fr}
     .prow{grid-template-columns:1fr}
@@ -226,16 +221,15 @@
       <a class="btn" href="#about"><span>둘러보기 →</span></a>
     </div>
     <figure class="art">
-      <div class="main"><img src="images/hyungbae-leopard.jpg" alt="흰 표범을 수놓은 무관 흉배. 구름과 파도, 바위 무늬가 둘러싸고 있다."></div>
-      <div class="sub"><img src="images/najeon-box-detail.jpg" alt="나전 상자의 자개 꽃무늬 부분"></div>
+      <div class="main"><a class="obj" href="https://www.metmuseum.org/art/collection/search/70987" target="_blank" rel="noopener" title="메트로폴리탄 미술관 소장품 페이지로 이동"><img src="images/hyungbae-leopard.jpg" alt="흰 표범을 수놓은 무관 흉배. 구름과 파도, 바위 무늬가 둘러싸고 있다."></a></div>
+      <div class="sub"><a class="obj" href="https://www.metmuseum.org/art/collection/search/40526" target="_blank" rel="noopener" title="메트로폴리탄 미술관 소장품 페이지로 이동"><img src="images/najeon-box-detail.jpg" alt="나전 상자의 자개 꽃무늬 부분"></a></div>
       <div class="label" aria-hidden="true">胸背 · 흉배</div>
-      <figcaption class="credit">표범 흉배, 19세기 후반 · <a href="https://www.metmuseum.org/art/collection/search/70987">메트로폴리탄 미술관 53.60.1</a></figcaption>
     </figure>
   </section>
 
   <div class="band" role="img" aria-label="자개 나비와 꽃무늬"></div>
 
-  <section id="about" class="sec alt" style="border-top:0">
+  <section id="about" class="sec alt">
     <div class="wrap split">
       <div>
         <div class="sec-head"><span class="big-no nacre">01</span><div><div class="kicker">About</div><h2>소개</h2></div></div>
@@ -247,8 +241,7 @@
         </dl>
       </div>
       <figure class="frame">
-        <div class="in"><img src="images/najeon-box.jpg" alt="검은 옻칠 위에 자개로 꽃과 구름무늬를 박은 상자"></div>
-        <figcaption class="credit">나전 꽃·구름무늬 상자, 18세기 · <a href="https://www.metmuseum.org/art/collection/search/40526">메트로폴리탄 미술관</a></figcaption>
+        <div class="in"><a class="obj" href="https://www.metmuseum.org/art/collection/search/40526" target="_blank" rel="noopener" title="메트로폴리탄 미술관 소장품 페이지로 이동"><img src="images/najeon-box.jpg" alt="검은 옻칠 위에 자개로 꽃과 구름무늬를 박은 상자"></a></div>
       </figure>
     </div>
   </section>
@@ -259,7 +252,7 @@
       <div class="cards">
         <article class="card">
           <i class="inlay"></i>
-          <div class="ph"><span class="temp">임시 이미지</span><img src="images/hyungbae-crane.jpg" alt="학 한 마리를 수놓은 흉배"></div>
+          <div class="ph"><span class="temp">임시 이미지</span><a class="obj" href="https://www.metmuseum.org/art/collection/search/70988" target="_blank" rel="noopener" title="메트로폴리탄 미술관 소장품 페이지로 이동"><img src="images/hyungbae-crane.jpg" alt="학 한 마리를 수놓은 흉배"></a></div>
           <div class="tx">
             <div class="row"><span class="no nacre">01</span><span class="pill">준비 중</span></div>
             <h3>조선 흉배 아카이브</h3>
@@ -270,7 +263,7 @@
         </article>
         <article class="card">
           <i class="inlay"></i>
-          <div class="ph"><span class="temp">임시 이미지</span><img src="images/genre-women.jpg" alt="저고리와 치마 위에 장옷을 걸친 여인들을 그린 풍속화" style="object-position:center 58%"></div>
+          <div class="ph"><span class="temp">임시 이미지</span><a class="obj" href="https://www.metmuseum.org/art/collection/search/955314" target="_blank" rel="noopener" title="메트로폴리탄 미술관 소장품 페이지로 이동"><img src="images/genre-women.jpg" alt="저고리와 치마 위에 장옷을 걸친 여인들을 그린 풍속화" style="object-position:center 58%"></a></div>
           <div class="tx">
             <div class="row"><span class="no nacre">02</span><span class="pill done">2026</span></div>
             <h3>‘깃’든 ‘무’늬 아카이브</h3>
@@ -280,7 +273,7 @@
         </article>
         <article class="card">
           <i class="inlay"></i>
-          <div class="ph"><span class="temp">임시 이미지</span><img src="images/hyungbae-record-bw.jpg" alt="쌍학 흉배의 흑백 기록 사진"></div>
+          <div class="ph"><span class="temp">임시 이미지</span><a class="obj" href="https://www.metmuseum.org/art/collection/search/50681" target="_blank" rel="noopener" title="메트로폴리탄 미술관 소장품 페이지로 이동"><img src="images/hyungbae-record-bw.jpg" alt="쌍학 흉배의 흑백 기록 사진"></a></div>
           <div class="tx">
             <div class="row"><span class="no nacre">03</span><span class="pill">준비 중</span></div>
             <h3>한복 온톨로지</h3>
@@ -317,12 +310,6 @@
     <span><a href="mailto:lisabelys@gmail.com">lisabelys@gmail.com</a><span class="sep">·</span><a href="https://isabel.co.kr/">isabel.co.kr</a></span>
   </div>
   <div class="wrap license">인용: 이윤서, 「한복 아카이브」, https://hanboklab.com · 이용 문의는 메일로 주세요. 유물 이미지와 소장처 기록은 각 소장처의 이용 조건을 따릅니다.</div>
-  <div class="wrap credits">유물 이미지: The Metropolitan Museum of Art, Open Access (CC0) —
-    <a href="https://www.metmuseum.org/art/collection/search/70987">표범 흉배 53.60.1</a>,
-    <a href="https://www.metmuseum.org/art/collection/search/70988">학 흉배 53.60.2</a>,
-    <a href="https://www.metmuseum.org/art/collection/search/50681">흉배 53.60.24</a>,
-    <a href="https://www.metmuseum.org/art/collection/search/40526">나전 상자 2015.500.3.4</a>,
-    <a href="https://www.metmuseum.org/art/collection/search/955314">풍속화첩 2026.343</a></div>
   <div class="giant nacre" aria-hidden="true">HanbokLab</div>
   <div class="eaves bottom" aria-hidden="true"></div>
 </footer>
