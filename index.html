@@ -20,7 +20,7 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "한복 아카이브",
-  "alternateName": ["Hanbok Archive", "hanboklab"],
+  "alternateName": ["Hanbok Archive", "HanbokLab", "hanboklab"],
   "url": "https://hanboklab.com/",
   "inLanguage": ["ko", "en"],
   "license": "https://creativecommons.org/licenses/by/4.0/",
@@ -35,7 +35,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&family=Noto+Serif+KR:wght@200;300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Noto+Serif+KR:wght@200;300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -64,6 +64,7 @@
     --display:"Bodoni Moda","Noto Serif KR",serif;
     --serif:"Noto Serif KR",serif;
     --sans:"Noto Sans KR",system-ui,sans-serif;
+    --geo:"Jost","Noto Sans KR",sans-serif;
     --gutter:clamp(16px,4vw,56px);
   }
   *{box-sizing:border-box}
@@ -76,9 +77,9 @@
   /* 머리 */
   .top{position:sticky;top:0;z-index:30;background:rgba(244,240,232,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
   .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
-  .mark{font-family:var(--display);font-size:21px;letter-spacing:.02em;color:var(--ink);border:0}
-  .mark em{color:var(--cobalt)}
-  nav{display:flex;gap:30px;font-family:var(--display);font-size:14px;letter-spacing:.08em}
+  .mark{font-family:var(--geo);font-weight:500;font-size:20px;letter-spacing:.02em;color:var(--ink);border:0}
+  .mark em{font-style:normal;font-weight:300;color:var(--cobalt)}
+  nav{display:flex;gap:44px;margin-right:-.28em;font-family:var(--geo);font-weight:400;font-size:12px;letter-spacing:.28em;text-transform:uppercase}
   nav a{color:var(--ink-2);border:0}
   nav a:hover{color:var(--ink)}
 
@@ -201,8 +202,8 @@
   }
   @media (max-width:640px){
     .top .wrap{height:60px;gap:12px}
-    .mark{font-size:18px}
-    nav{gap:14px;font-size:12px;letter-spacing:.04em}
+    .mark{font-size:17px}
+    nav{gap:14px;margin-right:-.16em;font-size:10.5px;letter-spacing:.16em}
     .sec{scroll-margin-top:60px}
     .badge{width:56px;height:100px;margin-bottom:32px}
     .badge span{font-size:22px}
@@ -224,7 +225,7 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="mark" href="/">hanbok<em>lab</em></a>
+    <a class="mark" href="/">Hanbok<em>Lab</em></a>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -338,7 +339,7 @@
     <span>© 2026 이윤서 Yunseo Isabel Lee</span>
     <span><a href="mailto:lisabelys@gmail.com">lisabelys@gmail.com</a><span class="sep">·</span><a href="https://isabel.co.kr/">isabel.co.kr</a></span>
   </div>
-  <div class="giant" aria-hidden="true">hanbok<em>lab</em></div>
+  <div class="giant" aria-hidden="true">Hanbok<em>Lab</em></div>
 </footer>
 
 <button class="to-top" type="button" aria-label="맨 위로">
