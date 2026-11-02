@@ -22,7 +22,7 @@ crm:E39_Actor,소장처,rdfs:label,기관명,TRUE,TRUE,literal,rdf:langString,,"
 crm:E39_Actor,소장처,foaf:homepage,누리집,FALSE,FALSE,IRI,,,
 crm:E39_Actor,소장처,rdfs:seeAlso,소장품 검색 페이지,FALSE,FALSE,IRI,,,유물별 상세 주소가 없는 기관만. 예: https://museum.dankook.ac.kr/소장품-검색
 crm:E39_Actor,소장처,owl:sameAs,동일 개체(외부 URI),FALSE,TRUE,IRI,,,예: 위키데이터 항목
-crm:E39_Actor,소장처,rdf:type,세부 유형,FALSE,FALSE,IRI,,,crm:E74_Group(기관·단체) 또는 crm:E21_Person(개인 소장자) 중 하나를 E39와 함께 단다. 개인인지 단체인지 모르면 달지 않는다
+crm:E39_Actor,소장처,rdf:type,세부 유형,FALSE,TRUE,IRI,,,crm:E39_Actor와 함께 crm:E74_Group(기관·단체) 또는 crm:E21_Person(개인 소장자) 중 하나를 단다. 개인인지 단체인지 모르면 E39만 단다
 crm:E54_Dimension,크기,crm:P2_has_type,측정 종류,TRUE,FALSE,IRI,,skos:Concept,「세로」 또는 「가로」
 crm:E54_Dimension,크기,crm:P90_has_value,값,TRUE,FALSE,literal,xsd:decimal,,소수점 한 자리. 예: 21.0
 crm:E54_Dimension,크기,crm:P91_has_unit,단위,TRUE,FALSE,IRI,,skos:Concept,「cm」. 인치 등 다른 단위는 cm로 환산하고 원문은 기관 레코드에 남긴다
