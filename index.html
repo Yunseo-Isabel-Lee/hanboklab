@@ -149,6 +149,7 @@
   .proj h3{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2vw,24px);letter-spacing:.04em;margin:0}
   .proj .sub{font-family:var(--display);font-size:13px;letter-spacing:.06em;color:var(--muted);margin-top:4px}
   .proj p{margin:14px 0 0;color:var(--ink-2);font-size:15px;max-width:560px}
+  .proj p.plink{margin-top:10px;font-size:14px}
   .status{font-size:12px;padding:4px 12px;border-radius:999px;white-space:nowrap;margin-top:4px}
   .status.wip{background:var(--rose);color:#6b3a33}
   .status.done{background:#e3e5e8;color:var(--link)}
@@ -190,6 +191,15 @@
     .to-top{transition:none}
   }
 
+  @media (max-width:960px){
+    nav{gap:24px;letter-spacing:.2em;margin-right:-.2em}
+  }
+  @media (max-width:720px){
+    .top .wrap{height:auto;flex-wrap:wrap;gap:0;padding-top:12px;padding-bottom:10px}
+    .mark{font-size:17px}
+    nav{width:100%;justify-content:space-between;gap:0;margin:8px -.14em 0 0;font-size:10.5px;letter-spacing:.14em}
+    .sec{scroll-margin-top:86px}
+  }
   @media (max-width:860px){
     .hero{grid-template-columns:1fr;min-height:0}
     .bands{height:220px;padding:0;border-right:0;border-bottom:1px solid var(--line)}
@@ -201,10 +211,6 @@
     .vert{writing-mode:horizontal-tb}
   }
   @media (max-width:640px){
-    .top .wrap{height:60px;gap:12px}
-    .mark{font-size:17px}
-    nav{gap:14px;margin-right:-.16em;font-size:10.5px;letter-spacing:.16em}
-    .sec{scroll-margin-top:60px}
     .badge{width:56px;height:100px;margin-bottom:32px}
     .badge span{font-size:22px}
     .hero h1{letter-spacing:.1em}
@@ -231,6 +237,7 @@
       <a href="#projects">Projects</a>
       <a href="#data">Data</a>
       <a href="#cite">Citation</a>
+      <a href="/ontology/">Ontology</a>
     </nav>
   </div>
 </header>
@@ -295,6 +302,7 @@
               <h3>한복 온톨로지</h3>
               <div class="sub">Hanbok Ontology · CIDOC CRM + SKOS</div>
               <p>복식 유물과 문양·시기·신분 개념을 잇는 데이터 모델과 통제어휘.</p>
+              <p class="plink"><a href="/ontology/">흉배 온톨로지 v0.1 →</a></p>
             </div>
             <span class="status wip">준비 중</span>
           </li>
@@ -317,7 +325,7 @@
             <tr><td><code>hanboko:</code></td><td><code>https://hanboklab.com/object/</code></td><td>유물 데이터</td></tr>
           </tbody>
         </table>
-        <div class="note"><a href="/ontology/" style="color:#f1dfb8;border-bottom-color:rgba(241,223,184,.4)">온톨로지 문서 — 기술규칙과 어휘설명 v0.1 →</a><br>개념과 유물 데이터는 준비되는 대로 이 주소에 공개합니다.</div>
+        <div class="note"><a href="/ontology/" style="color:#f1dfb8;border-bottom-color:rgba(241,223,184,.4)">흉배 온톨로지 — 기술규칙과 어휘설명 v0.1 →</a><br>개념과 유물 데이터는 준비되는 대로 이 주소에 공개합니다.</div>
       </div>
     </div>
   </section>
