@@ -48,17 +48,18 @@
     --line:#dcd4c5;
     --indigo:#1f2a44;   /* 남색 */
     --cobalt:#2f4fa2;   /* 쪽빛 */
+    --link:#5e6b7e;     /* 회청색 */
     --gold:#b8945a;
     --rose:#e9c9c4;     /* 연분홍 */
 
-    /* 색동 */
-    --s1:#b4503f;       /* 홍 */
-    --s2:#d6ab5a;       /* 치자 */
-    --s3:#7e9c88;       /* 녹 */
-    --s4:#e2b7ae;       /* 연분홍 */
-    --s5:#3f5c9a;       /* 쪽 */
-    --s6:#d9cdb4;       /* 백 */
-    --s7:#6d4462;       /* 자주 */
+    /* 천연 염색 톤 */
+    --s1:#ddd3bf;       /* 모시 */
+    --s2:#c4b597;       /* 삼베 */
+    --s3:#a68b69;       /* 황토 */
+    --s4:#7b6655;       /* 고동 */
+    --s5:#3b3733;       /* 먹 */
+    --s6:#8f8b83;       /* 쥐색 */
+    --s7:#6e7885;       /* 청회 */
 
     --display:"Bodoni Moda","Noto Serif KR",serif;
     --serif:"Noto Serif KR",serif;
@@ -68,25 +69,24 @@
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.8;font-size:16px;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
-  a{color:var(--cobalt);text-decoration:none;border-bottom:1px solid rgba(47,79,162,.25)}
-  a:hover{border-bottom-color:var(--cobalt)}
+  a{color:var(--link);text-decoration:none;border-bottom:1px solid rgba(94,107,126,.3);transition:color .2s ease,border-color .2s ease}
+  a:hover{color:var(--ink);border-bottom-color:var(--ink)}
   .wrap{max-width:1160px;margin:0 auto;padding:0 var(--gutter)}
 
   /* 머리 */
-  .top{border-bottom:1px solid var(--line)}
+  .top{position:sticky;top:0;z-index:30;background:rgba(244,240,232,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
   .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
   .mark{font-family:var(--display);font-size:21px;letter-spacing:.02em;color:var(--ink);border:0}
   .mark em{color:var(--cobalt)}
-  nav{display:flex;gap:28px;font-size:14px}
-  nav a{color:var(--ink-2);border:0;display:flex;align-items:baseline;gap:7px}
-  nav a span{font-family:var(--display);font-size:12px;color:var(--muted)}
-  nav a:hover{color:var(--cobalt)}
+  nav{display:flex;gap:30px;font-family:var(--display);font-size:14px;letter-spacing:.08em}
+  nav a{color:var(--ink-2);border:0}
+  nav a:hover{color:var(--ink)}
 
   /* 첫 화면 */
   .hero-band{border-bottom:1px solid var(--line)}
   .hero{max-width:1160px;margin:0 auto;padding:0 var(--gutter);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);min-height:min(86vh,780px)}
-  .saekdong{display:flex;gap:clamp(8px,1.3vw,16px);padding-right:clamp(20px,3vw,44px);border-right:1px solid var(--line)}
-  .saekdong i{
+  .bands{display:flex;gap:clamp(8px,1.3vw,16px);padding-right:clamp(20px,3vw,44px);border-right:1px solid var(--line)}
+  .bands i{
     flex:1;
     background:
       repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 4px),
@@ -98,29 +98,29 @@
     animation:rise 1.6s cubic-bezier(.2,.7,.2,1) both;
     animation-delay:calc(var(--n) * 90ms);
   }
-  .saekdong i:nth-child(1){--c:var(--s1);--fade:38%;--fill:70%;--n:0}
-  .saekdong i:nth-child(2){--c:var(--s2);--fade:22%;--fill:52%;--n:1}
-  .saekdong i:nth-child(3){--c:var(--s3);--fade:46%;--fill:80%;--n:2}
-  .saekdong i:nth-child(4){--c:var(--s4);--fade:18%;--fill:44%;--n:3}
-  .saekdong i:nth-child(5){--c:var(--s5);--fade:34%;--fill:62%;--n:4}
-  .saekdong i:nth-child(6){--c:var(--s6);--fade:28%;--fill:58%;--n:5}
-  .saekdong i:nth-child(7){--c:var(--s7);--fade:50%;--fill:84%;--n:6}
+  .bands i:nth-child(1){--c:var(--s1);--fade:38%;--fill:70%;--n:0}
+  .bands i:nth-child(2){--c:var(--s2);--fade:22%;--fill:52%;--n:1}
+  .bands i:nth-child(3){--c:var(--s3);--fade:46%;--fill:80%;--n:2}
+  .bands i:nth-child(4){--c:var(--s4);--fade:18%;--fill:44%;--n:3}
+  .bands i:nth-child(5){--c:var(--s5);--fade:34%;--fill:62%;--n:4}
+  .bands i:nth-child(6){--c:var(--s6);--fade:28%;--fill:58%;--n:5}
+  .bands i:nth-child(7){--c:var(--s7);--fade:50%;--fill:84%;--n:6}
   @keyframes rise{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
 
   .hero-text{display:flex;flex-direction:column;justify-content:center;padding:72px 0 64px clamp(28px,5vw,72px)}
-  .badge{width:76px;height:76px;margin-bottom:40px;border:1px solid var(--gold);display:grid;place-items:center;position:relative}
+  .badge{width:64px;height:116px;margin-bottom:40px;border:1px solid var(--gold);display:grid;place-items:center;position:relative}
   .badge::before{content:"";position:absolute;inset:6px;border:1px solid rgba(184,148,90,.45)}
-  .badge span{font-family:var(--serif);font-size:26px;color:var(--ink);font-weight:400}
+  .badge span{writing-mode:vertical-rl;font-family:var(--serif);font-size:26px;line-height:1;letter-spacing:.2em;padding-top:.2em;color:var(--ink);font-weight:400}
   .hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(38px,4.4vw,56px);line-height:1.3;letter-spacing:.14em;margin:0;word-break:keep-all}
   .hero .en{font-family:var(--display);font-size:clamp(13px,1.2vw,15px);letter-spacing:.42em;color:var(--muted);text-transform:uppercase;margin:18px 0 40px}
   .hero p{max-width:400px;margin:0;color:var(--ink-2)}
   .more{display:inline-flex;align-items:center;gap:14px;margin-top:44px;font-size:13px;letter-spacing:.14em;color:var(--ink);border:0;align-self:flex-start}
   .more::before{content:"";width:48px;height:1px;background:currentColor;transition:width .3s ease}
-  .more:hover{color:var(--cobalt)}
+  .more:hover{color:var(--link)}
   .more:hover::before{width:72px}
 
   /* 섹션 공통 */
-  .sec{padding:112px 0;border-bottom:1px solid var(--line)}
+  .sec{padding:112px 0;border-bottom:1px solid var(--line);scroll-margin-top:72px}
   .sec .wrap{display:grid;grid-template-columns:150px minmax(0,1fr);gap:0 48px}
   .side{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
   .no{font-family:var(--display);font-size:56px;line-height:1;color:var(--ink)}
@@ -150,7 +150,7 @@
   .proj p{margin:14px 0 0;color:var(--ink-2);font-size:15px;max-width:560px}
   .status{font-size:12px;padding:4px 12px;border-radius:999px;white-space:nowrap;margin-top:4px}
   .status.wip{background:var(--rose);color:#6b3a33}
-  .status.done{background:#dfe6f4;color:var(--cobalt)}
+  .status.done{background:#e3e5e8;color:var(--link)}
 
   /* 데이터 (남색 띠) */
   .sec.dark{background:var(--indigo);color:#e9e5dc;border-bottom:0}
@@ -171,18 +171,27 @@
 
   /* 꼬리 */
   footer{overflow:hidden}
-  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:40px;padding-bottom:28px;font-size:13px;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:2px 24px;padding-top:20px;padding-bottom:24px;font-size:13px;color:var(--muted)}
+  footer .sep{margin:0 10px}
   .giant{font-family:var(--display);font-size:clamp(60px,17vw,240px);line-height:.78;letter-spacing:-.01em;color:var(--paper-2);white-space:nowrap;text-align:center;margin-bottom:-.1em;user-select:none;pointer-events:none}
   .giant em{color:#e1d9c9}
 
+  /* 맨 위로 */
+  .to-top{position:fixed;right:clamp(16px,3vw,36px);bottom:clamp(16px,3vw,36px);z-index:20;width:44px;height:44px;padding:0;display:grid;place-items:center;border-radius:50%;background:rgba(244,240,232,.85);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(28,30,39,.22);color:var(--ink);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease,visibility .35s,background .2s ease,color .2s ease,border-color .2s ease}
+  .to-top svg{width:14px;height:14px}
+  .to-top.show{opacity:1;visibility:visible;transform:none}
+  .to-top:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+  .to-top:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
-    .saekdong i{animation:none}
+    .bands i{animation:none}
+    .to-top{transition:none}
   }
 
   @media (max-width:860px){
     .hero{grid-template-columns:1fr;min-height:0}
-    .saekdong{height:220px;padding:0;border-right:0;border-bottom:1px solid var(--line)}
+    .bands{height:220px;padding:0;border-right:0;border-bottom:1px solid var(--line)}
     .hero-text{padding:56px 0 64px}
     .sec{padding:80px 0}
     .sec .wrap{grid-template-columns:1fr}
@@ -191,9 +200,12 @@
     .vert{writing-mode:horizontal-tb}
   }
   @media (max-width:640px){
-    .top .wrap{height:auto;padding-top:18px;padding-bottom:16px;flex-direction:column;align-items:flex-start;gap:10px}
-    nav{gap:16px;font-size:13px;flex-wrap:wrap}
-    .badge{width:64px;height:64px;margin-bottom:32px}
+    .top .wrap{height:60px;gap:12px}
+    .mark{font-size:18px}
+    nav{gap:14px;font-size:12px;letter-spacing:.04em}
+    .sec{scroll-margin-top:60px}
+    .badge{width:56px;height:100px;margin-bottom:32px}
+    .badge span{font-size:22px}
     .hero h1{letter-spacing:.1em}
     .hero .en{letter-spacing:.3em}
     .facts{grid-template-columns:1fr}
@@ -214,10 +226,10 @@
   <div class="wrap">
     <a class="mark" href="/">hanbok<em>lab</em></a>
     <nav>
-      <a href="#about"><span>01</span>소개</a>
-      <a href="#projects"><span>02</span>프로젝트</a>
-      <a href="#data"><span>03</span>데이터</a>
-      <a href="#cite"><span>04</span>인용</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#data">Data</a>
+      <a href="#cite">Citation</a>
     </nav>
   </div>
 </header>
@@ -225,9 +237,9 @@
 <main>
   <div class="hero-band">
     <div class="hero">
-      <div class="saekdong" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bands" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
       <div class="hero-text">
-        <div class="badge" aria-hidden="true"><span>服</span></div>
+        <div class="badge" aria-hidden="true"><span>韓服</span></div>
         <h1>한복 아카이브</h1>
         <div class="en">Hanbok Archive</div>
         <p>여러 소장처에 흩어진 한국 복식 유물의 기록을 모으고, 어휘와 온톨로지로 서로 이어 누구나 찾고 쓸 수 있는 데이터로 공개합니다.</p>
@@ -324,10 +336,29 @@
 <footer>
   <div class="wrap">
     <span>© 2026 이윤서 Yunseo Isabel Lee</span>
-    <span><a href="mailto:lisabelys@gmail.com">lisabelys@gmail.com</a> · <a href="https://isabel.co.kr/">isabel.co.kr</a></span>
+    <span><a href="mailto:lisabelys@gmail.com">lisabelys@gmail.com</a><span class="sep">·</span><a href="https://isabel.co.kr/">isabel.co.kr</a></span>
   </div>
   <div class="giant" aria-hidden="true">hanbok<em>lab</em></div>
 </footer>
+
+<button class="to-top" type="button" aria-label="맨 위로">
+  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M7 12.5V2M2.5 6.5 7 2l4.5 4.5"/></svg>
+</button>
+
+<script>
+  (function(){
+    var btn=document.querySelector('.to-top');
+    var hero=document.querySelector('.hero-band');
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+    function onScroll(){btn.classList.toggle('show',window.scrollY>hero.offsetHeight*0.6)}
+    window.addEventListener('scroll',onScroll,{passive:true});
+    onScroll();
+    btn.addEventListener('click',function(){
+      window.scrollTo({top:0,behavior:reduce.matches?'auto':'smooth'});
+      document.querySelector('.mark').focus({preventScroll:true});
+    });
+  })();
+</script>
 
 </body>
 </html>
