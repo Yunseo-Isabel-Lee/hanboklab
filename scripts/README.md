@@ -9,6 +9,7 @@ CSV를 고친 뒤 다시 돌리면 TTL과 문서 페이지가 새로 만들어�
 | make_concepts.py | 개념.csv(통제어휘 개념과 이칭) 만들기 | `python3 make_concepts.py <출력 CSV>` |
 | grounding2ttl.py | 개념.csv → 개념.ttl, 샘플데이터.csv → 샘플데이터.ttl | `python3 grounding2ttl.py <그라운딩 폴더> <어휘설명.csv 폴더>` |
 | make_queries.py | 질문–SPARQL 예시를 샘플에 돌려 질문예시.csv·.rq 만들기 | `python3 make_queries.py <그라운딩 폴더> <어휘설명.csv 폴더>` |
+| make_projects.py | 첫 화면 프로젝트 칸 → /projects/ 목록, 흉배 라벨링 매뉴얼 원고(hyungbae/manual/src/*.md) → 매뉴얼·판별 참고 도감 페이지. `pip install markdown` 필요 | `python3 scripts/make_projects.py` |
 
 검사: `dctap read 기술규칙.dctap.csv`(DCTAP 형식), pyshacl로 데이터가 기술규칙.ttl을 지키는지 확인.
 

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>프로젝트 · HanbokLab</title>
+<meta name="description" content="한복 아카이브(Hanbok Archive) — 한국 복식 유물 데이터를 모으고, 어휘와 온톨로지로 이어 공개하는 디지털 아카이브 프로젝트입니다.">
+<link rel="canonical" href="https://hanboklab.com/projects/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="한복 아카이브">
+<meta property="og:title" content="한복 아카이브 · Hanbok Archive">
+<meta property="og:description" content="한국 복식 유물 데이터를 모으고, 어휘와 온톨로지로 이어 공개합니다.">
+<meta property="og:url" content="https://hanboklab.com/projects/">
+<meta property="og:image" content="https://hanboklab.com/images/hyungbae-leopard.jpg">
+<meta name="twitter:card" content="summary">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "한복 아카이브",
+  "alternateName": ["Hanbok Archive", "HanbokLab", "hanboklab"],
+  "url": "https://hanboklab.com/",
+  "inLanguage": ["ko", "en"],
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": {
+    "@type": "Person",
+    "name": "이윤서",
+    "alternateName": "Yunseo Isabel Lee",
+    "url": "https://isabel.co.kr/"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500&family=Noto+Serif+KR:wght@200;300;400&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0b0a0c;       /* 옻칠 */
+    --bg2:#121013;
+    --ivory:#eee8db;
+    --muted:#b3ab9e;
+    --dim:#8f887c;
+    --gold:#c8a464;
+    --gold-2:#e6d3a8;
+    --line:rgba(200,164,100,.26);
+    --red:#c4452b;
+    --abalone:url(/images/nacre-cloud.jpg);  /* 전복 자개 */
+    --pearl:url(/images/nacre-fur.jpg);      /* 진주빛 자개 */
+    --display:"Bodoni Moda","Noto Serif KR",serif;
+    --serif:"Noto Serif KR",serif;
+    --sans:"Noto Sans KR",system-ui,sans-serif;
+    --geo:"Jost","Noto Sans KR",sans-serif;
+    --gutter:clamp(20px,5vw,64px);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:90px}
+  body{margin:0;background:var(--bg);color:var(--ivory);font-family:var(--sans);font-weight:300;line-height:1.8;font-size:16px;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
+  a{color:var(--gold-2);text-decoration:none}
+  a:hover{color:#fff}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 var(--gutter)}
+
+  /* 자개 질감 */
+  .nacre{background-image:var(--abalone);background-size:300px auto;background-position:0 50%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 18s linear infinite alternate}
+  .pearl{background-image:var(--pearl);background-size:200% auto;background-position:0 40%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 16s ease-in-out infinite alternate}
+  .inlay{display:block;height:3px;background:var(--abalone) 0 50%/260% auto;animation:shimmer 12s ease-in-out infinite alternate}
+  @keyframes shimmer{to{background-position:100% 50%}}
+
+  /* 처마 띠 */
+  .eaves{height:clamp(72px,8.5vw,122px);background:#1c2554 url(/images/eaves-band.jpg) 0 0/auto 100% repeat-x;border-bottom:2px solid var(--red)}
+  .eaves.bottom{border-bottom:0;border-top:2px solid var(--red)}
+
+  /* 머리 */
+  .top{position:sticky;top:0;z-index:30;background:rgba(11,10,12,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+  .mark{font-family:var(--geo);font-weight:500;font-size:20px;letter-spacing:.02em;color:var(--ivory)}
+  .mark em{font-style:normal;font-weight:300;color:var(--gold)}
+  nav{display:flex;gap:44px;margin-right:-.28em;font-family:var(--geo);font-size:12px;letter-spacing:.28em;text-transform:uppercase}
+  nav a{color:var(--muted)}
+  nav a:hover{color:var(--ivory)}
+
+  .kicker{display:flex;align-items:center;gap:14px;font-family:var(--geo);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+  .kicker .inlay{width:40px}
+  .temp{position:absolute;left:12px;top:12px;z-index:2;padding:3px 10px;font-size:11px;letter-spacing:.06em;line-height:1.6;color:var(--gold-2);background:rgba(11,10,12,.8);border:1px solid rgba(200,164,100,.5)}
+  a.obj{display:block;border:0}
+  a.obj img{transition:filter .3s ease,transform 1s ease}
+  a.obj:hover img{filter:brightness(1.1)}
+  a.obj:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
+
+  /* 첫 화면 */
+  .hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px;align-items:center;padding-top:clamp(48px,7vw,96px);padding-bottom:clamp(72px,9vw,120px)}
+  .hero h1{margin:22px 0 0;font-family:var(--serif);font-weight:200;font-size:clamp(44px,6vw,84px);line-height:1.2;letter-spacing:.1em}
+  .hero .en{display:inline-block;margin-top:10px;font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(26px,2.9vw,38px);line-height:1.25}
+  .hero p{max-width:420px;margin:28px 0 0;color:var(--muted)}
+  .btn{position:relative;display:inline-flex;align-items:center;gap:12px;margin-top:40px;padding:13px 26px;border:1px solid var(--gold);color:var(--gold-2);font-size:14px;letter-spacing:.1em;overflow:hidden;transition:color .3s}
+  .btn::before{content:"";position:absolute;inset:0;background:var(--pearl) center/cover;opacity:0;transition:opacity .35s}
+  .btn span{position:relative}
+  .btn:hover{color:#1a1712}
+  .btn:hover::before{opacity:1}
+  .art{position:relative;margin:0;padding:0 40px 80px 80px}
+  .art .main{position:relative}
+  .art .main img{width:100%;aspect-ratio:1400/1496;object-fit:cover}
+  .art .main::after{content:"";position:absolute;inset:-14px;border:1px solid var(--line);pointer-events:none}
+  .art .sub{position:absolute;left:0;bottom:0;width:38%;padding:6px;background:var(--abalone) center/cover}
+  .art .sub img{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid var(--bg)}
+  .art .label{position:absolute;right:0;top:0;writing-mode:vertical-rl;font-family:var(--serif);font-size:14px;letter-spacing:.42em;color:var(--gold)}
+
+  /* 자개 띠 */
+  .band{position:relative;height:clamp(160px,16vw,230px);background:#000 url(/images/najeon-butterflies.jpg) center bottom/auto 76% repeat-x}
+  .band::before{content:"";position:absolute;left:0;right:0;top:0;height:70%;background:linear-gradient(to bottom,var(--bg) 0%,rgba(11,10,12,.75) 40%,rgba(11,10,12,0) 100%);pointer-events:none}
+
+  /* 섹션 */
+  .sec{padding:clamp(72px,9vw,128px) 0;border-top:1px solid var(--line);scroll-margin-top:72px}
+  .sec.alt{background:var(--bg2)}
+  .sec-head{display:flex;align-items:flex-end;gap:22px}
+  .big-no{font-family:var(--display);font-style:italic;font-weight:600;font-size:clamp(64px,7vw,96px);line-height:.85}
+  h2{margin:14px 0 0;font-family:var(--serif);font-weight:300;font-size:clamp(28px,3vw,36px);letter-spacing:.08em}
+  .split{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:72px;align-items:center}
+  .lead{margin:36px 0 22px;font-family:var(--serif);font-weight:300;font-size:clamp(20px,2.1vw,25px);line-height:1.8}
+  .body{margin:0;color:var(--muted)}
+  .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:44px 0 0;padding-top:22px;border-top:1px solid var(--line)}
+  .facts dt{font-family:var(--geo);font-size:11px;letter-spacing:.3em;color:var(--gold)}
+  .facts dd{margin:4px 0 0;font-family:var(--serif);font-size:16px}
+  .frame{margin:0}
+  .frame .in{padding:7px;background:var(--abalone) center/cover}
+  .frame img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--bg)}
+
+  .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:52px}
+  .card{display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--line)}
+  .card .ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:#1a1712}
+  .card .ph a.obj{height:100%}
+  .card .ph img{width:100%;height:100%;object-fit:cover}
+  .card:hover .ph img{transform:scale(1.04)}
+  .card .tx{display:flex;flex-direction:column;gap:8px;padding:24px 26px 30px}
+  .card .row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .no{font-family:var(--display);font-style:italic;font-weight:600;font-size:38px;line-height:1}
+  .pill{font-size:12px;padding:2px 12px;border:1px solid rgba(200,164,100,.6);border-radius:999px;color:var(--gold-2)}
+  .pill.done{background:var(--pearl) center/cover;border-color:transparent;color:#1a1712;font-weight:500}
+  .card h3{margin:6px 0 0;font-family:var(--serif);font-weight:400;font-size:21px}
+  .card .sub{font-family:var(--display);font-size:13px;color:var(--dim)}
+  .card p{margin:4px 0 0;font-size:15px;color:var(--muted)}
+  .card h3 a.plain{color:inherit}
+  .card h3 a.plain:hover{color:var(--gold-2)}
+
+  .panel{margin-top:44px;padding:6px;background:var(--abalone) center/cover}
+  .panel-in{padding:8px 28px;background:var(--bg);border:1px solid rgba(200,164,100,.5)}
+  .prow{display:grid;grid-template-columns:120px minmax(0,1.4fr) minmax(0,1fr);gap:6px 24px;padding:18px 0;border-bottom:1px solid rgba(200,164,100,.16)}
+  .prow code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;word-break:break-all}
+  .prow .pf{color:var(--gold-2)}
+  .prow span{font-size:14px;color:var(--muted)}
+  .panel-in .more{display:block;padding:16px 0 12px;font-size:14px}
+  .panel-in .note{margin:0;padding:0 0 16px;font-size:13px;color:var(--dim)}
+
+
+  /* 꼬리 */
+  footer{overflow:hidden;border-top:1px solid var(--line)}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;padding-top:20px;padding-bottom:10px;font-size:13px;color:var(--dim)}
+  footer .wrap a{color:#d9c79f}
+  footer .sep{margin:0 10px}
+  footer .license{display:block;padding-top:0;padding-bottom:22px;font-size:12px;line-height:1.7}
+  .giant{margin:0 0 -.08em;font-family:var(--display);font-weight:600;font-size:clamp(72px,17vw,250px);line-height:.82;text-align:center;white-space:nowrap;user-select:none;pointer-events:none}
+
+  /* 맨 위로 */
+  .to-top{position:fixed;right:clamp(16px,3vw,36px);bottom:clamp(16px,3vw,36px);z-index:30;width:46px;height:46px;padding:0;display:grid;place-items:center;border-radius:50%;background:rgba(11,10,12,.8);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid var(--gold);color:var(--gold-2);cursor:pointer;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .35s,transform .35s,visibility .35s,color .25s}
+  .to-top::before{content:"";position:absolute;inset:0;background:var(--pearl) center/cover;opacity:0;transition:opacity .3s}
+  .to-top svg{position:relative;width:14px;height:14px}
+  .to-top.show{opacity:1;visibility:visible;transform:none}
+  .to-top:hover{color:#1a1712}
+  .to-top:hover::before{opacity:1}
+  .to-top:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .nacre,.pearl,.inlay{animation:none}
+    .to-top{transition:none}
+  }
+  @media (max-width:960px){
+    nav{gap:24px;letter-spacing:.2em;margin-right:-.2em}
+  }
+  @media (max-width:860px){
+    .hero,.split{grid-template-columns:1fr;gap:48px}
+    .art{padding:0 0 56px 44px}
+    .art .label{display:none}
+    .cards{grid-template-columns:1fr}
+    .facts{grid-template-columns:1fr}
+    .prow{grid-template-columns:1fr}
+  }
+  @media (max-width:720px){
+    .top .wrap{height:auto;flex-wrap:wrap;gap:0;padding-top:12px;padding-bottom:10px}
+    .mark{font-size:17px}
+    nav{width:100%;justify-content:space-between;gap:0;margin:8px -.14em 0 0;font-size:10.5px;letter-spacing:.14em}
+    .sec{scroll-margin-top:86px}
+  }
+</style>
+</head>
+<body>
+
+<div class="eaves" role="img" aria-label="붉은 단청 처마 무늬"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="/">Hanbok<em>Lab</em></a>
+    <nav>
+      <a href="/#about">About</a>
+      <a href="/projects/" aria-current="page">Projects</a>
+      <a href="/#data">Data</a>
+      <a href="/ontology/">Ontology</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="projects" class="sec">
+    <div class="wrap">
+      <div class="sec-head"><span class="big-no nacre">02</span><div><div class="kicker">Projects</div><h2>프로젝트</h2></div></div>
+      <div class="cards">
+        <article class="card">
+          <i class="inlay"></i>
+          <div class="ph"><span class="temp">임시 이미지</span><a class="obj" href="https://www.metmuseum.org/art/collection/search/70988" target="_blank" rel="noopener" title="메트로폴리탄 미술관 소장품 페이지로 이동"><img src="/images/hyungbae-crane.jpg" alt="학 한 마리를 수놓은 흉배"></a></div>
+          <div class="tx">
+            <div class="row"><span class="no nacre">01</span><span class="pill">준비 중</span></div>
+            <h3><a class="plain" href="/hyungbae/">조선 흉배 아카이브</a></h3>
+            <div class="sub">Joseon Rank Badge Archive · Omeka S</div>
+            <p>56개 소장처의 흉배 실물을 모아 문양, 품계, 법전 규정으로 잇고 비교하는 아카이브.</p>
+            <a href="/hyungbae/">프로젝트 보기 →</a>
+            <a href="http://archive.hanboklab.com/hyungbae/">시제품 보기 — 한국 흉배 52점 →</a>
+          </div>
+        </article>
+        <article class="card">
+          <i class="inlay"></i>
+          <div class="ph"><span class="temp">임시 이미지</span><a class="obj" href="https://www.metmuseum.org/art/collection/search/955314" target="_blank" rel="noopener" title="메트로폴리탄 미술관 소장품 페이지로 이동"><img src="/images/genre-women.jpg" alt="저고리와 치마 위에 장옷을 걸친 여인들을 그린 풍속화" style="object-position:center 58%"></a></div>
+          <div class="tx">
+            <div class="row"><span class="no nacre">02</span><span class="pill done">2026</span></div>
+            <h3>‘깃’든 ‘무’늬 아카이브</h3>
+            <div class="sub">Omeka S</div>
+            <p>조선시대 출토 여자 저고리류의 깃과 무 유형을 정리한 아카이브.</p>
+          </div>
+        </article>
+        <article class="card">
+          <i class="inlay"></i>
+          <div class="ph"><span class="temp">임시 이미지</span><a class="obj" href="https://www.metmuseum.org/art/collection/search/50681" target="_blank" rel="noopener" title="메트로폴리탄 미술관 소장품 페이지로 이동"><img src="/images/hyungbae-record-bw.jpg" alt="쌍학 흉배의 흑백 기록 사진"></a></div>
+          <div class="tx">
+            <div class="row"><span class="no nacre">03</span><span class="pill">준비 중</span></div>
+            <h3>한복 온톨로지</h3>
+            <div class="sub">Hanbok Ontology · CIDOC CRM + SKOS</div>
+            <p>복식 유물과 문양·시기·신분 개념을 잇는 데이터 모델과 통제어휘.</p>
+            <a href="/ontology/">흉배 온톨로지 v0.1 →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 이윤서 Yunseo Isabel Lee</span>
+    <span><a href="mailto:lisabelys@gmail.com">lisabelys@gmail.com</a><span class="sep">·</span><a href="https://isabel.co.kr/">isabel.co.kr</a></span>
+  </div>
+  <div class="wrap license">인용: 이윤서, 「한복 아카이브」, https://hanboklab.com · 이용 문의는 메일로 주세요. 유물 이미지와 소장처 기록은 각 소장처의 이용 조건을 따릅니다.</div>
+  <div class="giant nacre" aria-hidden="true">HanbokLab</div>
+  <div class="eaves bottom" aria-hidden="true"></div>
+</footer>
+
+<button class="to-top" type="button" aria-label="맨 위로">
+  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M7 12.5V2M2.5 6.5 7 2l4.5 4.5"/></svg>
+</button>
+
+<script>
+  (function(){
+    var btn=document.querySelector('.to-top');
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+    function onScroll(){btn.classList.toggle('show',window.scrollY>600)}
+    window.addEventListener('scroll',onScroll,{passive:true});
+    onScroll();
+    btn.addEventListener('click',function(){
+      window.scrollTo({top:0,behavior:reduce.matches?'auto':'smooth'});
+      document.querySelector('.mark').focus({preventScroll:true});
+    });
+  })();
+</script>
+
+</body>
+</html>

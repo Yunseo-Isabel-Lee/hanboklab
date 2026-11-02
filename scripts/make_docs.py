@@ -214,7 +214,7 @@ footer .sep{{margin:0 10px}}
 <div class="eaves" role="img" aria-label="붉은 단청 처마 무늬"></div>
 <header><div class="in">
   <a class="mark" href="/">Hanbok<em>Lab</em></a>
-  <nav class="site-nav" aria-label="사이트"><a href="/#about">About</a><a href="/#projects">Projects</a><a href="/#data">Data</a><a href="/ontology/" aria-current="page">Ontology</a></nav>
+  <nav class="site-nav" aria-label="사이트"><a href="/#about">About</a><a href="/projects/">Projects</a><a href="/#data">Data</a><a href="/ontology/" aria-current="page">Ontology</a></nav>
 </div></header>
 <main>
 <div class="top">

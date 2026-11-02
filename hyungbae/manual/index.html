@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>흉배 라벨링 작업 매뉴얼 · HanbokLab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Jost:wght@300;400;500&family=Noto+Serif+KR:wght@200;300;400;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0a0c;--bg2:#121013;--ivory:#eee8db;--ink-2:#c9c1b3;--muted:#9a9286;--line:rgba(200,164,100,.24);--line-2:rgba(238,232,219,.1);--gold:#c8a464;--gold-2:#e6d3a8;--red:#c4452b;--rose:#e9c9c4;--abalone:url(/images/nacre-cloud.jpg);--pearl:url(/images/nacre-fur.jpg);--display:"Bodoni Moda","Noto Serif KR",serif;--serif:"Noto Serif KR",serif;--sans:"Noto Sans KR",system-ui,sans-serif;--mono:ui-monospace,Menlo,Consolas,monospace;--geo:"Jost","Noto Sans KR",sans-serif;--gutter:clamp(20px,5vw,64px)}
+*{box-sizing:border-box} html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;word-break:keep-all;background:var(--bg);color:var(--ivory);font-family:var(--sans);font-weight:300;line-height:1.75;font-size:15px;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-2);text-decoration:none} a:hover{color:#fff;text-decoration:underline}
+code{font-family:var(--mono);font-size:12.5px;color:var(--ivory)} a code{color:inherit}
+/* 자개 질감 */
+.nacre{background-image:var(--abalone);background-size:300px auto;background-position:0 50%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 18s linear infinite alternate}
+.inlay{display:block;height:3px;background:var(--abalone) 0 50%/260% auto;animation:shimmer 12s ease-in-out infinite alternate}
+@keyframes shimmer{to{background-position:100% 50%}}
+/* 처마 띠 */
+.eaves{height:clamp(72px,8.5vw,122px);background:#1c2554 url(/images/eaves-band.jpg) 0 0/auto 100% repeat-x;border-bottom:2px solid var(--red)}
+.eaves.bottom{border-bottom:0;border-top:2px solid var(--red)}
+/* 머리 */
+header{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);background:rgba(11,10,12,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+header .in{max-width:1200px;margin:0 auto;padding:0 var(--gutter);height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.mark{font-family:var(--geo);font-weight:500;font-size:20px;letter-spacing:.02em;color:var(--ivory)} .mark em{font-style:normal;font-weight:300;color:var(--gold)} .mark:hover{text-decoration:none;color:var(--ivory)}
+.site-nav{display:flex;gap:44px;margin-right:-.28em;font-family:var(--geo);font-weight:400;font-size:12px;letter-spacing:.28em;text-transform:uppercase}
+.site-nav a{color:var(--muted);padding-bottom:2px;border-bottom:1px solid transparent} .site-nav a:hover{color:var(--ivory);text-decoration:none}
+.site-nav a[aria-current]{color:var(--ivory);border-bottom-color:var(--gold)}
+main{max-width:1200px;margin:0 auto;padding:0 var(--gutter)}
+.scope{max-width:720px;margin:0 0 28px;padding:16px 20px;background:var(--bg2);border:1px solid var(--line);font-size:14px;color:var(--ink-2)}
+.scope b{font-weight:500;color:var(--ivory)}
+.toc{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:28px;padding-top:18px;border-top:1px solid var(--line);font-size:14px}
+.toc a{color:var(--ink-2)} .toc a:hover{color:var(--ivory)}
+.top{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+.kicker{display:flex;align-items:center;gap:14px;font-family:var(--geo);font-size:12px;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
+.kicker .inlay{width:40px}
+h1{font-family:var(--serif);font-weight:200;font-size:clamp(30px,4vw,44px);letter-spacing:.06em;margin:0 0 22px;line-height:1.35}
+.lead{color:var(--ink-2);max-width:720px;margin:0 0 24px}
+.meta{display:grid;grid-template-columns:110px 1fr;gap:6px 16px;font-size:13.5px;max-width:720px}
+.meta dt{color:var(--muted)} .meta dd{margin:0}
+.dl{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.dl a{border:1px solid var(--line);background:var(--bg2);padding:7px 14px;font-size:13px;color:var(--ivory)}
+.dl a:hover{border-color:var(--gold);text-decoration:none}
+.dl a b{font-weight:500;color:var(--gold);margin-right:6px}
+section{padding:56px 0 8px}
+h2{font-family:var(--serif);font-weight:300;font-size:26px;letter-spacing:.04em;margin:0 0 6px}
+.sec-d{color:var(--ink-2);margin:0 0 24px;max-width:760px}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 26px}
+.stats div{background:var(--bg2);border:1px solid var(--line);padding:10px 18px;font-size:13px;color:var(--muted)}
+.stats b{display:block;font-family:var(--display);font-style:italic;font-weight:600;font-size:30px;line-height:1.15;background-image:var(--abalone);background-size:300px auto;-webkit-background-clip:text;background-clip:text;color:transparent}
+/* 모델 그림 */
+.diagram{background:var(--bg2);border:1px solid var(--line);padding:18px;overflow-x:auto}
+.diagram svg{display:block;min-width:860px;width:100%;height:auto}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2);margin-top:12px}
+.legend i{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px;border:1px solid}
+/* 표 */
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--bg2);border:1px solid var(--line);font-size:13.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}
+th{font-weight:500;font-size:12px;letter-spacing:.04em;color:var(--gold);background:#17141a}
+td.c,th.c{text-align:center} td.note{color:var(--ink-2);font-size:13px}
+.pid{margin-top:2px} .pid code{font-size:11.5px;color:var(--muted)} .pid a code{color:var(--gold-2)}
+.req{background:var(--rose);color:#5a2b24;font-size:11.5px;padding:1px 8px;border-radius:999px;white-space:nowrap}
+.shape{margin:0 0 36px}
+.shape-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.shape-h h3{font-family:var(--serif);font-weight:400;font-size:19px;margin:0}
+.graph{font-size:11.5px;border:1px solid var(--gold);color:var(--gold-2);padding:0 8px;border-radius:999px}
+.shape-d{color:var(--ink-2);margin:4px 0 12px;font-size:14px}
+/* 개념체계 */
+.schemes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.scheme{background:var(--bg2);border:1px solid var(--line);padding:16px 18px;scroll-margin-top:90px}
+.sc-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sc-h b{font-family:var(--serif);font-weight:400;font-size:17px} .sc-h span{font-size:12px;color:var(--muted)}
+.scheme code{font-size:11.5px;color:var(--muted)}
+.scheme p{margin:8px 0 0;font-size:13.5px} .scheme p.u{color:var(--ink-2)}
+.ex{font-size:12.5px;color:var(--muted)}
+/* 용어 */
+.terms{display:grid;gap:12px}
+.term{position:relative;background:var(--bg2);border:1px solid var(--line);padding:16px 20px;scroll-margin-top:90px}
+.term.own{padding-left:24px}
+.term.own::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--abalone) center/cover}
+.term:target{outline:2px solid var(--gold)}
+.t-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.t-h b{font-family:var(--serif);font-weight:400;font-size:17px}
+.src{font-size:11.5px;color:var(--muted);margin-left:auto}
+.badge-own{font-size:11.5px;font-weight:500;background:var(--pearl) center/cover;color:#1a1712;padding:1px 9px;border-radius:999px;margin-left:auto}
+.uri{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin:2px 0 6px;word-break:break-all}
+.term p{margin:6px 0 0;font-size:14px}
+.k{display:inline-block;width:62px;color:var(--muted);font-size:12.5px}
+.dr{display:flex;gap:6px 16px;flex-wrap:wrap;margin-top:8px;font-size:13px}
+.dr span{color:var(--muted);font-size:12px;margin-right:6px}
+h3.sub{font-family:var(--serif);font-weight:400;font-size:18px;margin:30px 0 12px}
+/* 꼬리 */
+footer{overflow:hidden;margin-top:80px;border-top:1px solid var(--line)}
+footer .in{max-width:1200px;margin:0 auto;padding:20px var(--gutter) 24px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:2px 24px;font-size:13px;color:var(--muted)}
+footer a{color:#d9c79f} footer a:hover{color:#fff;text-decoration:none}
+footer .sep{margin:0 10px}
+.giant{margin:0 0 -.08em;font-family:var(--display);font-weight:600;font-size:clamp(72px,17vw,250px);line-height:.82;text-align:center;white-space:nowrap;user-select:none;pointer-events:none}
+/* 맨 위로 */
+.to-top{position:fixed;right:clamp(16px,3vw,36px);bottom:clamp(16px,3vw,36px);z-index:30;width:46px;height:46px;padding:0;display:grid;place-items:center;border-radius:50%;background:rgba(11,10,12,.8);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid var(--gold);color:var(--gold-2);cursor:pointer;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .35s,transform .35s,visibility .35s,color .25s}
+.to-top::before{content:"";position:absolute;inset:0;background:var(--pearl) center/cover;opacity:0;transition:opacity .3s}
+.to-top svg{position:relative;width:14px;height:14px}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{color:#1a1712}
+.to-top:hover::before{opacity:1}
+.to-top:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} .nacre,.inlay{animation:none} .to-top{transition:none}}
+@media (max-width:960px){.site-nav{gap:24px;letter-spacing:.2em;margin-right:-.2em}}
+@media (max-width:720px){
+  html{scroll-padding-top:110px}
+  header .in{height:auto;flex-wrap:wrap;gap:0;padding-top:12px;padding-bottom:10px}
+  .mark{font-size:17px}
+  .site-nav{width:100%;justify-content:space-between;gap:0;margin:8px -.14em 0 0;font-size:10.5px;letter-spacing:.14em}
+  .meta{grid-template-columns:90px 1fr}
+}
+
+/* 매뉴얼 */
+.subnav{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+.subnav a{border:1px solid var(--line);background:var(--bg2);padding:7px 16px;font-size:13.5px;color:var(--ink-2)}
+.subnav a:hover{border-color:var(--gold);color:var(--ivory);text-decoration:none}
+.subnav a[aria-current]{border-color:var(--gold);color:var(--ivory)}
+.doc{max-width:900px;padding-bottom:20px}
+.doc h2{padding-top:52px;margin-bottom:16px;scroll-margin-top:90px}
+.doc p,.doc li{font-size:15px}
+.doc ul,.doc ol{padding-left:1.3em} .doc li{margin:4px 0}
+.doc strong{font-weight:500;color:var(--ivory)}
+.doc table{margin:14px 0 18px}
+.doc td em{color:var(--muted);font-style:normal;font-size:13px}
+.doc th:first-child:nth-last-child(2),.doc th:last-child:nth-child(2){width:50%}
+.doc td figure{display:inline-block;vertical-align:top;margin:0 10px 10px 0;max-width:100%}
+.doc td figure img{margin:0}
+.doc td figcaption{font-size:12.5px;color:var(--ink-2);margin-top:4px}
+.doc td img{display:block;max-width:100%;max-height:340px;margin-bottom:6px}
+.doc blockquote{margin:18px 0;padding:12px 18px;background:var(--bg2);border-left:3px solid var(--gold);color:var(--ink-2);font-size:14px}
+.doc blockquote p{margin:0}
+.doc code{background:#1d1a20;padding:1px 6px;border-radius:3px}
+</style>
+</head>
+<body>
+<div class="eaves" role="img" aria-label="붉은 단청 처마 무늬"></div>
+<header><div class="in">
+  <a class="mark" href="/">Hanbok<em>Lab</em></a>
+  <nav class="site-nav" aria-label="사이트"><a href="/#about">About</a><a href="/projects/" aria-current="page">Projects</a><a href="/#data">Data</a><a href="/ontology/">Ontology</a></nav>
+</div></header>
+<main>
+<div class="top">
+  <div class="kicker"><span class="inlay"></span>Annotation Manual · v0.1</div>
+  <h1>흉배 라벨링 작업 매뉴얼</h1>
+  <p class="lead">어노테이션을 시작하기 전에 꼭 알아야 할 것만 모은 최소 매뉴얼이다. 세부 기준은 공유 문서 「흉배_가이드라인」의 라벨링 가이드라인 탭을 따른다. 두 문서가 다르면 가이드라인 문서가 우선한다.</p>
+  <dl class="meta"><dt>프로젝트</dt><dd>조선시대 흉배 연구의 디지털 전환</dd><dt>작성</dt><dd>이윤서</dd><dt>고친 날</dt><dd>2026-11-03</dd></dl>
+  <nav class="subnav" aria-label="매뉴얼"><a href="/hyungbae/">← 흉배 프로젝트 소개</a><a href="/hyungbae/manual/" aria-current=page>작업 매뉴얼</a><a href="/hyungbae/manual/reference/">판별 참고 도감</a></nav>
+</div>
+<article class="doc">
+<h2 id="1">1. 작업 흐름</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>차수</th>
+<th>단계</th>
+<th>하는 일</th>
+<th>Label Studio 프로젝트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1차</td>
+<td>1단계 흉배 위치 표시</td>
+<td>원본 이미지에서 흉배 영역을 표시하거나 해당없음 선택</td>
+<td>자료 구분별 3개 (흉배 단독 · 단령 유물 · 초상화)</td>
+</tr>
+<tr>
+<td>2차</td>
+<td>2단계 부류 판별</td>
+<td>크롭 이미지를 날짐승 / 길짐승으로 판별</td>
+<td>판정 프로젝트 1개</td>
+</tr>
+<tr>
+<td>2차</td>
+<td>3단계 문양 판별</td>
+<td>주 문양 유형과 수량(단/쌍) 기록</td>
+<td>판정 프로젝트 1개 (2단계와 같은 화면)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>모든 단계를 팀원 전원이 작업한다.</li>
+<li>유물당 대표사진 1장만 라벨링한다.</li>
+<li>2차 작업의 크롭 이미지는 1차에서 표시한 영역을 잘라 만든다. 크롭은 따로 하지 않는다.</li>
+</ul>
+<h2 id="2">2. 시작 전에</h2>
+<ul>
+<li>접속 주소와 계정은 단톡방 공지에서 확인한다. 이 페이지에는 적지 않는다.</li>
+<li>서버가 암호화(https)되어 있지 않으므로 다른 곳에서 쓰는 비밀번호를 쓰지 않는다.</li>
+<li>화면 위쪽 메타데이터(유물명 · 국적 · 시대 · 소장처 · 설명)는 참고용이다. 판정은 이미지를 보고 한다.</li>
+</ul>
+<h2 id="3">3. 공통 원칙</h2>
+<ul>
+<li>1 · 2단계에서는 문양 유형을 판단하지 않는다.</li>
+<li>품계와 시기는 어느 단계에서도 판단하지 않는다.</li>
+<li>원본 이미지는 편집하지 않는다.</li>
+</ul>
+<p>헷갈리기 쉬운 세 가지 표시는 다음과 같이 구분한다.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>표시</th>
+<th>언제</th>
+<th>단계</th>
+<th>라벨은?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>해당없음</strong></td>
+<td>이미지에서 흉배가 보이지 않는다</td>
+<td>1단계</td>
+<td>표시 영역 없이 제출</td>
+</tr>
+<tr>
+<td><strong>unknown (미상)</strong></td>
+<td>보이기는 하지만 판별할 수 없다</td>
+<td>2 · 3단계</td>
+<td>unknown 선택</td>
+</tr>
+<tr>
+<td><strong>확인요망</strong></td>
+<td>판정은 했으나 자신이 없다</td>
+<td>전 단계</td>
+<td>라벨은 그대로 두고 체크. <strong>비고에 사유 필수</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>확인요망이 붙은 것은 이윤서가 검수한다. 학습 데이터에는 확인요망이 없는 것과 검수를 마친 것만 들어간다.</p>
+<h2 id="4-1">4. 1단계: 흉배 위치 표시</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>자료 구분</th>
+<th>도형</th>
+<th>주의</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>흉배 단독</td>
+<td>사각형</td>
+<td>배경 · 색상표 · 자는 넣지 않는다</td>
+</tr>
+<tr>
+<td>단령 유물</td>
+<td>폴리곤</td>
+<td>가려진 부분은 빼고 보이는 부분만</td>
+</tr>
+<tr>
+<td>초상화</td>
+<td>폴리곤</td>
+<td>가려진 부분은 빼고 보이는 부분만</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>클래스</th>
+<th>국문명</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hyungbae</code></td>
+<td>흉배</td>
+<td>관복 흉배</td>
+</tr>
+<tr>
+<td><code>bo</code></td>
+<td>보</td>
+<td>왕실의 보. 용 문양, 대부분 원형. 2 · 3단계는 하지 않는다</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>이미지마다 <strong>표시 영역 1개 이상</strong> 또는 <strong>해당없음</strong> 중 하나로 제출한다. 둘을 함께 고를 수 없다.</li>
+<li>해당없음을 고르는 경우: 흉배가 없는 단령, 흉배와 무관한 이미지, 흉배가 완전히 가려진 초상(비고에 "가려짐").</li>
+<li>흉배가 일부만 가려졌으면 보이는 부분만 표시한다.</li>
+<li>여성 흉배(임시 규칙): <code>hyungbae</code>로 표시하고 확인요망을 체크한 뒤 비고에 "여성 흉배"라고 쓴다.</li>
+</ul>
+<h2 id="5-2">5. 2단계: 부류 판별</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>클래스</th>
+<th>국문명</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bird</code></td>
+<td>날짐승</td>
+<td>운학, 백한, 운안 등</td>
+</tr>
+<tr>
+<td><code>beast</code></td>
+<td>길짐승</td>
+<td>호표, 해치, 사자 등</td>
+</tr>
+<tr>
+<td><code>other</code></td>
+<td>기타</td>
+<td>가이드라인 5절 참고</td>
+</tr>
+<tr>
+<td><code>unknown</code></td>
+<td>미상</td>
+<td>판별할 수 없음</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>봉황은 <code>bird</code>, 기린과 백택은 <code>beast</code>로 판별한다. 왕실이나 종친 흉배인지는 3단계에서 본다.</li>
+<li>모란 · 수자 흉배는 날짐승과 길짐승 어느 쪽에도 억지로 넣지 않는다.</li>
+</ul>
+<h2 id="6-3">6. 3단계: 문양 판별</h2>
+<ul>
+<li>기록하는 것: <strong>주 문양 유형</strong>, <strong>수량</strong>(단 / 쌍), 확인요망, 비고.</li>
+<li>보조 문양(구름, 파도, 바위 등)은 기록하지 않는다.</li>
+<li>유형 이름은 자료에 적힌 문헌 용어를 따른다. 자료에 운학이면 운학, 학이면 학이다. 학을 운학으로 바꾸거나 운학을 학으로 줄이지 않는다.</li>
+<li>생김새 비교는 <a href="reference/">판별 참고 도감</a>을 본다.</li>
+</ul>
+<h2 id="7">7. 용어</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>쓰는 말</th>
+<th>뜻</th>
+<th>쓰지 않는 말</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>부류 판별</td>
+<td>날짐승과 길짐승을 가르는 판별 (2단계)</td>
+<td>종 판별, 문무 판별</td>
+</tr>
+<tr>
+<td>유형 판별</td>
+<td>날짐승 · 길짐승 안에서 운학 · 백한 · 호표 등을 가르는 판별 (3단계)</td>
+<td>세부 도상 판별</td>
+</tr>
+<tr>
+<td>문양</td>
+<td>흉배에 표현된 무늬</td>
+<td>도상</td>
+</tr>
+<tr>
+<td>표시 영역</td>
+<td>1단계에서 그린 사각형이나 폴리곤</td>
+<td>박스</td>
+</tr>
+<tr>
+<td>자료 구분</td>
+<td>흉배 단독 · 단령 유물 · 초상화의 구분</td>
+<td>분류, 유형, 매체</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="8">8. 아직 정해지지 않은 것</h2>
+<ul>
+<li>중국 흉배를 학습에 쓸지 — 교수님 확인 예정</li>
+<li>여성 흉배를 포함할지 — 교수님 확인 예정. 그때까지 4절의 임시 규칙을 따른다</li>
+<li><code>bo</code> 클래스 확정 — 교수님 확인 예정</li>
+<li>3단계 주 문양 유형 목록</li>
+</ul>
+<p>정해지면 이 페이지를 고치고 아래 기록에 남긴다.</p>
+<h2 id="9">9. 이 매뉴얼 고치기</h2>
+<p>원고는 GitHub 저장소 <a href="https://github.com/Yunseo-Isabel-Lee/hanboklab">Yunseo-Isabel-Lee/hanboklab</a>의 <code>hyungbae/manual/src/</code> 폴더에 있는 마크다운 파일이다(<code>manual.md</code>, <code>reference.md</code>). 고칠 곳이 있으면 해당 파일에서 연필 아이콘을 눌러 수정하고 Pull Request로 제안한다. 이윤서가 확인한 뒤 반영한다.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>날짜</th>
+<th>바뀐 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-11-03</td>
+<td>v0.1 첫 공개</td>
+</tr>
+</tbody>
+</table></div>
+</article>
+</main>
+
+<footer>
+  <div class="in">
+    <span>© 2026 이윤서 Yunseo Isabel Lee</span>
+    <span><a href="mailto:lisabelys@gmail.com">lisabelys@gmail.com</a><span class="sep">·</span><a href="https://isabel.co.kr/">isabel.co.kr</a></span>
+  </div>
+  <div class="giant nacre" aria-hidden="true">HanbokLab</div>
+  <div class="eaves bottom" aria-hidden="true"></div>
+</footer>
+
+<button class="to-top" type="button" aria-label="맨 위로">
+  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M7 12.5V2M2.5 6.5 7 2l4.5 4.5"/></svg>
+</button>
+
+<script>
+  (function(){
+    var btn=document.querySelector('.to-top');
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+    function onScroll(){btn.classList.toggle('show',window.scrollY>600)}
+    window.addEventListener('scroll',onScroll,{passive:true});
+    onScroll();
+    btn.addEventListener('click',function(){
+      window.scrollTo({top:0,behavior:reduce.matches?'auto':'smooth'});
+      document.querySelector('.mark').focus({preventScroll:true});
+    });
+  })();
+</script>
+</body>
+</html>
