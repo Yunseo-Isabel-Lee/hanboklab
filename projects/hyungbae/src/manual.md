@@ -97,7 +97,7 @@ updated: 2026-11-03
 
 ## 9. 이 매뉴얼 고치기
 
-원고는 GitHub 저장소 [Yunseo-Isabel-Lee/hanboklab](https://github.com/Yunseo-Isabel-Lee/hanboklab)의 `hyungbae/manual/src/` 폴더에 있는 마크다운 파일이다. 고칠 곳이 있으면 해당 파일에서 연필 아이콘을 눌러 수정하고 Pull Request로 제안한다. 이윤서가 확인한 뒤 반영한다.
+원고는 GitHub 저장소 [Yunseo-Isabel-Lee/hanboklab](https://github.com/Yunseo-Isabel-Lee/hanboklab)의 `projects/hyungbae/src/` 폴더에 있는 마크다운 파일이다(`manual.md`, `reference.md`). 고칠 곳이 있으면 해당 파일에서 연필 아이콘을 눌러 수정하고 Pull Request로 제안한다. 이윤서가 확인한 뒤 반영한다.
 
 | 날짜 | 바뀐 내용 |
 |---|---|

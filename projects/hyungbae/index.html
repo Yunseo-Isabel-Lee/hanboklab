@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex">
-<title>흉배 라벨링 작업 매뉴얼 · HanbokLab</title>
+
+<title>조선시대 흉배 연구의 디지털 전환 · HanbokLab</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Jost:wght@300;400;500&family=Noto+Serif+KR:wght@200;300;400;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -128,6 +128,9 @@ footer .sep{margin:0 10px}
 .doc table{margin:14px 0 18px}
 .doc td em{color:var(--muted);font-style:normal;font-size:13px}
 .doc th:first-child:nth-last-child(2),.doc th:last-child:nth-child(2){width:50%}
+.doc td figure{display:inline-block;vertical-align:top;margin:0 10px 10px 0;max-width:100%}
+.doc td figure img{margin:0}
+.doc td figcaption{font-size:12.5px;color:var(--ink-2);margin-top:4px}
 .doc td img{display:block;max-width:100%;max-height:340px;margin-bottom:6px}
 .doc blockquote{margin:18px 0;padding:12px 18px;background:var(--bg2);border-left:3px solid var(--gold);color:var(--ink-2);font-size:14px}
 .doc blockquote p{margin:0}
@@ -138,252 +141,41 @@ footer .sep{margin:0 10px}
 <div class="eaves" role="img" aria-label="붉은 단청 처마 무늬"></div>
 <header><div class="in">
   <a class="mark" href="/">Hanbok<em>Lab</em></a>
-  <nav class="site-nav" aria-label="사이트"><a href="/#about">About</a><a href="/#projects" aria-current="page">Projects</a><a href="/#data">Data</a><a href="/ontology/">Ontology</a></nav>
+  <nav class="site-nav" aria-label="사이트"><a href="/#about">About</a><a href="/projects/" aria-current="page">Projects</a><a href="/#data">Data</a><a href="/ontology/">Ontology</a></nav>
 </div></header>
 <main>
 <div class="top">
-  <div class="kicker"><span class="inlay"></span>Annotation Manual · v0.1</div>
-  <h1>흉배 라벨링 작업 매뉴얼</h1>
-  <p class="lead">어노테이션을 시작하기 전에 꼭 알아야 할 것만 모은 최소 매뉴얼이다. 세부 기준은 공유 문서 「흉배_가이드라인」의 라벨링 가이드라인 탭을 따른다. 두 문서가 다르면 가이드라인 문서가 우선한다.</p>
+  <div class="kicker"><span class="inlay"></span>Project 01 · 조선 흉배</div>
+  <h1>조선시대 흉배 연구의 디지털 전환</h1>
+  <p class="lead">여러 소장처에 흩어진 조선시대 흉배의 기록과 이미지를 모아, 문양·시기·품계를 온톨로지로 잇고 이미지 분류 모델로 분석하는 연구교육연계과제다.</p>
   <dl class="meta"><dt>프로젝트</dt><dd>조선시대 흉배 연구의 디지털 전환</dd><dt>작성</dt><dd>이윤서</dd><dt>고친 날</dt><dd>2026-11-03</dd></dl>
-  <nav class="subnav" aria-label="매뉴얼"><a href="/hyungbae/manual/" aria-current=page>작업 매뉴얼</a><a href="/hyungbae/manual/reference/">판별 참고 도감</a></nav>
+  <nav class="subnav" aria-label="매뉴얼"><a href="/projects/hyungbae/" aria-current=page>프로젝트 개요</a><a href="/projects/hyungbae/manual/">작업 매뉴얼</a><a href="/projects/hyungbae/manual/reference/">판별 참고 도감</a></nav>
 </div>
 <article class="doc">
-<h2 id="1">1. 작업 흐름</h2>
+<h2 id="_1">바로가기</h2>
 <div class="tw"><table>
 <thead>
 <tr>
-<th>차수</th>
-<th>단계</th>
-<th>하는 일</th>
-<th>Label Studio 프로젝트</th>
+<th>페이지</th>
+<th>내용</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1차</td>
-<td>1단계 흉배 위치 표시</td>
-<td>원본 이미지에서 흉배 영역을 표시하거나 해당없음 선택</td>
-<td>자료 구분별 3개 (흉배 단독 · 단령 유물 · 초상화)</td>
+<td><a href="manual/">라벨링 작업 매뉴얼</a></td>
+<td>어노테이션 전에 보는 최소 매뉴얼. 작업 흐름, 공통 원칙, 1~3단계</td>
 </tr>
 <tr>
-<td>2차</td>
-<td>2단계 부류 판별</td>
-<td>크롭 이미지를 날짐승 / 길짐승으로 판별</td>
-<td>판정 프로젝트 1개</td>
+<td><a href="manual/reference/">판별 참고 도감</a></td>
+<td>흉배에 나오는 새를 실물 사진과 나란히 놓은 참고 자료</td>
 </tr>
 <tr>
-<td>2차</td>
-<td>3단계 문양 판별</td>
-<td>주 문양 유형과 수량(단/쌍) 기록</td>
-<td>판정 프로젝트 1개 (2단계와 같은 화면)</td>
-</tr>
-</tbody>
-</table></div>
-<ul>
-<li>모든 단계를 팀원 전원이 작업한다.</li>
-<li>유물당 대표사진 1장만 라벨링한다.</li>
-<li>2차 작업의 크롭 이미지는 1차에서 표시한 영역을 잘라 만든다. 크롭은 따로 하지 않는다.</li>
-</ul>
-<h2 id="2">2. 시작 전에</h2>
-<ul>
-<li>접속 주소와 계정은 단톡방 공지에서 확인한다. 이 페이지에는 적지 않는다.</li>
-<li>서버가 암호화(https)되어 있지 않으므로 다른 곳에서 쓰는 비밀번호를 쓰지 않는다.</li>
-<li>화면 위쪽 메타데이터(유물명 · 국적 · 시대 · 소장처 · 설명)는 참고용이다. 판정은 이미지를 보고 한다.</li>
-</ul>
-<h2 id="3">3. 공통 원칙</h2>
-<ul>
-<li>1 · 2단계에서는 문양 유형을 판단하지 않는다.</li>
-<li>품계와 시기는 어느 단계에서도 판단하지 않는다.</li>
-<li>원본 이미지는 편집하지 않는다.</li>
-</ul>
-<p>헷갈리기 쉬운 세 가지 표시는 다음과 같이 구분한다.</p>
-<div class="tw"><table>
-<thead>
-<tr>
-<th>표시</th>
-<th>언제</th>
-<th>단계</th>
-<th>라벨은?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>해당없음</strong></td>
-<td>이미지에서 흉배가 보이지 않는다</td>
-<td>1단계</td>
-<td>표시 영역 없이 제출</td>
+<td><a href="http://archive.hanboklab.com/hyungbae/">조선 흉배 아카이브 시제품</a></td>
+<td>국립중앙박물관 · 메트로폴리탄 미술관 한국 흉배 52점</td>
 </tr>
 <tr>
-<td><strong>unknown (미상)</strong></td>
-<td>보이기는 하지만 판별할 수 없다</td>
-<td>2 · 3단계</td>
-<td>unknown 선택</td>
-</tr>
-<tr>
-<td><strong>확인요망</strong></td>
-<td>판정은 했으나 자신이 없다</td>
-<td>전 단계</td>
-<td>라벨은 그대로 두고 체크. <strong>비고에 사유 필수</strong></td>
-</tr>
-</tbody>
-</table></div>
-<p>확인요망이 붙은 것은 이윤서가 검수한다. 학습 데이터에는 확인요망이 없는 것과 검수를 마친 것만 들어간다.</p>
-<h2 id="4-1">4. 1단계: 흉배 위치 표시</h2>
-<div class="tw"><table>
-<thead>
-<tr>
-<th>자료 구분</th>
-<th>도형</th>
-<th>주의</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>흉배 단독</td>
-<td>사각형</td>
-<td>배경 · 색상표 · 자는 넣지 않는다</td>
-</tr>
-<tr>
-<td>단령 유물</td>
-<td>폴리곤</td>
-<td>가려진 부분은 빼고 보이는 부분만</td>
-</tr>
-<tr>
-<td>초상화</td>
-<td>폴리곤</td>
-<td>가려진 부분은 빼고 보이는 부분만</td>
-</tr>
-</tbody>
-</table></div>
-<div class="tw"><table>
-<thead>
-<tr>
-<th>클래스</th>
-<th>국문명</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>hyungbae</code></td>
-<td>흉배</td>
-<td>관복 흉배</td>
-</tr>
-<tr>
-<td><code>bo</code></td>
-<td>보</td>
-<td>왕실의 보. 용 문양, 대부분 원형. 2 · 3단계는 하지 않는다</td>
-</tr>
-</tbody>
-</table></div>
-<ul>
-<li>이미지마다 <strong>표시 영역 1개 이상</strong> 또는 <strong>해당없음</strong> 중 하나로 제출한다. 둘을 함께 고를 수 없다.</li>
-<li>해당없음을 고르는 경우: 흉배가 없는 단령, 흉배와 무관한 이미지, 흉배가 완전히 가려진 초상(비고에 "가려짐").</li>
-<li>흉배가 일부만 가려졌으면 보이는 부분만 표시한다.</li>
-<li>여성 흉배(임시 규칙): <code>hyungbae</code>로 표시하고 확인요망을 체크한 뒤 비고에 "여성 흉배"라고 쓴다.</li>
-</ul>
-<h2 id="5-2">5. 2단계: 부류 판별</h2>
-<div class="tw"><table>
-<thead>
-<tr>
-<th>클래스</th>
-<th>국문명</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>bird</code></td>
-<td>날짐승</td>
-<td>운학, 백한, 운안 등</td>
-</tr>
-<tr>
-<td><code>beast</code></td>
-<td>길짐승</td>
-<td>호표, 해치, 사자 등</td>
-</tr>
-<tr>
-<td><code>other</code></td>
-<td>기타</td>
-<td>가이드라인 5절 참고</td>
-</tr>
-<tr>
-<td><code>unknown</code></td>
-<td>미상</td>
-<td>판별할 수 없음</td>
-</tr>
-</tbody>
-</table></div>
-<ul>
-<li>봉황은 <code>bird</code>, 기린과 백택은 <code>beast</code>로 판별한다. 왕실이나 종친 흉배인지는 3단계에서 본다.</li>
-<li>모란 · 수자 흉배는 날짐승과 길짐승 어느 쪽에도 억지로 넣지 않는다.</li>
-</ul>
-<h2 id="6-3">6. 3단계: 문양 판별</h2>
-<ul>
-<li>기록하는 것: <strong>주 문양 유형</strong>, <strong>수량</strong>(단 / 쌍), 확인요망, 비고.</li>
-<li>보조 문양(구름, 파도, 바위 등)은 기록하지 않는다.</li>
-<li>유형 이름은 자료에 적힌 문헌 용어를 따른다. 자료에 운학이면 운학, 학이면 학이다. 학을 운학으로 바꾸거나 운학을 학으로 줄이지 않는다.</li>
-<li>생김새 비교는 <a href="reference/">판별 참고 도감</a>을 본다.</li>
-</ul>
-<h2 id="7">7. 용어</h2>
-<div class="tw"><table>
-<thead>
-<tr>
-<th>쓰는 말</th>
-<th>뜻</th>
-<th>쓰지 않는 말</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>부류 판별</td>
-<td>날짐승과 길짐승을 가르는 판별 (2단계)</td>
-<td>종 판별, 문무 판별</td>
-</tr>
-<tr>
-<td>유형 판별</td>
-<td>날짐승 · 길짐승 안에서 운학 · 백한 · 호표 등을 가르는 판별 (3단계)</td>
-<td>세부 도상 판별</td>
-</tr>
-<tr>
-<td>문양</td>
-<td>흉배에 표현된 무늬</td>
-<td>도상</td>
-</tr>
-<tr>
-<td>표시 영역</td>
-<td>1단계에서 그린 사각형이나 폴리곤</td>
-<td>박스</td>
-</tr>
-<tr>
-<td>자료 구분</td>
-<td>흉배 단독 · 단령 유물 · 초상화의 구분</td>
-<td>분류, 유형, 매체</td>
-</tr>
-</tbody>
-</table></div>
-<h2 id="8">8. 아직 정해지지 않은 것</h2>
-<ul>
-<li>중국 흉배를 학습에 쓸지 — 교수님 확인 예정</li>
-<li>여성 흉배를 포함할지 — 교수님 확인 예정. 그때까지 4절의 임시 규칙을 따른다</li>
-<li><code>bo</code> 클래스 확정 — 교수님 확인 예정</li>
-<li>3단계 주 문양 유형 목록</li>
-</ul>
-<p>정해지면 이 페이지를 고치고 아래 기록에 남긴다.</p>
-<h2 id="9">9. 이 매뉴얼 고치기</h2>
-<p>원고는 GitHub 저장소 <a href="https://github.com/Yunseo-Isabel-Lee/hanboklab">Yunseo-Isabel-Lee/hanboklab</a>의 <code>hyungbae/manual/src/</code> 폴더에 있는 마크다운 파일이다. 고칠 곳이 있으면 해당 파일에서 연필 아이콘을 눌러 수정하고 Pull Request로 제안한다. 이윤서가 확인한 뒤 반영한다.</p>
-<div class="tw"><table>
-<thead>
-<tr>
-<th>날짜</th>
-<th>바뀐 내용</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2026-11-03</td>
-<td>v0.1 첫 공개</td>
+<td><a href="/ontology/">흉배 온톨로지</a></td>
+<td>흉배 실물 유물의 기술규칙과 어휘설명 v0.1</td>
 </tr>
 </tbody>
 </table></div>
