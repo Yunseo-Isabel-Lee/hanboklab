@@ -10,12 +10,6 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-dcterms:date rdfs:label "연도"@ko ;
-    rdfs:isDefinedBy dcterms: ;
-    skos:definition "자원의 생애에서 어떤 일과 관련된 시점이나 기간"@ko ;
-    skos:example "1508/1572"@ko ;
-    skos:scopeNote "흉배가 제작·착용된 것으로 보는 시기 중 기관이 연도를 직접 적은 경우의 연도. EDTF 표기(단일 1870, 범위 1508/1572)로 적는다. 연도의 성격은 기관 레코드 원문으로 확인한다. 세기·시대는 dcterms:temporal로 시기 개념에 잇는다"@ko .
-
 dcterms:identifier rdfs:label "식별자"@ko ;
     rdfs:isDefinedBy dcterms: ;
     skos:definition "주어진 맥락에서 자원을 모호하지 않게 가리키는 참조"@ko ;
@@ -61,12 +55,6 @@ crm:E21_Person rdfs:label "사람"@ko ;
     skos:definition "실제로 살았거나 살고 있는 사람"@ko ;
     skos:example "이＊＊＊"@ko ;
     skos:scopeNote "개인 소장자. E39와 함께 단다. 출처가 이름을 가린 경우도 개인임이 분명하면 단다"@ko .
-
-crm:E22_Human-Made_Object rdfs:label "인공물"@ko ;
-    rdfs:isDefinedBy crm: ;
-    skos:definition "사람이 의도적으로 만들었고, 다른 물체와 객관적으로 분리되는 물리적 경계를 가진 물체"@ko ;
-    skos:example "hanboko:hb0001"@ko ;
-    skos:scopeNote "흉배 유물 한 점. 단령에 꿰매 단 흉배도 떼어 낼 수 있으므로 이 클래스로 둔다. 이 아카이브의 통합 기술 단위(이윤서 그래프)"@ko .
 
 crm:E31_Document rdfs:label "문서"@ko ;
     rdfs:isDefinedBy crm: ;
@@ -279,6 +267,34 @@ hanbokc:wearingContext a skos:ConceptScheme ;
     skos:prefLabel "Wearing context"@en,
         "착용 맥락"@ko ;
     skos:scopeNote "관복 / 혼례복 / 미상. 형태가 같은 단령이라도 혼례 때 입었으면 혼례로 적는다. 혼례용 흉배를 걸러 내는 데 쓴다"@ko .
+
+hanbok:beginYear a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "begin year"@en,
+        "시작 연도"@ko ;
+    rdfs:comment "흉배가 제작·착용된 것으로 보는 시기의 시작 연도"@ko ;
+    rdfs:domain crm:E22_Human-Made_Object ;
+    rdfs:isDefinedBy hanbok: ;
+    rdfs:range xsd:integer ;
+    skos:example "1508"@ko ;
+    skos:scopeNote "기관이 연도를 직접 적은 경우에만 쓴다. 연도의 성격(제작 연도, 피장자 생몰년 등)은 기관 레코드 원문으로 확인한다. CIDOC CRM의 기간(E52 Time-Span) 시작값을 유물에 바로 붙인 지름길이며, 제작·착용 사건 중 어느 쪽인지는 특정하지 않는다"@ko .
+
+hanbok:endYear a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "end year"@en,
+        "끝 연도"@ko ;
+    rdfs:comment "흉배가 제작·착용된 것으로 보는 시기의 끝 연도"@ko ;
+    rdfs:domain crm:E22_Human-Made_Object ;
+    rdfs:isDefinedBy hanbok: ;
+    rdfs:range xsd:integer ;
+    skos:example "1572"@ko ;
+    skos:scopeNote "기관이 연도 범위를 적은 경우에만 쓴다. 단일 연도면 시작 연도와 같게 적는다. CIDOC CRM의 기간(E52 Time-Span) 끝값에 해당하는 지름길"@ko .
+
+crm:E22_Human-Made_Object rdfs:label "인공물"@ko ;
+    rdfs:isDefinedBy crm: ;
+    skos:definition "사람이 의도적으로 만들었고, 다른 물체와 객관적으로 분리되는 물리적 경계를 가진 물체"@ko ;
+    skos:example "hanboko:hb0001"@ko ;
+    skos:scopeNote "흉배 유물 한 점. 단령에 꿰매 단 흉배도 떼어 낼 수 있으므로 이 클래스로 둔다. 이 아카이브의 통합 기술 단위(이윤서 그래프)"@ko .
 
 skos:ConceptScheme rdfs:label "개념체계"@ko ;
     rdfs:isDefinedBy skos: ;

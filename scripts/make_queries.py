@@ -9,8 +9,8 @@ P = """PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX hanbok: <https://hanboklab.com/ontology/>
 PREFIX hanbokc: <https://hanboklab.com/concept/>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 """
 Q = [
  ("상업적으로 쓸 수 있는 쌍학 흉배 보여줘",
@@ -60,16 +60,14 @@ Q = [
   ?item dcterms:title ?title . FILTER(LANG(?title) = "ko")
 }"""),
  ("1734년 이전의 한국 흉배",
-  "S1 · 기관이 연도를 적은 유물은 dcterms:date(EDTF)의 끝 연도로, 아니면 1734년 이전임이 확실한 세기(15~17세기)로 찾는다. 18세기 전반처럼 1734년에 걸치는 구간은 넣지 않는다",
+  "S1 · 기관이 연도를 적은 유물은 끝 연도로, 아니면 1734년 이전임이 확실한 세기(15~17세기)로 찾는다. 18세기 전반처럼 1734년에 걸치는 구간은 넣지 않는다",
   """SELECT DISTINCT ?item ?title WHERE {
   ?item dcterms:spatial hanbokc:korea ; dcterms:title ?title . FILTER(LANG(?title) = "ko")
-  { ?item dcterms:date ?d .
-    BIND(xsd:integer(IF(CONTAINS(STR(?d), "/"), STRAFTER(STR(?d), "/"), STR(?d))) AS ?end)
-    FILTER(?end < 1734) }
+  { ?item hanbok:endYear ?y . FILTER(?y < 1734) }
   UNION
   { VALUES ?c { hanbokc:c15 hanbokc:c16 hanbokc:c17 }
     ?c ^skos:broader* ?p . ?item dcterms:temporal ?p .
-    FILTER NOT EXISTS { ?item dcterms:date ?d2 } }
+    FILTER NOT EXISTS { ?item hanbok:endYear ?y2 } }
 }"""),
  ("가로가 20cm 넘는 한국 흉배",
   "치수 노드 · 측정 종류 「가로」의 값",

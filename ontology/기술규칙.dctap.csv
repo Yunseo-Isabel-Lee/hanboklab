@@ -6,7 +6,8 @@ crm:E22_Human-Made_Object,흉배 유물,crm:P2_has_type,문양,FALSE,FALSE,IRI,,
 crm:E22_Human-Made_Object,흉배 유물,crm:P50_has_current_keeper,소장처,TRUE,FALSE,IRI,,crm:E39_Actor,10/9 수집 시트 기준 56개 소장처
 crm:E22_Human-Made_Object,흉배 유물,dcterms:spatial,국적,FALSE,FALSE,IRI,,skos:Concept,"국적 개념체계의 개념(한국 / 중국 등). 기관 기재값에 연결만 한다. 예: 한국 - 조선 → 「한국」, China → 「중국」. 중국 흉배·보자를 걸러 내는 데 쓴다"
 crm:E22_Human-Made_Object,흉배 유물,dcterms:temporal,시기,FALSE,TRUE,IRI,,skos:Concept,시기 개념체계의 개념. 흉배가 제작·착용된 것으로 보는 시기. 기관 기재값을 숫자로 바꾸지 않고 해당 개념에 연결만 한다. 예: late 19th century → 「19세기 후반」. 기관이 '조선'만 적었거나 미상이면 비운다
-crm:E22_Human-Made_Object,흉배 유물,dcterms:date,연도(기관 기재),FALSE,FALSE,literal,xsd:string,,"기관이 연도를 직접 적은 경우에만 EDTF 표기로 적는다. 단일 연도 1870, 범위 1508/1572. 연도의 성격(제작 연도, 피장자 생몰년 등)은 기관 레코드 원문으로 확인한다. 세기·시대 같은 말은 여기 적지 않고 시기 개념(dcterms:temporal)에 연결한다"
+crm:E22_Human-Made_Object,흉배 유물,hanbok:beginYear,시작 연도,FALSE,FALSE,literal,xsd:integer,,기관이 연도를 직접 적은 경우에만. 예: 1850년 → 1850
+crm:E22_Human-Made_Object,흉배 유물,hanbok:endYear,끝 연도,FALSE,FALSE,literal,xsd:integer,,기관이 연도 범위를 직접 적은 경우에만. 단일 연도면 시작 연도와 같게
 crm:E22_Human-Made_Object,흉배 유물,crm:P43_has_dimension,크기,FALSE,TRUE,IRI,,crm:E54_Dimension,세로·가로 각각 하나씩. 10/9 수집 시트 344건 중 220건에 크기 값 있음
 crm:E22_Human-Made_Object,흉배 유물,crm:P45_consists_of,재질,FALSE,TRUE,IRI,,skos:Concept,재질 개념체계의 개념. 기관 표기의 수준이 제각각(섬유 / 사직-견 / 직물 / Silk and metallic-thread embroidery …)이라 대표 재질로 묶는 작업은 추후. 그 전까지 원문은 기관 레코드에만 둔다
 crm:E22_Human-Made_Object,흉배 유물,crm:P101_had_as_general_use,착용 맥락,FALSE,FALSE,IRI,,skos:Concept,착용 맥락 개념체계의 개념: 관복 / 혼례복 / 미상. 흉배를 단 복식을 어떤 자리에서 입었는지. 형태가 같은 단령이라도 혼례 때 입었으면 혼례로 적는다
