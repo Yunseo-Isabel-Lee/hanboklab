@@ -71,8 +71,7 @@ for r in smp:
     d.add((o, CRM.P50_has_current_keeper, HBO["actor-" + r["keeper"]]))
     if r["nationality"]: d.add((o, DCTERMS.spatial, HBC[r["nationality"]]))
     for p in split(r["period"]): d.add((o, DCTERMS.temporal, HBC[p]))
-    if r["beginYear"]: d.add((o, HB.beginYear, Literal(int(r["beginYear"]))))
-    if r["endYear"]: d.add((o, HB.endYear, Literal(int(r["endYear"]))))
+    if r["date"]: d.add((o, DCTERMS.date, Literal(r["date"])))
     for kind in ["height", "width"]:
         if r[kind]:
             dm = HBO[f"{r['objectID']}-{kind}"]

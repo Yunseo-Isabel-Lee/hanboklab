@@ -1,5 +1,5 @@
 ﻿termID,label_ko,label_en,termType,vocabulary,definition,usage,domain,range,example
-hanbok:,한복 아카이브 자체 용어,Hanbok Archive ontology,Namespace,한복 아카이브 자체,https://hanboklab.com/ontology/,이 아카이브가 새로 정의한 속성,,,
+hanbok:,한복 아카이브 자체 용어,Hanbok Archive ontology,Namespace,한복 아카이브 자체,https://hanboklab.com/ontology/,이 아카이브의 기술규칙(shape) 이름. 자체 속성은 아직 없다,,,
 hanbokc:,한복 아카이브 개념,Hanbok Archive concepts,Namespace,한복 아카이브 자체,https://hanboklab.com/concept/,통제어휘의 개념과 개념체계,,,
 hanboko:,한복 아카이브 유물,Hanbok Archive objects,Namespace,한복 아카이브 자체,https://hanboklab.com/object/,유물과 기관 레코드,,,
 crm:,CIDOC CRM,CIDOC CRM,Namespace,CIDOC CRM 7.1.3,http://www.cidoc-crm.org/cidoc-crm/,공식 버전 7.1.3 기준,,,
@@ -33,8 +33,7 @@ crm:P2_has_type,유형을 가짐,has type,Property,CIDOC CRM 7.1.3,개체를 E55
 crm:P50_has_current_keeper,현 소장처,has current keeper,Property,CIDOC CRM 7.1.3,물리적 사물을 현재 보관·관리하는 행위자,유물의 소장처,crm:E18_Physical_Thing,crm:E39_Actor,hb0001 P50 메트로폴리탄 미술관
 dcterms:spatial,공간 범위,Spatial Coverage,Property,DCMI Metadata Terms,자원의 공간적 특성,유물의 국적 개념을 잇는다. 원래 범위는 dcterms:Location이지만 국적 개념(skos:Concept)을 장소로 써서 연결한다,crm:E22_Human-Made_Object,skos:Concept,hb0001 spatial 「한국」
 dcterms:temporal,시간 범위,Temporal Coverage,Property,DCMI Metadata Terms,자원의 시간적 특성,유물의 시기 개념을 잇는다. 기관 기재값을 숫자로 바꾸지 않고 해당 개념에 연결만 한다,crm:E22_Human-Made_Object,skos:Concept,late 19th century → 「19세기 후반」
-hanbok:beginYear,시작 연도,begin year,Property,한복 아카이브 자체,흉배가 제작·착용된 것으로 보는 시기의 시작 연도,"기관이 연도를 직접 적은 경우에만 쓴다. 연도의 성격(제작 연도, 피장자 생몰년 등)은 기관 레코드 원문으로 확인한다. CIDOC CRM의 기간(E52 Time-Span) 시작값을 유물에 바로 붙인 지름길이며, 제작·착용 사건 중 어느 쪽인지는 특정하지 않는다",crm:E22_Human-Made_Object,xsd:integer,1508
-hanbok:endYear,끝 연도,end year,Property,한복 아카이브 자체,흉배가 제작·착용된 것으로 보는 시기의 끝 연도,기관이 연도 범위를 적은 경우에만 쓴다. 단일 연도면 시작 연도와 같게 적는다. CIDOC CRM의 기간(E52 Time-Span) 끝값에 해당하는 지름길,crm:E22_Human-Made_Object,xsd:integer,1572
+dcterms:date,연도,Date,Property,DCMI Metadata Terms,자원의 생애에서 어떤 일과 관련된 시점이나 기간,"흉배가 제작·착용된 것으로 보는 시기 중 기관이 연도를 직접 적은 경우의 연도. EDTF 표기(단일 1870, 범위 1508/1572)로 적는다. 연도의 성격은 기관 레코드 원문으로 확인한다. 세기·시대는 dcterms:temporal로 시기 개념에 잇는다",crm:E22_Human-Made_Object,xsd:string,1508/1572
 crm:P43_has_dimension,치수를 가짐,has dimension,Property,CIDOC CRM 7.1.3,개체의 측정 가능한 치수,유물의 세로·가로 치수 노드를 잇는다,crm:E70_Thing,crm:E54_Dimension,
 crm:P45_consists_of,재료로 구성됨,consists of,Property,CIDOC CRM 7.1.3,물리적 사물을 이루는 재료,유물의 재질 개념. 재질 개념은 crm:E57_Material을 겸한다,crm:E18_Physical_Thing,crm:E57_Material,
 crm:P101_had_as_general_use,일반적 용도,had as general use,Property,CIDOC CRM 7.1.3,사물의 일반적인 쓰임,흉배를 단 복식의 착용 맥락(관복/혼례복/미상),crm:E70_Thing,crm:E55_Type,hb0001 P101 「관복」
