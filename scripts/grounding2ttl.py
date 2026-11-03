@@ -1,7 +1,7 @@
 """개념.csv → 개념.ttl, 샘플데이터.csv → 샘플데이터.ttl
 사용: python3 grounding2ttl.py <grounding 폴더> <어휘설명.csv 있는 폴더>
 """
-import csv, sys, os
+import csv, sys, os, re
 from rdflib import Graph, Namespace, URIRef, Literal
 from rdflib.namespace import RDF, RDFS, XSD, SKOS, DCTERMS, FOAF
 
@@ -43,22 +43,21 @@ print("개념.ttl:", len(g))
 
 # ═ 샘플 데이터
 smp = list(csv.DictReader(open(os.path.join(g_dir, DATA + ".csv"), encoding="utf-8-sig")))
-KEEPERS = {
-    "nmk": ("국립중앙박물관", "National Museum of Korea", "https://www.museum.go.kr/"),
-    "met": ("메트로폴리탄 미술관", "The Metropolitan Museum of Art", "https://www.metmuseum.org/"),
-    "dku": ("단국대학교 석주선기념박물관", "Dankook University Seok Juseon Memorial Museum", "https://museum.dankook.ac.kr/"),
-    "gogung": ("국립고궁박물관", "National Palace Museum of Korea", "https://www.gogung.go.kr/"),
-}
-SEARCH = {"dku": "https://museum.dankook.ac.kr/소장품-검색"}
+# 소장처·작성 기관은 샘플데이터.csv의 keeper_*, publisher_* 칸에서 만든다(여러 기관 레코드는 " | "로 나란히)
 d = Graph(); bind(d)
-used = {r["keeper"] for r in smp} | {r["publisher"] for r in smp}
-for k, (ko, en, home) in KEEPERS.items():
-    if k not in used: continue
+bar = lambda v: [x.strip() for x in v.split("|")]
+actors = {}
+for r in smp:
+    actors.setdefault(r["keeper"], (r["keeper_ko"], r["keeper_en"], r["keeper_search"]))
+    for pid, pko, pen in zip(bar(r["publisher"]), bar(r["publisher_ko"]), bar(r["publisher_en"])):
+        actors.setdefault(pid, (pko, pen, ""))
+for k, (ko, en, search) in actors.items():
     s = HBO["actor-" + k]
-    d.add((s, RDF.type, CRM.E39_Actor)); d.add((s, RDF.type, CRM.E74_Group))
-    d.add((s, RDFS.label, Literal(ko, lang="ko"))); d.add((s, RDFS.label, Literal(en, lang="en")))
-    d.add((s, FOAF.homepage, URIRef(home)))
-    if k in SEARCH: d.add((s, RDFS.seeAlso, URIRef(SEARCH[k].replace("소장품-검색", "%EC%86%8C%EC%9E%A5%ED%92%88-%EA%B2%80%EC%83%89"))))
+    d.add((s, RDF.type, CRM.E39_Actor))
+    d.add((s, RDF.type, CRM.E21_Person if "＊" in ko or "*" in ko else CRM.E74_Group))
+    d.add((s, RDFS.label, Literal(ko, lang="ko")))
+    if en: d.add((s, RDFS.label, Literal(en, lang="en")))
+    if search: d.add((s, RDFS.seeAlso, URIRef(search.replace("소장품-검색", "%EC%86%8C%EC%9E%A5%ED%92%88-%EA%B2%80%EC%83%89"))))
 for r in smp:
     o = HBO[r["objectID"]]
     d.add((o, RDF.type, CRM["E22_Human-Made_Object"]))
@@ -81,11 +80,12 @@ for r in smp:
     if r["wearingContext"]: d.add((o, CRM.P101_had_as_general_use, HBC[r["wearingContext"]]))
     d.add((o, DCTERMS.license, HBC[r["license"]]))
     for im in split(r["images"]): d.add((o, FOAF.depiction, URIRef(im.replace(" ", "%20"))))
-    rec = HBO["record-" + r["publisher"] + "-" + r["objectID"]]
-    d.add((rec, RDF.type, CRM.E31_Document)); d.add((rec, CRM.P70_documents, o))
-    d.add((rec, DCTERMS.identifier, Literal(r["recordID"])))
-    if r["recordSource"]: d.add((rec, DCTERMS.source, URIRef(r["recordSource"])))
-    if r["recordSeeAlso"]: d.add((rec, RDFS.seeAlso, URIRef(r["recordSeeAlso"])))
-    d.add((rec, DCTERMS.publisher, HBO["actor-" + r["publisher"]]))
+    for rid, src, see, pub in zip(bar(r["recordID"]), bar(r["recordSource"]), bar(r["recordSeeAlso"]), bar(r["publisher"])):
+        rec = HBO["record-" + re.sub(r"[^0-9A-Za-z_-]", "", pub + "-" + rid.split("-", 1)[1])]
+        d.add((rec, RDF.type, CRM.E31_Document)); d.add((rec, CRM.P70_documents, o))
+        d.add((rec, DCTERMS.identifier, Literal(rid)))
+        if src: d.add((rec, DCTERMS.source, URIRef(src.replace(" ", "%20"))))
+        if see: d.add((rec, RDFS.seeAlso, URIRef(see.replace(" ", "%20"))))
+        d.add((rec, DCTERMS.publisher, HBO["actor-" + pub]))
 d.serialize(os.path.join(g_dir, DATA + ".ttl"), format="turtle")
 print(DATA + ".ttl:", len(d))

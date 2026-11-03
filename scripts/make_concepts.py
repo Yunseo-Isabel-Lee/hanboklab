@@ -35,11 +35,24 @@ c("girin", S, "기린", "qilin", "麒麟; 기린문; 기린무늬; 기린흉배;
 c("haechi", S, "해치", "haechi", "獬豸; 해태; 해치문; 해치흉배; haetae", broader="giljimseung")
 c("baektaek", S, "백택", "baekthaek", "白澤; 백택문; 백택흉배", broader="giljimseung")
 c("saja", S, "사자", "lion", "獅子; 獅; 사자문; 사자흉배; lion", broader="giljimseung")
+c("seonhak", S, "선학", "red-crowned crane", "仙鶴; 선학문; 선학흉배; Manchurian crane", broader="hak", note="중국 1품 문관 보자의 학")
+c("geumgye", S, "금계", "golden pheasant", "錦鷄; 금계문; golden pheasant", broader="naljimseung", note="중국 2품 문관 보자")
+c("nosa", S, "노사", "egret", "鷺鷥; 鷺; 해오라기; 백로; 노사문; egret; white egret", broader="naljimseung")
+c("gyechik", S, "계칙", "mandarin duck", "鸂鶒; 계칙문; mandarin duck", broader="naljimseung")
+c("mechuragi", S, "메추라기", "quail", "鵪鶉; 암순; quail", broader="naljimseung")
+c("yeonjak", S, "연작", "paradise flycatcher", "練雀; 연작문; paradise flycatcher", broader="naljimseung")
+c("sutak", S, "수탉", "rooster", "수탉흉배; rooster", broader="naljimseung")
+c("pyobeom", S, "표범", "leopard", "豹; 표범문; leopard", broader="giljimseung")
+c("gom", S, "곰", "bear", "熊; 熊羆; 웅비; bear", broader="giljimseung")
+c("haema", S, "해마", "sea horse", "海馬; 해마흉배; sea horse", broader="giljimseung")
+c("yong", S, "용", "dragon", "龍; 용문; dragon; douniu; 두우", top="TRUE", note="날짐승·길짐승 어디에도 넣지 않은 문양. 왕실·종친 보")
 c("geobuk", S, "거북", "turtle", "龜; 거북문; 거북흉배; turtle", top="TRUE", note="날짐승·길짐승 어디에도 넣지 않은 문양")
 
 # ── 국적
 S = "nationality"
 c("korea", S, "한국", "Korea", "조선; 한국 - 조선; 한국-조선; Korean; Joseon", top="TRUE")
+c("vietnam", S, "베트남", "Vietnam", "아시아-베트남; Vietnamese", top="TRUE", note="이번 범위 밖")
+c("japan", S, "일본", "Japan", "Japanese", top="TRUE", note="이번 범위 밖")
 c("china", S, "중국", "China", "청; 명; 淸; 明; Chinese; 한족", top="TRUE", note="중국 흉배(보자)는 이번 범위 밖. 거르는 데 쓴다")
 
 # ── 시기 (숫자 구간을 정하지 않는다)
@@ -53,6 +66,10 @@ c("joseonEarly", S, "조선 전기", "early Joseon", "조선초기; 조선 초�
 c("joseonMid", S, "조선 중기", "mid Joseon", "조선중기", broader="joseon", related="c16; c17")
 c("joseonLate", S, "조선 후기", "late Joseon", "조선후기", broader="joseon", related="c17; c18; c19")
 c("joseonEnd", S, "조선 말기", "end of Joseon", "조선말기; 구한말", broader="joseon", related="c19; c20")
+c("c21", S, "21세기", "21st century", "21C; 2000년 이후", top="TRUE")
+c("iljegangjeom", S, "일제강점기", "Japanese colonial period", "일제강점; 일제시대", top="TRUE", related="c20", note="이 시기로 적힌 흉배는 재현품·시대 불확실로 이번 범위에서 뺀다")
+c("gwangbokAfter", S, "광복 이후", "after 1945", "광복이후; 1945년 이후; 현대", top="TRUE", related="c20; c21", note="재현품. 이번 범위에서 뺀다")
+c("geunhyeondae", S, "근현대", "modern period", "근대; 현대", top="TRUE", related="c19; c20", note="기관이 '근현대'로 분류한 것. 재현품인지 확인 필요")
 c("daehan", S, "대한제국", "Korean Empire", "대한제국기; 大韓帝國", top="TRUE", related="c19; c20")
 
 # ── 착용 맥락
