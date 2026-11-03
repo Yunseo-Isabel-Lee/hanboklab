@@ -94,7 +94,7 @@
   a.obj:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
 
   /* 첫 화면 */
-  .hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px;align-items:center;padding-top:clamp(48px,7vw,96px);padding-bottom:clamp(72px,9vw,120px)}
+  .hero{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:56px;align-items:center;padding-top:clamp(48px,7vw,96px);padding-bottom:clamp(72px,9vw,120px)}
   .hero h1{margin:22px 0 0;font-family:var(--serif);font-weight:200;font-size:clamp(44px,6vw,84px);line-height:1.2;letter-spacing:.1em}
   .hero .en{display:inline-block;margin-top:10px;font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(26px,2.9vw,38px);line-height:1.25}
   .hero p{max-width:420px;margin:28px 0 0;color:var(--muted)}
@@ -103,10 +103,8 @@
   .btn span{position:relative}
   .btn:hover{color:#1a1712}
   .btn:hover::before{opacity:1}
-  .art{position:relative;margin:0;padding:0 40px 0 0}
-  .art .main{position:relative}
-  .art .main img{width:100%;aspect-ratio:1400/1496;object-fit:cover}
-  .art .main::after{content:"";position:absolute;inset:-14px;border:1px solid var(--line);pointer-events:none}
+  .art{position:relative;margin:0;padding:0 44px 0 0}
+  .art .main img{display:block;width:100%;height:auto}
   .art .label{position:absolute;right:0;top:0;writing-mode:vertical-rl;font-family:var(--serif);font-size:14px;letter-spacing:.42em;color:var(--gold)}
 
   /* 자개 띠 */
@@ -182,7 +180,7 @@
   }
   @media (max-width:860px){
     .hero,.split{grid-template-columns:1fr;gap:48px}
-    .art{padding:14px}
+    .art{padding:0}
     .art .label{display:none}
     .cards{grid-template-columns:1fr}
     .facts{grid-template-columns:1fr}
@@ -221,8 +219,8 @@
       <a class="btn" href="http://archive.hanboklab.com/"><span>아카이브 둘러보기 →</span></a>
     </div>
     <figure class="art">
-      <div class="main"><a class="obj" href="https://www.metmuseum.org/art/collection/search/70987" target="_blank" rel="noopener" title="메트로폴리탄 미술관 소장품 페이지로 이동"><img src="images/hyungbae-leopard.jpg" alt="흰 표범을 수놓은 무관 흉배. 구름과 파도, 바위 무늬가 둘러싸고 있다."></a></div>
-      <div class="label" aria-hidden="true">胸背 · 흉배</div>
+      <div class="main"><img src="images/dangui.webp" width="1400" height="783" alt="자적 바탕에 壽·福 글자를 금박으로 찍은 당의. 앞자락을 펼쳐 홍색 안감이 보인다."></div>
+      <div class="label" aria-hidden="true">唐衣 · 당의</div>
     </figure>
   </section>
 
