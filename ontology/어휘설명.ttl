@@ -268,7 +268,8 @@ hanbokc:wearingContext a skos:ConceptScheme ;
         "착용 맥락"@ko ;
     skos:scopeNote "관복 / 혼례복 / 미상. 형태가 같은 단령이라도 혼례 때 입었으면 혼례로 적는다. 혼례용 흉배를 걸러 내는 데 쓴다"@ko .
 
-hanbok:beginYear a owl:DatatypeProperty ;
+hanbok:beginYear a rdf:Property,
+        owl:DatatypeProperty ;
     rdfs:label "begin year"@en,
         "시작 연도"@ko ;
     rdfs:comment "흉배가 제작·착용된 것으로 보는 시기의 시작 연도"@ko ;
@@ -278,7 +279,8 @@ hanbok:beginYear a owl:DatatypeProperty ;
     skos:example "1508"@ko ;
     skos:scopeNote "기관이 연도를 직접 적은 경우에만 쓴다. 연도의 성격(제작 연도, 피장자 생몰년 등)은 기관 레코드 원문으로 확인한다. CIDOC CRM의 기간(E52 Time-Span) 시작값을 유물에 바로 붙인 지름길이며, 제작·착용 사건 중 어느 쪽인지는 특정하지 않는다"@ko .
 
-hanbok:endYear a owl:DatatypeProperty ;
+hanbok:endYear a rdf:Property,
+        owl:DatatypeProperty ;
     rdfs:label "end year"@en,
         "끝 연도"@ko ;
     rdfs:comment "흉배가 제작·착용된 것으로 보는 시기의 끝 연도"@ko ;

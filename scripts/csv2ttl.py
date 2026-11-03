@@ -123,7 +123,8 @@ for r in voc:
         continue
     if own:
         # 자체 용어는 정의까지 이 파일이 책임진다
-        v.add((s, RDF.type, OWL.DatatypeProperty if r["range"].startswith("xsd:") else RDF.Property))
+        v.add((s, RDF.type, RDF.Property))
+        if r["range"].startswith("xsd:"): v.add((s, RDF.type, OWL.DatatypeProperty))
         v.add((s, RDFS.label, Literal(r["label_ko"], lang="ko")))
         v.add((s, RDFS.label, Literal(r["label_en"], lang="en")))
         v.add((s, RDFS.comment, Literal(r["definition"], lang="ko")))
